@@ -1,0 +1,39 @@
+﻿section,indicateur,valeur
+Fichiers,Fichiers analyses,7
+Fichiers,Fichiers ignores (format inconnu),0
+Fichiers,Comptes ecartes (volume insuffisant),17
+Fichiers,  detail,"C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, Laetitia, Le coin d'eden, Live Y Dream, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos"
+Mapping des colonnes,Aug-01-2025_Aug-01-2026_1035597415774796.csv (facebook),27/201 colonnes utilisees
+Mapping des colonnes,  champs absents (Aug-01-2025_Aug-01-2026_1035597415774796.csv),"saves, profile_visits, followers, followers_gained"
+Mapping des colonnes,Aug-01-2025_Aug-01-2026_1370642331942894.csv (instagram),17/18 colonnes utilisees
+Mapping des colonnes,  champs absents (Aug-01-2025_Aug-01-2026_1370642331942894.csv),"title, views_organic, views_boosted, reach_organic, reach_boosted, interactions_total, clicks_total, link_clicks, other_clicks, profile_visits, sponsored_status, ad_impressions, ad_cpm, estimated_earnings, followers"
+Mapping des colonnes,Aug-01-2025_Aug-01-2026_1372820905056232.csv (instagram),17/18 colonnes utilisees
+Mapping des colonnes,  champs absents (Aug-01-2025_Aug-01-2026_1372820905056232.csv),"title, views_organic, views_boosted, reach_organic, reach_boosted, interactions_total, clicks_total, link_clicks, other_clicks, profile_visits, sponsored_status, ad_impressions, ad_cpm, estimated_earnings, followers"
+Mapping des colonnes,Aug-01-2025_Aug-01-2026_1452097196970501.csv (facebook),27/364 colonnes utilisees
+Mapping des colonnes,  champs absents (Aug-01-2025_Aug-01-2026_1452097196970501.csv),"saves, profile_visits, followers, followers_gained"
+Mapping des colonnes,Aug-01-2025_Aug-01-2026_1584226533248834.csv (instagram),22/23 colonnes utilisees
+Mapping des colonnes,  champs absents (Aug-01-2025_Aug-01-2026_1584226533248834.csv),"title, views_organic, views_boosted, reach_organic, reach_boosted, interactions_total, clicks_total, link_clicks, other_clicks, profile_visits, sponsored_status, ad_impressions, ad_cpm, estimated_earnings, followers"
+Mapping des colonnes,Aug-01-2025_Aug-01-2026_1761932608284496.csv (facebook),27/302 colonnes utilisees
+Mapping des colonnes,  champs absents (Aug-01-2025_Aug-01-2026_1761932608284496.csv),"saves, profile_visits, followers, followers_gained"
+Mapping des colonnes,Aug-01-2025_Aug-01-2026_2014371369279366.csv (facebook),27/257 colonnes utilisees
+Mapping des colonnes,  champs absents (Aug-01-2025_Aug-01-2026_2014371369279366.csv),"saves, profile_visits, followers, followers_gained"
+Publications sponsorisees,Publications analysees,4001
+Publications sponsorisees,Publications organiques retenues,3817
+Publications sponsorisees,Publications sponsorisees exclues,184
+Publications sponsorisees,Part sponsorisee (%),4.6
+Publications sponsorisees,Sponsorisees sans detail organique/paye,0
+Publications sponsorisees,Detectees par : vues boostees > 0,184
+Publications sponsorisees,Detectees par : couverture boostee > 0,183
+Deduplication,Lignes avant deduplication,4001
+Deduplication,Publications uniques apres fusion,3994
+Deduplication,Publications vues dans plusieurs fichiers,7
+Deduplication,Lignes redondantes fusionnees,7
+Deduplication,Chevauchement Aug-01-2025_Aug-01-2026_1370642331942894.csv / Aug-01-2025_Aug-01-2026_1372820905056232.csv,4
+Deduplication,Chevauchement Aug-01-2025_Aug-01-2026_1370642331942894.csv / Aug-01-2025_Aug-01-2026_1584226533248834.csv,3
+Validation,Lignes soumises a validation,3994
+Validation,Lignes valides,3992
+Validation,Lignes mises en quarantaine,2
+Validation,Rejet : aucune metrique de vues,2
+Periode,Debut,2025-08-01 02:49:00
+Periode,Fin,2026-08-01 08:43:00
+Periode,Publications hors periode,0

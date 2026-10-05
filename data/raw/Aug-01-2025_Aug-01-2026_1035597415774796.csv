@@ -1,0 +1,516 @@
+﻿"Identifiant de la publication","ID de la Page","Nom de la page",Titre,Description,"Durée (s)","Heure de publication","Type de légende",Permalien,"Est un crosspostage","Est un partage","Type de publication",Langues,"Libellés personnalisés","Statut du contenu financé","Commentaire des données",Date,Vues,Couverture,"Réactions, commentaires et partages",Réactions,Commentaires,Partages,"Secondes regardé(e)","Secondes moyen(ne) regardé(e)","Revenus estimés (USD)","CPM publicitaire (USD)","Impressions publicitaires","Total des clics","Consommation ciblage d’audience correspondante (Video Click)","Autres clics","Clics sur un lien","Consommation ciblage d’audience correspondante (Photo Click)","Vues de Publications boostées","Vues de Publications organiques","Couverture de Publications boostées","Couverture de Publications organiques","Vues de vidéo de 3 secondes","Vues de vidéo d’une minute","Spectateurs de 3 secondes","Spectateurs d’1 minute","Vues de vidéo de 3 secondes de Publications boostées","Vues de vidéo de 3 secondes de Publications organiques","Vues de vidéo d’1 minute de Recommandations","Vues de vidéo d’1 minute de Partages","Vues de vidéo d’1 minute de Followers","Vues de vidéo d’1 minute de Publications boostées","Secondes regardé(e) depuis Publications boostées","Secondes regardé(e) depuis Recommandations","Secondes regardé(e) depuis Followers","Secondes regardé(e) depuis Partages","Secondes moyen(ne) regardé(e) depuis Publications boostées","Secondes moyen(ne) regardé(e) depuis Followers","Secondes moyen(ne) regardé(e) depuis Recommandations","Secondes moyen(ne) regardé(e) depuis Partages","Pourcentage du nombre total de vues à un intervalle de 0","Pourcentage du nombre total de vues à un intervalle de 1","Pourcentage du nombre total de vues à un intervalle de 2","Pourcentage du nombre total de vues à un intervalle de 3","Pourcentage du nombre total de vues à un intervalle de 4","Pourcentage du nombre total de vues à un intervalle de 5","Pourcentage du nombre total de vues à un intervalle de 6","Pourcentage du nombre total de vues à un intervalle de 7","Pourcentage du nombre total de vues à un intervalle de 8","Pourcentage du nombre total de vues à un intervalle de 9","Pourcentage du nombre total de vues à un intervalle de 10","Pourcentage du nombre total de vues à un intervalle de 11","Pourcentage du nombre total de vues à un intervalle de 12","Pourcentage du nombre total de vues à un intervalle de 13","Pourcentage du nombre total de vues à un intervalle de 14","Pourcentage du nombre total de vues à un intervalle de 15","Pourcentage du nombre total de vues à un intervalle de 16","Pourcentage du nombre total de vues à un intervalle de 17","Pourcentage du nombre total de vues à un intervalle de 18","Pourcentage du nombre total de vues à un intervalle de 19","Pourcentage du nombre total de vues à un intervalle de 20","Pourcentage du nombre total de vues à un intervalle de 21","Pourcentage du nombre total de vues à un intervalle de 22","Pourcentage du nombre total de vues à un intervalle de 23","Pourcentage du nombre total de vues à un intervalle de 24","Pourcentage du nombre total de vues à un intervalle de 25","Pourcentage du nombre total de vues à un intervalle de 26","Pourcentage du nombre total de vues à un intervalle de 27","Pourcentage du nombre total de vues à un intervalle de 28","Pourcentage du nombre total de vues à un intervalle de 29","Pourcentage du nombre total de vues à un intervalle de 30","Pourcentage du nombre total de vues à un intervalle de 31","Pourcentage du nombre total de vues à un intervalle de 32","Pourcentage du nombre total de vues à un intervalle de 33","Pourcentage du nombre total de vues à un intervalle de 34","Pourcentage du nombre total de vues à un intervalle de 35","Pourcentage du nombre total de vues à un intervalle de 36","Pourcentage du nombre total de vues à un intervalle de 37","Pourcentage du nombre total de vues à un intervalle de 38","Pourcentage du nombre total de vues à un intervalle de 39","Pourcentage du nombre total de vues à un intervalle de 40","Pourcentage des vues de 15 secondes à un intervalle de 0","Pourcentage des vues de 15 secondes à un intervalle de 1","Pourcentage des vues de 15 secondes à un intervalle de 2","Pourcentage des vues de 15 secondes à un intervalle de 3","Pourcentage des vues de 15 secondes à un intervalle de 4","Pourcentage des vues de 15 secondes à un intervalle de 5","Pourcentage des vues de 15 secondes à un intervalle de 6","Pourcentage des vues de 15 secondes à un intervalle de 7","Pourcentage des vues de 15 secondes à un intervalle de 8","Pourcentage des vues de 15 secondes à un intervalle de 9","Pourcentage des vues de 15 secondes à un intervalle de 10","Pourcentage des vues de 15 secondes à un intervalle de 11","Pourcentage des vues de 15 secondes à un intervalle de 12","Pourcentage des vues de 15 secondes à un intervalle de 13","Pourcentage des vues de 15 secondes à un intervalle de 14","Pourcentage des vues de 15 secondes à un intervalle de 15","Pourcentage des vues de 15 secondes à un intervalle de 16","Pourcentage des vues de 15 secondes à un intervalle de 17","Pourcentage des vues de 15 secondes à un intervalle de 18","Pourcentage des vues de 15 secondes à un intervalle de 19","Pourcentage des vues de 15 secondes à un intervalle de 20","Pourcentage des vues de 15 secondes à un intervalle de 21","Pourcentage des vues de 15 secondes à un intervalle de 22","Pourcentage des vues de 15 secondes à un intervalle de 23","Pourcentage des vues de 15 secondes à un intervalle de 24","Pourcentage des vues de 15 secondes à un intervalle de 25","Pourcentage des vues de 15 secondes à un intervalle de 26","Pourcentage des vues de 15 secondes à un intervalle de 27","Pourcentage des vues de 15 secondes à un intervalle de 28","Pourcentage des vues de 15 secondes à un intervalle de 29","Pourcentage des vues de 15 secondes à un intervalle de 30","Pourcentage des vues de 15 secondes à un intervalle de 31","Pourcentage des vues de 15 secondes à un intervalle de 32","Pourcentage des vues de 15 secondes à un intervalle de 33","Pourcentage des vues de 15 secondes à un intervalle de 34","Pourcentage des vues de 15 secondes à un intervalle de 35","Pourcentage des vues de 15 secondes à un intervalle de 36","Pourcentage des vues de 15 secondes à un intervalle de 37","Pourcentage des vues de 15 secondes à un intervalle de 38","Pourcentage des vues de 15 secondes à un intervalle de 39","Pourcentage des vues de 15 secondes à un intervalle de 40","Commentaires négatifs de la part des utilisateurs","Avis négatifs uniques des utilisateurs","Vues de vidéos de 3 secondes par audience principale (M, 35-44)","Vues de vidéos de 3 secondes par audience principale (M, 45-54)","Vues de vidéos de 3 secondes par audience principale (M, 25-34)","Vues de vidéos de 3 secondes par audience principale (F, 25-34)","Vues de vidéos de 3 secondes par audience principale (M, 55-64)","Vues de vidéos de 3 secondes par audience principale (F, 35-44)","Vues de vidéos de 3 secondes par audience principale (M, 65+)","Vues de vidéos de 3 secondes par audience principale (M, 18-24)","Vues de vidéos de 3 secondes par audience principale (F, 45-54)","Vues de vidéos de 3 secondes par audience principale (F, 18-24)","Vues de vidéos de 3 secondes par audience principale (F, 65+)","Vues de vidéos de 3 secondes par audience principale (F, 55-64)","Vues de vidéos de 3 secondes par pays (Togo (TG))","Vues de vidéos de 3 secondes par pays (Burkina Faso (BF))","Vues de vidéos de 3 secondes par pays (France (FR))","Vues de vidéos de 3 secondes par pays (Côte d'Ivoire (CI))","Vues de vidéos de 3 secondes par pays (Senegal (SN))","Vues de vidéos de 3 secondes par pays (Gabon (GA))","Vues de vidéos de 3 secondes par pays (Madagascar (MG))","Vues de vidéos de 3 secondes par pays (United States (US))","Vues de vidéos de 3 secondes par pays (Ghana (GH))","Vues de vidéos de 3 secondes par pays (Indonesia (ID))","Vues de vidéos de 3 secondes par pays (Burundi (BI))","Vues de vidéos de 3 secondes par pays (Malaysia (MY))","Vues de vidéos de 3 secondes par pays (Italy (IT))","Vues de vidéos de 3 secondes par pays (Nepal (NP))","Vues de vidéos de 3 secondes par pays (Haiti (HT))","Vues de vidéos de 3 secondes par pays (Morocco (MA))","Vues de vidéos de 3 secondes par pays (Belgium (BE))","Vues de vidéos de 3 secondes par pays (Canada (CA))","Vues de vidéos de 3 secondes par pays (Germany (DE))","Vues de vidéos de 3 secondes par pays (Benin (BJ))","Vues de vidéos de 3 secondes par pays (Sri Lanka (LK))","Vues de vidéos de 3 secondes par pays (Mali (ML))","Vues de vidéos de 3 secondes par pays (Algeria (DZ))","Vues de vidéos de 3 secondes par pays (Bangladesh (BD))","Vues de vidéos de 3 secondes par pays (Tajikistan (TJ))","Vues de vidéos de 3 secondes par pays (Norway (NO))","Vues de vidéos de 3 secondes par pays (Egypt (EG))","Vues de vidéos de 3 secondes par pays (Hungary (HU))","Vues de vidéos de 3 secondes par pays (Latvia (LV))","Vues de vidéos de 3 secondes par pays (Greenland (GL))","Vues de vidéos de 3 secondes par pays (Yemen (YE))","Vues de vidéos de 3 secondes par pays (Cameroon (CM))","Vues de vidéos de 3 secondes par pays (Turkey (TR))","Vues de vidéos de 3 secondes par pays (Guatemala (GT))","Vues de vidéos de 3 secondes par pays (Greece (GR))","Vues de vidéos de 3 secondes par pays (South Korea (KR))","Vues de vidéos de 3 secondes par pays (Kenya (KE))","Vues de vidéos de 3 secondes par pays (Timor-Leste (TL))","Vues de vidéos de 3 secondes par pays (Spain (ES))","Vues de vidéos de 3 secondes par pays (Nigeria (NG))","Vues de vidéos de 3 secondes par pays (Mauritania (MR))","Vues de vidéos de 3 secondes par pays (Bulgaria (BG))","Vues de vidéos de 3 secondes par pays (Martinique (MQ))","Vues de vidéos de 3 secondes par pays (Central African Republic (CF))","Vues de vidéos de 3 secondes par pays (Barbados (BB))","Vues de vidéos de 3 secondes par pays (Democratic Republic of the Congo (CD))","Vues de vidéos de 3 secondes par pays (Guinea (GN))","Vues de vidéos de 3 secondes par pays (Tunisia (TN))","Vues de vidéos de 3 secondes par pays (Oman (OM))","Vues de vidéos de 3 secondes par pays (Mauritius (MU))"
+745567301859932,100092200075166,Orithane,"✨ GRANDES SOLDES CHEZ ORITHANE !
+Et si votre intérieur faisait aussi sa rentrée ? 🍂
+
+👉 Jusqu’au 4 octobre, profitez de jusqu’à -50 % sur une sélection d’articles :
+🛏️ Linge de lit
+🛁 Serviettes & peignoirs
+🛋️ Coussins et bien plus encore…
+
+De quoi créer un cocon doux, frais et élégant. 💫
+
+📍 Orithane à côté de l’agence ECOBANK Totsi, Lomé
+📞 +228 70056666
+
+#LingeDeMaison #PromoRentrée #OrithaneLaMaisonDuLinge",,0,"09/16/2025 05:03",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid026FktoYwd3Sb9JBMC3VU5JFQyi6vvYeVthUcPbSUxxNiRMxxZCKguJe2bFDNTfLj2l,0,0,Photos,,,,,Global,188,127,5,4,0,1,,,,,,1,,,,1,0,188,0,127,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+733119656438030,100092200075166,Orithane,"Septembre est là.
+
+Le rythme reprend, les habitudes aussi. Mais chez Orithane, on préfère voir ce mois comme une belle excuse pour se recentrer sur soi, sur son chez-soi.
+
+📚 Un bon livre, ✨ un lit bien fait, 🕯️ une atmosphère douce...
+
+On vous souhaite un mois de septembre plein de douceur et de beaux moments à la maison.
+
+#OrithaneLaMaisonDuLinge #Septembre #HomeVibes #ConfortChezSoi #Togo #LingeDeMaison #RentréeZen",,0,"09/01/2025 05:36",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02QwLgzRRUKsGCk3saui5JrACUo4aZzikjxH5hoK2NZ9wkKNRoGgiYyR2F575qhRUUl,0,0,Photos,,,,,Global,169,100,4,3,1,0,,,,,,1,,1,,,0,169,0,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1001150529634940,100092200075166,Orithane,"Fini les taches sur tes vêtements ! 😫😭
+
+Avec nos tabliers de cuisine, tu cuisines en toute tranquillité tout en restant élégant(e). ✨
+
+📍 Totsi à côté de l’agence ECOBANK
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #CuisineAvecStyle #tablierdecuisine","Fini les taches sur tes vêtements ! 😫😭
+
+Avec nos tabliers de cuisine, tu cuisines en toute tranquillité tout en restant élégant(e). ✨
+
+📍 Totsi à côté de l’agence ECOBANK
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #CuisineAvecStyle #tablierdecuisine",24,"07/18/2026 07:19",N/A,https://www.facebook.com/reel/1014369104797566/,0,0,Vidéos,,,,,Global,320,283,2,2,0,0,1965.741,6.995,0,0,0,1,,1,,,0,320,0,283,138,0,133,0,0,138,0,0,0,0,0,1740.588,225.153,0,0,8.042,6.88,0,1,1,1,1,0.81,0.58,0.49,0.4,0.33,0.31,0.28,0.25,0.21,0.2,0.2,0.18,0.14,0.12,0.12,0.11,0.1,0.08,0.08,0.07,0.06,,,,,,,,,,,,,,,,,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.8,0.64,0.64,0.6,0.56,0.44,0.44,0.4,0.32,,,,,,,,,,,,,,,,,0,0,5,6,4,41,2,42,,1,16,11,8,1,24,8,8,38,4,1,,1,,,,,1,,,1,1,4,,3,,1,1,,,,,,,,,20,,,1,,,,,,,,,2,,8,8,1,1,1
+1000199589730034,100092200075166,Orithane,"Un détail qui change tout sur votre table. ✨
+
+Des torchons propres, élégants et toujours à portée de main… Absorbants, résistants et faciles à entretenir, nos torchons de table sont là pour accompagner chaque repas du quotidien aux grandes occasions.
+
+📍 Totsi à côté de l’agence ECOBANK
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#ArtDeLaTable #Orithane #CuisinePropre #MaisonStylée",,0,"07/17/2026 04:00",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid031HswhLCeGZSmHdjwd7ARkppQfVNJ9N53A9SboP4uiKdDxa9E6iUciB4FZ9nCd7gVl,0,0,Photos,,,,,Global,55,29,0,0,0,0,,,,,,1,,,,1,0,55,0,29,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+999353623147964,100092200075166,Orithane,"Le Déstockage continue…🎁passez à la boutique et profiter de jusqu’à 50% de réduction sur plusieurs articles. 🛍️
+
+📍Totsi à côté de l’agence ECOBANK 
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #bonplan   #maisonstyle  #offrespeciales","Le Déstockage continue…🎁passez à la boutique et profiter de jusqu’à 50% de réduction sur plusieurs articles. 🛍️
+
+📍Totsi à côté de l’agence ECOBANK 
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #bonplan   #maisonstyle  #offrespeciales",10,"07/16/2026 03:41",N/A,https://www.facebook.com/reel/1022537897161176/,0,0,Vidéos,,,,,Global,285,243,3,3,0,0,895.841,3.764,0,0,0,2,,2,,,0,285,0,243,90,0,89,0,0,90,0,0,0,0,0,768.656,127.185,0,0,6.694,3.51,0,1,1,1,1,0.98,0.79,0.72,0.59,0.49,0.46,0.38,0.23,0.2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1,1,1,1,1,1,1,0.9,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+996827256733934,100092200075166,Orithane,"Nous sommes ouverts ! 🎁
+
+✨ Des articles stylés à prix doux
+✨ Des bons plans déstockage à ne pas rater
+✨ Tout pour upgrader votre quotidien sans vous ruiner
+
+🛍️ Venez, regardez, essayez… repartez satisfaits !
+
+📍Totsi à côté de l’agence ECOBANK 
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #BonPlan  #MaisonStylee #offrespeciales","Nous sommes ouverts ! 🎁
+
+✨ Des articles stylés à prix doux
+✨ Des bons plans déstockage à ne pas rater
+✨ Tout pour upgrader votre quotidien sans vous ruiner
+
+🛍️ Venez, regardez, essayez… repartez satisfaits !
+
+📍Totsi à côté de l’agence ECOBANK 
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #BonPlan  #MaisonStylee #offrespeciales",14,"07/13/2026 03:28",N/A,https://www.facebook.com/reel/2263164844446878/,0,0,Vidéos,,,,,Global,15254,9033,52,48,2,2,62338.311,4.592,0,0,0,318,148,134,36,,13965,632,8588,556,5601,0,4655,0,5484,117,0,0,0,0,60491.509,1664.991,171.936,9.875,4.65,6.613,3.107,2.469,0.98,0.98,0.98,0.98,0.98,0.99,0.99,0.99,0.99,0.99,0.94,0.93,0.92,0.77,0.77,0.68,0.68,0.62,0.61,0.61,0.53,0.53,0.47,0.47,0.47,0.41,0.41,0.35,0.35,0.27,0.27,0.27,0.23,0.23,0.2,0.2,0.2,0.17,0.17,0.15,0.15,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.94,,,,,,,,,,,,,,,,,,,,,,,,,0,0,952,492,977,818,246,690,239,253,298,187,239,175,5521,2,6,3,,1,5,1,,13,,4,3,3,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,,,,,,,
+994558163627510,100092200075166,Orithane,"Orithane a changé sa photo de couverture.",,0,"07/10/2026 07:29",N/A,https://www.facebook.com/photo.php?fbid=994558163627510&set=a.131543656595636&type=3,0,0,Photos,,,,,Global,0,0,2,2,0,0,,,,,,0,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+994404440309549,100092200075166,Orithane,"🔥 DÉSTOCKAGE TABLIERS jusqu’à -50% ! 🎁
+
+En cuisine, on cuisine avec style… et sans tacher ses vêtements ! 😄😌
+
+📍Totsi à côté de l’agence ECOBANK 
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #BonPlan  #MaisonStylee #offrespeciales","🔥 DÉSTOCKAGE TABLIERS jusqu’à -50% ! 🎁
+
+En cuisine, on cuisine avec style… et sans tacher ses vêtements ! 😄😌
+
+📍Totsi à côté de l’agence ECOBANK 
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #BonPlan  #MaisonStylee #offrespeciales",10,"07/10/2026 03:33",uploaded,https://www.facebook.com/reel/1014626091535084/,0,0,Vidéos,,,,,Global,99,63,4,4,0,0,436.021,6.141,0,0,0,1,,1,,,0,99,0,63,41,0,39,0,0,41,0,0,0,0,0,243.294,192.727,0,0,7.71,5.289,0,1,1,1,1,0.98,0.93,0.76,0.71,0.66,0.66,0.59,0.44,0.39,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1,1,1,1,1,1,1,0.89,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+993702927046367,100092200075166,Orithane,"🔥 Déstockage torchons jusqu’à -50% !
+
+Dans une cuisine propre… tout commence par un bon torchon. 🥰
+
+Essuyer mais avec style ! 😌
+
+📍Totsi à côté de l’agence ECOBANK 
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #BonPlan  #MaisonStylee #offrespeciales",,0,"07/09/2026 06:19",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid021Ti4BZPRQy4eFxuGEsmtffWE8yaPNcfmAJhPx43YDTygGhmPVdKiUeXmeYRYqZqRl,0,0,Photos,,,,,Global,107,65,0,0,0,0,,,,,,1,,1,,,0,107,0,65,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+992806440469349,100092200075166,Orithane,"🔥🔥 Déstockage gants de cuisine jusqu’à -50% ! 🎁
+
+En cuisine, on rigole… mais pas avec les brûlures. 😄
+Protégez vos mains tout en gardant le style ! 🧤 
+
+🍳 Maison, resto, grillades… ils vous suivent partout
+
+📍Totsi à côté de l’agence ECOBANK 
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #bonplan   #maisonstylée #offrespeciales",,0,"07/08/2026 04:14",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid0SUZnDDwWEXPPpQ14uMvVCBsXSbJ5fsvgo9iAWhcZJctagbA4gtR7P56cxfbPU1fgl,0,0,Photos,,,,,Global,143,81,1,1,0,0,,,,,,4,,4,,,0,143,0,81,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+991762263907100,100092200075166,Orithane,"🔥 Déstockage sets de table : jusqu’à -50% !
+
+Apportez du style à votre table à petit prix.
+
+🚨Parfaits pour la maison, les restos ou vos événements.
+
+📍Totsi à côté de l’agence ECOBANK 
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #BonPlan  #MaisonStylee #offrespeciales",,0,"07/07/2026 04:07",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02MVV8TYFuQhFxroDZHZ3bcDkgLGxPuXUhjNvkVj1sqvSpH6faw6pBQU5rjtyaU99Cl,0,0,Photos,,,,,Global,7204,3595,22,13,0,9,,,,,,367,,116,111,140,6492,712,3211,409,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+991136947302965,100092200075166,Orithane,"✨ C’est maintenant ou jamais pour sublimer vos tables et cuisines sans vous ruiner avec la boutique Orithane ! 🎊
+
+Notre grand déstockage est lancé depuis quelques jours 🔥 avec jusqu’à -50% de réduction sur une sélection incontournable de linges de table et de cuisine : nappes, sets de table, tabliers, gants de cuisine, torchons… tout y est pour apporter du charme à votre quotidien.
+
+🎯 Réceptions, cérémonies, restaurant ou maison : équipez-vous à prix mini sans compromis sur le style.
+
+📍Totsi à côté de l’agence ECOBANK 
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #maisondelinge  #promotions","✨ C’est maintenant ou jamais pour sublimer vos tables et cuisines sans vous ruiner avec la boutique Orithane ! 🎊
+
+Notre grand déstockage est lancé depuis quelques jours 🔥 avec jusqu’à -50% de réduction sur une sélection incontournable de linges de table et de cuisine : nappes, sets de table, tabliers, gants de cuisine, torchons… tout y est pour apporter du charme à votre quotidien.
+
+🎯 Réceptions, cérémonies, restaurant ou maison : équipez-vous à prix mini sans compromis sur le style.
+
+📍Totsi à côté de l’agence ECOBANK 
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #maisondelinge  #promotions",39,"07/06/2026 10:15",auto,https://www.facebook.com/reel/931611093273290/,0,0,Vidéos,,,,,Global,10949,6750,66,64,0,2,75643.989,7.634,0,0,0,330,153,137,40,,10339,335,6586,225,4405,0,3612,0,4271,134,0,0,0,0,73029.736,1894.056,498.794,221.403,7.594,14.671,8.06,10.543,0.98,0.98,0.98,0.98,0.85,0.75,0.66,0.6,0.56,0.49,0.44,0.38,0.35,0.33,0.31,0.29,0.28,0.27,0.26,0.25,0.25,0.24,0.24,0.23,0.22,0.22,0.21,0.2,0.19,0.19,0.18,0.18,0.18,0.17,0.17,0.17,0.16,0.15,0.14,0.13,0.11,0.99,0.99,1,0.99,0.99,0.99,1,1,1,1,1,1,1,1,1,1,0.99,0.97,0.94,0.91,0.9,0.88,0.86,0.82,0.8,0.78,0.75,0.72,0.7,0.68,0.65,0.65,0.64,0.63,0.62,0.61,0.58,0.56,0.51,0.45,0.4,0,0,673,436,512,526,269,597,285,111,364,129,277,203,4361,2,8,7,,3,2,2,1,,,,1,,,,3,2,2,2,,,3,,,,,,,,,1,,,,,,,,,1,,,2,1,1,,,,
+980347388381921,100092200075166,Orithane,"🎉 𝐆𝐑𝐀𝐍𝐃 𝐃𝐄́𝐒𝐓𝐎𝐂𝐊𝐀𝐆𝐄 𝐃𝐄 𝐋𝐈𝐍𝐆𝐄𝐒 𝐃𝐄 𝐓𝐀𝐁𝐋𝐄 ! 🎉
+
+C'est le moment idéal pour embellir vos tables à petits prix ! 🎁 
+
+Profitez de notre grand déstockage exceptionnel jusqu’à 𝟓𝟎% de réduction sur une large sélection de linges de table et de cuisine : 𝐧𝐚𝐩𝐩𝐞𝐬, 𝐬𝐞𝐭𝐬 𝐝𝐞 𝐭𝐚𝐛𝐥𝐞, 𝐭𝐚𝐛𝐥𝐢𝐞𝐫, 𝐠𝐚𝐧𝐭𝐬 𝐝𝐞 𝐜𝐮𝐢𝐬𝐢𝐧𝐞, 𝐥𝐞𝐬 𝐭𝐨𝐫𝐜𝐡𝐨𝐧𝐬… et bien plus encore.
+
+🚨Prix cassés jusqu'à épuisement des stocks. Que ce soit pour vos réceptions, cérémonies, restaurants ou pour votre maison, trouvez tout ce qui correspond à vos besoins à des tarifs imbattables.
+
+📍Totsi à côté de l’agence ECOBANK 
+
+📞 Contactez-nous dès maintenant 👉🏾 https://wa.me/22870056666
+
+#Orithane #maisondelingerie  #promotions",,0,"06/24/2026 08:57",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02pZi4RVqVWP1qjYnz2D4tUXPma9dbxRtqmu6BtCitatKuHRi4ZgJEisAnPCv4j7Hdl,0,1,Liens,,,,,Global,15018,7250,29,25,0,4,,,,,,520,,405,114,1,14679,339,7195,182,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+943130635436930,100092200075166,Orithane,"🔥 GRANDE PROMO FÊTE DES MÈRES — Du 12 mai au 7 juin
+
+Jusqu’à -50% sur le linge de lit.
+À partir de -15% sur toutes les autres gammes.
+Parce qu’elle mérite le meilleur.
+
+📲 WhatsApp : +228 70 05 66 66
+📍 Avenue Pya, près d’Ecobank Totsi
+
+#Orithane #FêteDesMères2026 #Promo #LaMaisonDuLinge #Lomé #Togo","🔥 GRANDE PROMO FÊTE DES MÈRES — Du 12 mai au 7 juin
+
+Jusqu’à -50% sur le linge de lit.
+À partir de -15% sur toutes les autres gammes.
+Parce qu’elle mérite le meilleur.
+
+📲 WhatsApp : +228 70 05 66 66
+📍 Avenue Pya, près d’Ecobank Totsi
+
+#Orithane #FêteDesMères2026 #Promo #LaMaisonDuLinge #Lomé #Togo",45,"05/12/2026 13:25",N/A,https://www.facebook.com/reel/1710220240411444/,0,0,Vidéos,,,,,Global,33545,21071,58,58,0,0,262792.361,8.514,0,0,0,82,45,37,,,32922,158,20990,2291,19206,0,14139,0,19155,51,0,0,0,0,261961.814,594.859,235.688,0,8.525,8.418,5.612,0,0.99,0.99,0.99,0.96,0.77,0.64,0.53,0.47,0.43,0.36,0.32,0.3,0.28,0.27,0.23,0.14,0.13,0.13,0.12,0.11,0.1,0.09,0.09,0.08,0.08,0.08,0.07,0.07,0.06,0.06,0.06,0.06,0.05,0.05,0.05,0.05,0.05,0.04,0.04,0.04,0.04,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.91,0.56,0.52,0.49,0.45,0.42,0.39,0.36,0.35,0.33,0.31,0.3,0.29,0.27,0.25,0.24,0.23,0.22,0.21,0.2,0.19,0.18,0.18,0.16,0.15,0.15,0.14,0,0,3593,1668,3754,2742,642,2311,412,1335,848,1176,325,346,19188,,1,1,,,,,14,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+860773357005992,100092200075166,Orithane,"L’amour, ce n’est pas toujours des fleurs.
+
+Parfois, c’est penser au confort de l’autre dès le réveil. C’est penser au confort de l’autre sans rien dire.
+
+Chez Orithane, on croit à cet amour là.
+
+👉 Et toi, c’est quoi ton geste d’amour silencieux ?
+
+#Orithane #LingeDeMaison #VieDeCouple #MaisonApaisant",,0,"02/02/2026 05:10",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid0Pb9UNXw13XSfExqYitJootswv6xC9SHLVhY1pu5nQwuVYUFwizDrQ3WWpV3LUGYol,0,0,Photos,,,,,Global,152,97,2,2,0,0,,,,,,1,,1,,,0,152,0,97,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+854891237594204,100092200075166,Orithane,"Une maison ordonnée aide à mieux dormir et à se sentir plus calme.
+
+Commencez par votre linge : trier, plier, organiser.
+ Le confort passe aussi par l’ordre.
+
+ ✨ Orithane vous accompagne.
+
+📍 Totsi – près d’Ecobank 
+📲 WhatsApp ouvert: http://wa.me/22870056666
+
+#Orithanelamaisondu linge #Conseil #Bienêtre",,0,"01/26/2026 04:26",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid021JrzB9FgDZUj9QgAh9bYs6Rp7AVWxJyaoTmzeFPAMsh6muzy5x5znXv2HFveD7ETl,0,0,Photos,,,,,Global,129,89,0,0,0,0,,,,,,0,,,,,0,129,0,89,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+852217374528257,100092200075166,Orithane,"Journée mondiale des câlins. 🤍
+
+ Parfois, le plus beau câlin, c’est celui qu’on se fait chez soi.
+
+ Le confort aussi, c’est une forme de câlin.
+
+#Orithane #Lamaisondulinge #Journéemondialedescalins",,0,"01/23/2026 05:08",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02jJaNJUkHUqW5t3a7VDpc13nCLzXvbqxSeV7r1yhkr2jyuG4Scw5hHTHaoCzZ9xqUl,0,0,Photos,,,,,Global,134,90,2,2,0,0,,,,,,1,,,,1,0,134,0,90,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+849669354783059,100092200075166,Orithane,"Un linge de lit bien entretenu dure plus longtemps et reste doux.
+
+Évitez l’excès de lessive et privilégiez un séchage à l’air libre.
+ 
+Votre confort commence aussi par de bonnes habitudes.
+ 
+👉 Besoin de conseils ? Passez en boutique.
+
+#Orithanelamaisondulinge #Conseil #Bienêtre",,0,"01/20/2026 04:41",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02kwb5uZj7KmyC6QBwfeykSbwTdPD177azKnVzAJX1LJGQ8feVTk3cmVYRoXUyApFhl,0,0,Photos,,,,,Global,111,71,0,0,0,0,,,,,,1,,1,,,0,111,0,71,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+848885004861494,100092200075166,Orithane,"Bien dormir change tout : l’humeur, l’énergie, la productivité. Un bon linge de lit fait toute la différence.
+
+ Chez Orithane, le confort se ressent dès la première nuit.
+
+📍 Disponible en boutique, Totsi à côté de Ecobank.
+📲 http://wa.me/22870056666
+
+#Orithanelamaisondulinge #Conseil #Bienêtre",,0,"01/19/2026 04:31",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02CnprX1dMQww1pRGnqMgV9KrK51Qf7wp6e1K1WVuR6vHiqgMzwizhWiNnbMHsvg3Nl,0,0,Photos,,,,,Global,124,85,5,3,0,2,,,,,,0,,,,,0,124,0,85,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+846822145067780,100092200075166,Orithane,"Une maison bien rangée, c’est l’énergie retrouvée.✨
+
+Profitez du début d’année pour faire le tri dans vos armoires : linge usé à transformer en chiffons, parures mélangées à réorganiser… 
+
+Et pour compléter ce qui manque, votre allié du linge de maison reste ouvert pour vous accueillir.
+
+📍 Orithane, La maison du Linge, Totsi à côté de Ecobank.
+📲 http://wa.me/22870056666
+
+#Orithanelamaisondulinge #Conseil #Bienêtre",,0,"01/16/2026 11:00",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02yyyfDF2BDLxdo3yC6T3BWaFXcRYRYY43XLukmzDVPxsp7fznssAG2gKtAJoRNShDl,0,0,Photos,,,,,Global,99,68,3,2,0,1,,,,,,1,,1,,,0,99,0,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+836190329464295,100092200075166,Orithane,"En 2026, que chaque jour vous apporte paix, santé et sérénité.
+
+Que votre maison soit un refuge de douceur, de rires partagés et de moments vrais.
+
+Nous vous souhaitons une année lumineuse, remplie de belles choses et de petits bonheurs durables. ✨🤍
+
+#Orithane #NouvelleAnnée #2026","En 2026, que chaque jour vous apporte paix, santé et sérénité.
+
+Que votre maison soit un refuge de douceur, de rires partagés et de moments vrais.
+
+Nous vous souhaitons une année lumineuse, remplie de belles choses et de petits bonheurs durables. ✨🤍
+
+#Orithane #NouvelleAnnée #2026",8,"01/02/2026 05:41",N/A,https://www.facebook.com/reel/1894271797963884/,0,0,Vidéos,,,,,Global,117,86,3,3,0,0,375.589,4.471,0,0,0,1,,1,,,0,117,0,86,19,0,17,0,0,19,0,0,0,0,0,271.236,104.353,0,0,2.982,5.536,0,1,1,1,1,0.84,0.79,0.68,0.63,0.53,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+833819186368076,100092200075166,Orithane,"Promos +Shopping  = la combinaison parfaite ✨🛍️
+
+Jusqu’à –50 % sur une sélection de vos articles préférés !
+
+👉 Dépêchez-vous, c’est en boutique !
+
+📍  Orithane, La maison du Linge, Nous sommes à Totsi à côté de Ecobank.
+📲 http://wa.me/22870056666
+
+#Orithane #Promo #Noël2025 #SoldesDeFinDAnnée","Promos +Shopping  = la combinaison parfaite ✨🛍️
+
+Jusqu’à –50 % sur une sélection de vos articles préférés !
+
+👉 Dépêchez-vous, c’est en boutique !
+
+📍  Orithane, La maison du Linge, Nous sommes à Totsi à côté de Ecobank.
+📲 http://wa.me/22870056666
+
+#Orithane #Promo #Noël2025 #SoldesDeFinDAnnée",26,"12/30/2025 04:59",N/A,https://www.facebook.com/reel/2736556203403895/,0,0,Vidéos,,,,,Global,1163,990,7,7,0,0,8278.797,8.14,0,0,0,13,,2,11,,1040,115,907,308,547,0,521,0,492,55,0,0,0,0,7408.263,504.9,365.634,0,8.001,8.706,10.305,0,0.98,0.98,0.99,0.99,0.99,0.98,0.93,0.92,0.87,0.81,0.76,0.76,0.71,0.69,0.69,0.65,0.62,0.6,0.6,0.58,0.57,0.57,0.56,0.55,0.55,0.53,0.15,0.12,0.12,0.12,0.11,0.11,0.1,0.09,0.08,0.08,0.08,0.08,0.08,0.07,0.06,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.99,0.29,0.23,0.23,0.22,0.2,0.18,0.17,0.17,0.16,0.15,0.14,,,,,,,,,,,,,0,0,104,77,73,62,44,49,19,17,32,30,20,18,543,,3,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+830474660035862,100092200075166,Orithane,"À Noël, ce ne sont pas les cadeaux qui comptent le plus…
+
+Ce sont les mains qui se tendent, les regards qui se croisent, les moments qu’on partage autour d’une table.
+
+Que cette fête vous rappelle l’essentiel. 🤍✨
+
+#orithanelamaisondulinge #noël #Partage","À Noël, ce ne sont pas les cadeaux qui comptent le plus…
+
+Ce sont les mains qui se tendent, les regards qui se croisent, les moments qu’on partage autour d’une table.
+
+Que cette fête vous rappelle l’essentiel. 🤍✨
+
+#orithanelamaisondulinge #noël #Partage",9,"12/25/2025 11:00",N/A,https://www.facebook.com/reel/4308565269425932/,0,0,Vidéos,,,,,Global,95,79,4,4,0,0,291.825,3.891,0,0,0,5,,5,,,0,95,0,79,23,0,23,0,0,23,0,0,0,0,0,135.437,156.388,0,0,4.6,3.304,0,1,1,1,1,1,0.87,0.61,0.57,0.43,0.43,0.39,0.3,0.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1,1,1,1,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+828740540209274,100092200075166,Orithane,"🔥 –50 % de réduction !
+
+ Draps, serviettes, peignoirs, senteurs… tout est à prix réduit.
+
+ 👉 Profitez-en jusqu’au 11 janvier chez Orithane.
+
+📍 Totsi, à côté d’Ecobank
+📞 70 05 66 66
+
+#Orithane #PromoFinDAnnée #Soldes #Shopping","🔥 –50 % de réduction !
+
+ Draps, serviettes, peignoirs, senteurs… tout est à prix réduit.
+
+ 👉 Profitez-en jusqu’au 11 janvier chez Orithane.
+
+📍 Totsi, à côté d’Ecobank
+📞 70 05 66 66
+
+#Orithane #PromoFinDAnnée #Soldes #Shopping",28,"12/23/2025 04:12",N/A,https://www.facebook.com/reel/1165532832391769/,0,0,Vidéos,,,,,Global,6705,7295,34,30,1,3,35981.435,6.01,0,0,0,671,247,336,88,,6311,224,7241,4032,2232,0,1768,0,2144,88,0,0,0,0,34368.61,1155.159,454.092,3.574,5.913,8.257,9.959,1.787,0.96,0.96,0.97,0.97,0.97,0.97,0.75,0.74,0.63,0.52,0.44,0.44,0.38,0.34,0.33,0.28,0.25,0.23,0.22,0.2,0.18,0.18,0.16,0.15,0.15,0.14,0.13,0.13,0.12,0.12,0.11,0.11,0.11,0.1,0.09,0.09,0.09,0.08,0.08,0.08,0.07,0.98,0.98,0.99,0.99,0.99,1,1,1,1,1,1,1,1,1,1,1,0.96,0.91,0.88,0.85,0.83,0.8,0.76,0.7,0.66,0.63,0.58,0.56,0.51,,,,,,,,,,,,,0,0,442,176,595,287,52,227,67,150,72,74,49,29,2221,1,2,3,2,2,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+828245873592074,100092200075166,Orithane,"Eh oui… cette année on oublie les pyjamas assortis !
+
+Offrez plutôt de beaux draps : c’est cosy, élégant… et ça dure plus longtemps. 😉✨
+
+👉 Passez en boutique, on vous aide à préparer le cadeau parfait pour ceux que vous aimez. 🎁✨
+
+📍  Orithane, La maison du Linge, Nous sommes à Totsi à côté de Ecobank.
+
+#Orithane #MaisonDuLinge #IdéeCadeau #Noël2025","Eh oui… cette année on oublie les pyjamas assortis !
+
+Offrez plutôt de beaux draps : c’est cosy, élégant… et ça dure plus longtemps. 😉✨
+
+👉 Passez en boutique, on vous aide à préparer le cadeau parfait pour ceux que vous aimez. 🎁✨
+
+📍  Orithane, La maison du Linge, Nous sommes à Totsi à côté de Ecobank.
+
+#Orithane #MaisonDuLinge #IdéeCadeau #Noël2025",23,"12/22/2025 11:16",N/A,https://www.facebook.com/reel/868826635693597/,0,0,Vidéos,,,,,Global,5179,7425,19,17,1,1,528791.035,19.911,0,0,0,41,16,25,,,26997,143,7344,906,24978,0,5833,0,24909,69,0,0,0,0,527930.374,511.025,342.018,7.618,19.968,7.774,7.001,7.618,0.12,0.12,0.12,0.12,0.12,0.12,0.12,0.11,0.11,0.1,0.09,0.09,0.08,0.08,0.07,0.07,0.06,0.05,0.05,0.04,0.04,0.04,0.03,0.03,0.03,0.03,0.03,0.02,0.02,0.02,0.02,0.02,0.02,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.99,0.99,0.98,0.98,0.78,0.11,0.11,,,,,,,,,,,,,,,,,0,0,4237,2496,4626,3751,575,3053,616,1446,1431,1358,545,664,24970,1,3,2,1,,,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+825742083842453,100092200075166,Orithane,"Une belle table, c’est déjà un cadeau; ✨🍽️
+Nappes, napperons, vaisselle chic : tout est prêt pour sublimer vos fêtes.
+
+👉 Disponible en boutique !
+📍  Orithane, La maison du Linge, Nous sommes à Totsi à côté de Ecobank.
+
+#Orithane #ArtDeLaTable #Noël2025 #MaisonDuLinge #DécorationMaison",,0,"12/19/2025 05:36",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02PYR5mUoaF9tcwhVfsumtzsrqh1JuG2Dhfi4nNB7h7XMaTd9UvPSQXN2BN3Fq7saQl,0,0,Photos,,,,,Global,212,115,10,5,1,4,,,,,,5,,1,,4,0,212,0,115,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+822692417480753,100092200075166,Orithane,"Trinquons à la vie, à la santé… et à cette année qu’on a traversée comme des boss. ✨
+
+Et avouons-le : tant qu’à trinquer, autant le faire avec des verres aussi chics que nos ambitions. 😄🥂
+
+👉 Passez en boutique découvrir nos nouveautés et vibes festives !
+
+📍 Totsi, à côté d’Ecobank
+
+#Orithane #MaisonDuLinge  #FestiveSeason #Promo","Trinquons à la vie, à la santé… et à cette année qu’on a traversée comme des boss. ✨
+
+Et avouons-le : tant qu’à trinquer, autant le faire avec des verres aussi chics que nos ambitions. 😄🥂
+
+👉 Passez en boutique découvrir nos nouveautés et vibes festives !
+
+📍 Totsi, à côté d’Ecobank
+
+#Orithane #MaisonDuLinge  #FestiveSeason #Promo",20,"12/15/2025 04:12",N/A,https://www.facebook.com/reel/25268776412742684/,0,0,Vidéos,,,,,Global,135,120,3,3,0,0,456.908,3.872,0,0,0,0,,,,,0,135,0,120,43,0,41,0,0,43,0,0,0,0,0,222.108,234.8,0,0,5.591,2.923,0,1,0.98,1,1,0.77,0.6,0.42,0.3,0.19,0.16,0.16,0.16,0.14,0.14,0.12,0.12,0.09,0.07,0.05,0.05,0.05,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.8,0.6,0.4,0.4,0.4,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+820436754372986,100092200075166,Orithane,"🕯️✨ Allumez la magie des fêtes.
+
+Nouvelles bougies parfumées chez Orithane 🎄
+Une flamme, une senteur… et l’ambiance change 💫
+
+👉 Disponible en boutique
+📲 http://wa.me/22870056666
+
+#Orithane #BougiesParfumées #AmbianceFestive #Noël2025","🕯️✨ Allumez la magie des fêtes.
+
+Nouvelles bougies parfumées chez Orithane 🎄
+Une flamme, une senteur… et l’ambiance change 💫
+
+👉 Disponible en boutique
+📲 http://wa.me/22870056666
+
+#Orithane #BougiesParfumées #AmbianceFestive #Noël2025",12,"12/12/2025 04:05",N/A,https://www.facebook.com/reel/868600025645096/,0,0,Vidéos,,,,,Global,147,115,3,3,0,0,599.26,5.166,0,0,0,0,,,,,0,147,0,115,45,0,43,0,0,45,0,0,0,0,0,401.725,197.535,0,0,5.986,4.841,0,1,1,1,1,0.89,0.76,0.73,0.6,0.58,0.53,0.49,0.4,0.29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1,1,1,1,1,1,1,0.93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+819789241104404,100092200075166,Orithane,"Nouveautés, promos et bons plans Orithane… tout est désormais sur notre chaîne WhatsApp !
+
+Rejoignez-nous et restez informés avant tout le monde ✨
+
+Lien en commentaire 👇🏾
+
+#Orithane #WhatsApp #Promo #Shopping","Nouveautés, promos et bons plans Orithane… tout est désormais sur notre chaîne WhatsApp !
+
+Rejoignez-nous et restez informés avant tout le monde ✨
+
+Lien en commentaire 👇🏾
+
+#Orithane #WhatsApp #Promo #Shopping",21,"12/11/2025 07:00",N/A,https://www.facebook.com/reel/1933110170923097/,1,0,Vidéos,,,,,Global,18172,10580,46,42,4,0,173762.097,9.958,0,0,0,31,16,15,,,17995,156,10493,840,11785,0,7512,0,11742,43,0,0,0,0,173239.313,324.931,197.853,0,10.005,4.826,3.571,0,0.98,0.98,0.98,0.98,0.95,0.9,0.86,0.82,0.8,0.78,0.76,0.74,0.73,0.71,0.7,0.69,0.69,0.68,0.67,0.54,0.03,0.02,0.02,0.02,0.02,,,,,,,,,,,,,,,,,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.79,0.04,0.03,0.03,0.03,0.03,,,,,,,,,,,,,,,,,0,0,2877,2061,1902,891,874,846,592,539,449,268,247,211,11784,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+819642861119042,100092200075166,Orithane,"✨ Nouveau stock disponible !
+
+Des pièces raffinées pour offrir ou se faire plaisir : draps, peignoirs, senteurs… 🎄
+
+👉 Nouveautés déjà en boutique !
+📍 Orithane – Totsi
+
+ 👉 A découvrir en boutique ! 🤍
+📍 Totsi, à côté d’Ecobank
+📲 WhatsApp : wa.me/22870056666
+
+#Orithane #NouvelArrivage #MaisonDuLinge #Noël2025",,0,"12/11/2025 02:53",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02MER1da71J3ysNAP1P9BHcoaG2W31xvDb1w6p9PcSzzToyfVbtxHuJA25a1rF7mSjl,0,0,Photos,,,,,Global,6460,5240,14,13,0,1,,,,,,94,,50,44,,6266,194,5130,2788,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+819187187831276,100092200075166,Orithane,"🎄 Soldes de fin d’année jusqu’à –50 % !
+
+Draps, serviettes, peignoirs, senteurs… offrez-vous le confort premium à prix doux. ✨
+
+👉 Profitez-en jusqu’au 11 janvier
+📍 Orithane – Totsi, à côté d’Ecobank.
+📲 http://wa.me/22870056666
+
+#Orithane #MaisonDuLinge #SoldesDeFinDAnnée #PromoNoël #Noël2025",,0,"12/10/2025 11:07",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02MDehPPTgdrYqw3rcTdd5fNyuvKKZhGAoR4YZdBQ4hD1Bj7tLMo5qry4o7zFiN1QWl,0,0,Photos,,,,,Global,28457,14638,34,31,1,2,,,,,,832,,610,221,1,28119,338,14514,6928,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+818178191265509,100092200075166,Orithane,"Parce que vous méritez un sommeil de qualité en tout temps… et encore plus en cette fin d’année 🎄✨
+
+Offrez-vous des nuits douces et réparatrices grâce à nos réductions exceptionnelles de 10% à 50% sur toutes nos parures de lit premium.
+
+ Ne laissez pas passer la magie du confort : venez choisir la vôtre dès aujourd’hui ! 🌙💛
+
+📍 Totsi, à côté d’Ecobank
+📲 http://wa.me/22870056666
+
+ #Orithane #LingeDeLit #PromoFinDAnnée #Togo  #CadeauxDeNoël","Parce que vous méritez un sommeil de qualité en tout temps… et encore plus en cette fin d’année 🎄✨
+
+Offrez-vous des nuits douces et réparatrices grâce à nos réductions exceptionnelles de 10% à 50% sur toutes nos parures de lit premium.
+
+ Ne laissez pas passer la magie du confort : venez choisir la vôtre dès aujourd’hui ! 🌙💛
+
+📍 Totsi, à côté d’Ecobank
+📲 http://wa.me/22870056666
+
+ #Orithane #LingeDeLit #PromoFinDAnnée #Togo  #CadeauxDeNoël",23,"12/09/2025 04:18",N/A,https://www.facebook.com/reel/2566029813782565/,0,0,Vidéos,,,,,Global,152,114,3,3,0,0,922.925,7.383,0,0,0,1,,1,,,0,151,0,114,71,0,59,0,0,71,0,0,0,0,0,593.976,328.949,0,0,7.833,7.157,0,1,1,1,1,0.83,0.72,0.61,0.52,0.49,0.45,0.42,0.38,0.35,0.31,0.25,0.24,0.21,0.21,0.2,0.2,0.2,0.17,0.15,0.13,0.08,,,,,,,,,,,,,,,,,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.88,0.81,0.69,0.44,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+815390471544281,100092200075166,Orithane,"C’est le moment de se faire plaisir !✨
+
+Draps, serviettes, peignoirs, senteurs… tout devient plus doux !
+
+🎁 Soldes de fin d’année : jusqu’à –50 % ! Vivez la magie d’Orithane. 🎄
+
+✨ Offres valables jusqu’au 11 janvier !
+📍Orithane, La Maison Du Linge, Totsi à côté d’Ecobank. 
+📲 http://wa.me/22870056666
+
+#Orithane #MaisonDuLinge #SoldesDeFinDAnnée #PromoNoël #Noël2025",,0,"12/05/2025 10:00",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02Nx1nkQRTyA2iw6fqvBdsrnyJbnV6DNQFrxSkJpL9GZprbo4J7a6MrfgiGwHwghXil,0,0,Photos,,,,,Global,198,115,4,3,0,1,,,,,,4,,3,,1,0,198,0,115,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+814554141627914,100092200075166,Orithane,"Les nouveautés sont là… et elles sentent bon la magie de Noël. ✨
+
+Draps, peignoirs, senteurs : tout pour transformer votre maison en cocon joyeux !
+
+ 👉 A découvrir en boutique ! 🤍
+📍 Totsi, à côté d’Ecobank
+📲 WhatsApp : wa.me/22870056666
+
+#Orithane #NouvelArrivage #MaisonDuLinge #AmbianceCocooning #Noël2025 #HomeStyleTG",,0,"12/04/2025 06:59",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02tXpBzX4daiXpjkkgEn9U5CBzmZRyVF7tek7BMeqyx7B6F5G6t3AGBtQbmsbCPZk3l,0,0,Photos,,,,,Global,162,115,2,2,0,0,,,,,,0,,,,,0,162,0,115,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+813722518377743,100092200075166,Orithane,"Orithane a changé sa photo de couverture.",,0,"12/03/2025 04:37",N/A,https://www.facebook.com/photo.php?fbid=813722518377743&set=a.131543656595636&type=3,0,0,Photos,,,,,Global,0,0,3,3,0,0,,,,,,0,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+813722005044461,100092200075166,Orithane,"Orithane a changé sa photo de profil.",,0,"12/03/2025 04:36",N/A,https://www.facebook.com/photo.php?fbid=813722005044461&set=a.131515293265139&type=3,0,0,Photos,,,,,Global,151,100,3,3,0,0,,,,,,0,,,,,0,151,0,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+813713468378648,100092200075166,Orithane,"La plus belle saison de l’année commence : celle où la maison devient un vrai cocon ✨
+
+Draps doux, serviettes moelleuses, senteurs chaleureuses… tout se prépare.
+
+Noël approche et Orithane aussi a ses traditions.
+ 
+👉 On vous dévoile bientôt ce que nous vous réservons…
+
+📍 Totsi, à côté d’Ecobank
+📲 WhatsApp : wa.me/22870056666
+
+ #Orithane #MaisonDuLinge #Noël2025 #AmbianceNoël #Cocooning #HomeStyleTG #DécoMaison #Togo","La plus belle saison de l’année commence : celle où la maison devient un vrai cocon ✨
+
+Draps doux, serviettes moelleuses, senteurs chaleureuses… tout se prépare.
+
+Noël approche et Orithane aussi a ses traditions.
+ 
+👉 On vous dévoile bientôt ce que nous vous réservons…
+
+📍 Totsi, à côté d’Ecobank
+📲 WhatsApp : wa.me/22870056666
+
+ #Orithane #MaisonDuLinge #Noël2025 #AmbianceNoël #Cocooning #HomeStyleTG #DécoMaison #Togo",44,"12/03/2025 04:22",mixed,https://www.facebook.com/reel/1778911336156989/,0,0,Vidéos,,,,,Global,13647,12379,29,29,0,0,339445.317,18.128,0,0,0,103,73,30,,,19641,142,12286,2904,12612,0,7257,0,12567,45,0,0,0,0,338757.983,560.653,126.681,0,18.212,4.369,5.965,0,0.51,0.51,0.51,0.48,0.39,0.35,0.31,0.28,0.26,0.23,0.21,0.19,0.19,0.17,0.16,0.13,0.13,0.12,0.12,0.11,0.11,0.1,0.1,0.1,0.09,0.09,0.09,0.08,0.08,0.08,0.08,0.07,0.07,0.07,0.07,0.06,0.06,0.06,0.05,0.05,0.04,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.95,0.94,0.93,0.93,0.92,0.91,0.9,0.9,0.89,0.89,0.88,0.88,0.87,0.86,0.56,0.53,0.51,0.5,0.47,0.41,0.4,0.39,0.38,0.21,0.09,0.08,0,0,2733,1484,1717,1368,428,1772,479,718,714,556,318,282,12609,,,1,,,,,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+801471182936210,100092200075166,Orithane,"Le lundi a toujours un goût particulier… on démarre à fond, on enchaîne, et on se dit déjà : vivement ce soir 😮‍💨
+
+Rien ne fait autant de bien qu’une douche chaude et une serviette douce qui efface la journée. C’est simple, c’est rapide, mais ça change tout.
+
+Et si ce soir, vous vous offriez un vrai moment de confort avec une serviette Orithane ?
+
+👉 Passez en boutique choisir la vôtre.
+
+📍Orithane, La Maison Du Linge, Totsi à côté d’Ecobank
+📲 WhatsApp : wa.me/22870056666
+
+#Orithane #ServiettesMoelleuses #Douceur #MaisonDuLinge",,0,"11/17/2025 04:39",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02MA3eKTv2AJ21zYjccRsi93KsmWabf6YZrziDiVHGdXHwNudn6CkA2jo6sieFYXjQl,0,0,Photos,,,,,Global,159,94,2,1,0,1,,,,,,3,,3,,,0,159,0,94,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+796725020077493,100092200075166,Orithane,"Rien ne vaut la sensation d’un peignoir moelleux après la douche. Ce n’est pas un détail, c’est un rituel.
+
+Nos serviettes et peignoirs sont faits pour ça : t’envelopper, t’apaiser.
+
+ ✨ Passe en boutique cette semaine, sens la différence.
+ 
+📍Orithane, La Maison Du Linge, Totsi à côté d’Ecobank.
+📲 http://wa.me/22870056666
+
+ #PeignoirDeLuxe #RoutineBienÊtre #Orithane",,0,"11/11/2025 06:05",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02nksGNAvx7NTgp2QLDguXwcPzJCnwCAJeSuDooh79DEWYLrnvDZyqbrAzh4eFcQ18l,0,0,Photos,,,,,Global,170,95,6,4,0,2,,,,,,0,,,,,0,170,0,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+795761603507168,100092200075166,Orithane,"Nouvelle semaine, nouvelle ambiance. 💫 Le confort ne se promet pas, il se vit.
+
+Draps, bougies, senteurs, vaisselle… tout est prêt pour transformer votre maison en cocon stylé. ✨
+
+ Passez en boutique, sentez, touchez, choisissez le vôtre. 💛
+
+📍Totsi (à côté d’Ecobank) 
+📲 http://wa.me/22870056666
+
+ #Orithane #MaisonDuLinge #SemaineConfort #VivreChezSoi","Nouvelle semaine, nouvelle ambiance. 💫 Le confort ne se promet pas, il se vit.
+
+Draps, bougies, senteurs, vaisselle… tout est prêt pour transformer votre maison en cocon stylé. ✨
+
+ Passez en boutique, sentez, touchez, choisissez le vôtre. 💛
+
+📍Totsi (à côté d’Ecobank) 
+📲 http://wa.me/22870056666
+
+ #Orithane #MaisonDuLinge #SemaineConfort #VivreChezSoi",30,"11/10/2025 04:19",N/A,https://www.facebook.com/reel/2035001793912722/,0,0,Vidéos,,,,,Global,186,108,5,4,0,1,1264.279,8.966,0,0,0,1,,1,,,0,184,0,108,75,0,62,0,0,75,0,0,0,0,0,535.203,629.038,100.038,0,10.846,7.434,9.095,0.99,0.99,1,1,0.89,0.81,0.69,0.61,0.52,0.47,0.43,0.39,0.37,0.35,0.32,0.29,0.28,0.27,0.24,0.24,0.23,0.2,0.2,0.17,0.17,0.16,0.15,0.15,0.13,0.13,0.13,0.13,0.13,,,,,,,,,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.96,0.87,0.87,0.83,0.74,0.74,0.65,0.65,0.65,0.61,0.61,0.57,0.52,0.52,0.52,0.52,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+789589254124403,100092200075166,Orithane,"On ne parle pas juste de dormir. On parle de s’enrouler dans du confort, de chasser le stress à coups de draps frais et d’oreillers moelleux.
+
+Cette semaine, on dort bien, on vit mieux avec #Orithane.
+
+📍Totsi à côté d’Ecobank. 
+📲 http://wa.me/22870056666
+
+#Orithane #MaisonDuLinge #Drap #Oreiller",,0,"11/03/2025 04:11",N/A,https://www.facebook.com/OrithaneMaisonDuLinge/posts/pfbid02utEAHGbuzVE9SShDebacj13nQWEiuFUyqHJGbcQbZXbmBYmVNEdw1Q2sLmm1NKTbl,0,0,Photos,,,,,Global,292,193,12,3,0,9,,,,,,1,,,,1,0,292,0,193,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

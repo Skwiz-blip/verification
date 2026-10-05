@@ -1,0 +1,227 @@
+==============================================================================
+RAPPORT D'ANALYSE DES PERFORMANCES - COMMUNITY MANAGEMENT
+==============================================================================
+Genere le : 2026-08-28 10:32
+Periode analysee : 2025-08-01 -> 2026-08-01
+Publications organiques retenues : 3785
+Comptes analyses : 23
+
+1. QUALITE ET PERIMETRE DES DONNEES
+------------------------------------------------------------------------------
+  - 184 publication(s) sponsorisee(s) exclue(s) (4.6 % du total) : leur portee depend du budget publicitaire et non du travail editorial.
+  - 7 publication(s) presente(s) dans plusieurs fichiers ont ete fusionnees pour eviter un double comptage.
+  - 2 ligne(s) mise(s) en quarantaine (voir la table qualite_donnees).
+
+2. PERFORMANCE PAR FORMAT
+------------------------------------------------------------------------------
+  - Reel : 235 vues medianes (sur 23 compte(s)).
+  - Video : 169 vues medianes (sur 10 compte(s)).
+  - Photo : 148 vues medianes (sur 23 compte(s)).
+  - Carousel : 140 vues medianes (sur 12 compte(s)).
+  - Globalement, le format reel genere environ 1.7 fois plus de vues que le format carousel.
+  - Abi's Cream : format le plus performant = reel (422 vues medianes sur 19 publications).
+  - Abi'scream : format le plus performant = reel (451 vues medianes sur 44 publications).
+  - Bonici Africa : format le plus performant = photo (370 vues medianes sur 31 publications).
+  - Clair Optic Togo : format le plus performant = reel (158 vues medianes sur 12 publications).
+  - DAGAN MAGAZINE : format le plus performant = carousel (336 vues medianes sur 6 publications).
+  - DOM'S Restaurant : format le plus performant = reel (288 vues medianes sur 65 publications).
+  - Dagan Magazine : format le plus performant = photo (244 vues medianes sur 120 publications).
+  - Dom's Restaurant : format le plus performant = reel (230 vues medianes sur 90 publications).
+  - GRETY'S LDM : format le plus performant = reel (105 vues medianes sur 23 publications).
+  - Grety's LDM : format le plus performant = reel (104 vues medianes sur 16 publications).
+  - Krystal Optique : format le plus performant = reel (291 vues medianes sur 9 publications).
+  - Krystal Optique Benin : format le plus performant = reel (133 vues medianes sur 7 publications).
+  - Krystal Optique Bénin : format le plus performant = photo (35 vues medianes sur 35 publications).
+  - Orithane : format le plus performant = reel (147 vues medianes sur 9 publications).
+  - Pressing du Soleil : format le plus performant = reel (130 vues medianes sur 5 publications).
+  - Pressing_du_Soleil : format le plus performant = reel (97 vues medianes sur 11 publications).
+  - SODIGAZ TOGO : format le plus performant = reel (147 vues medianes sur 41 publications).
+  - Sodigaztg : format le plus performant = photo (921 vues medianes sur 85 publications).
+  - Wakabi - Le guide des bons coins : format le plus performant = reel (563 vues medianes sur 125 publications).
+  - Wakabi Le Guide | Découverte | Bons plans | Divertissement : format le plus performant = reel (707 vues medianes sur 152 publications).
+  - Woodin Fashion Togo : format le plus performant = carousel (1417 vues medianes sur 63 publications).
+  - Zener SA : format le plus performant = photo (1223 vues medianes sur 198 publications).
+  - bonici.africa : format le plus performant = photo (336 vues medianes sur 32 publications).
+
+3. EVOLUTION DANS LE TEMPS
+------------------------------------------------------------------------------
+  - CONTEXTE : 19 comptes sur 27 reculent sur la periode. Une baisse aussi generalisee traduit une evolution de la plateforme (algorithme, saisonnalite), pas une contre-performance individuelle. L'evaluation doit donc porter sur l'ecart au marche, colonne 'Tendance relative', et non sur la variation brute.
+
+  - Abi's Cream : performance stable (181 -> 182 vues medianes, soit +0.8 %) | vs plateforme : +7.9 pts -> conforme a sa plateforme.
+  - Abi'scream : performance en baisse (454 -> 236 vues medianes, soit -48.1 %) | vs plateforme : +13.1 pts -> conforme a sa plateforme.
+  - Bonici Africa : performance en baisse (387 -> 213 vues medianes, soit -45.0 %) | vs plateforme : -37.9 pts -> fait moins bien que sa plateforme.
+  - Clair Optic Togo : performance en baisse (90 -> 76 vues medianes, soit -15.0 %) | vs plateforme : -7.9 pts -> conforme a sa plateforme.
+  - Clair Optic Togo : performance en baisse (98 -> 38 vues medianes, soit -61.2 %) | vs plateforme : +0.0 pts -> conforme a sa plateforme.
+  - DAGAN MAGAZINE : performance en baisse (210 -> 148 vues medianes, soit -29.4 %) | vs plateforme : +31.8 pts -> fait mieux que sa plateforme.
+  - DOM'S Restaurant : performance en progression (190 -> 317 vues medianes, soit +66.8 %) | vs plateforme : +73.9 pts -> fait mieux que sa plateforme.
+  - Dagan Magazine : performance en progression (170 -> 284 vues medianes, soit +67.1 %) | vs plateforme : +74.2 pts -> fait mieux que sa plateforme.
+  - Dom's Restaurant : performance en baisse (313 -> 127 vues medianes, soit -59.4 %) | vs plateforme : +1.8 pts -> conforme a sa plateforme.
+  - GRETY'S LDM : performance en baisse (138 -> 23 vues medianes, soit -83.3 %) | vs plateforme : -22.1 pts -> fait moins bien que sa plateforme.
+  - Grety's LDM : performance en progression (48 -> 87 vues medianes, soit +79.4 %) | vs plateforme : +86.5 pts -> fait mieux que sa plateforme.
+  - Krystal Optique : performance en baisse (235 -> 156 vues medianes, soit -33.6 %) | vs plateforme : -26.5 pts -> fait moins bien que sa plateforme.
+  - Krystal Optique : performance en baisse (171 -> 60 vues medianes, soit -64.9 %) | vs plateforme : -3.7 pts -> conforme a sa plateforme.
+  - Krystal Optique Benin : performance en baisse (106 -> 26 vues medianes, soit -76.1 %) | vs plateforme : -14.9 pts -> conforme a sa plateforme.
+  - Krystal Optique Bénin : performance en baisse (38 -> 29 vues medianes, soit -24.7 %) | vs plateforme : -17.6 pts -> fait moins bien que sa plateforme.
+  - Orithane : performance en baisse (169 -> 129 vues medianes, soit -23.7 %) | vs plateforme : -16.6 pts -> fait moins bien que sa plateforme.
+  - Pressing du Soleil : performance en baisse (102 -> 31 vues medianes, soit -69.6 %) | vs plateforme : -62.5 pts -> fait moins bien que sa plateforme.
+  - Pressing_du_Soleil : performance en baisse (112 -> 20 vues medianes, soit -81.7 %) | vs plateforme : -20.5 pts -> fait moins bien que sa plateforme.
+  - SODIGAZ TOGO : performance en baisse (144 -> 68 vues medianes, soit -52.9 %) | vs plateforme : +8.3 pts -> conforme a sa plateforme.
+  - Sodigaztg : performance en baisse (906 -> 622 vues medianes, soit -31.3 %) | vs plateforme : -24.2 pts -> fait moins bien que sa plateforme.
+  - Wakabi - Le guide des bons coins : performance en progression (51 -> 828 vues medianes, soit +1524.5 %) | vs plateforme : +1531.6 pts -> fait mieux que sa plateforme.
+  - Wakabi Le Guide | Découverte | Bons plans | Divertissement : tendance incertaine (487 -> 752 vues medianes, soit +54.3 %) | vs plateforme : +115.5 pts -> fait mieux que sa plateforme.
+  - Woodin Fashion Togo : performance en progression (798 -> 1057 vues medianes, soit +32.5 %) | vs plateforme : +39.6 pts -> fait mieux que sa plateforme.
+  - Woodin Fashion Togo : performance en baisse (1451 -> 514 vues medianes, soit -64.6 %) | vs plateforme : -3.4 pts -> conforme a sa plateforme.
+  - Zener SA : performance en progression (876 -> 1303 vues medianes, soit +48.7 %) | vs plateforme : +55.8 pts -> fait mieux que sa plateforme.
+  - Zener SA : performance en baisse (182 -> 80 vues medianes, soit -56.0 %) | vs plateforme : +5.2 pts -> conforme a sa plateforme.
+  - bonici.africa : performance en baisse (498 -> 86 vues medianes, soit -82.6 %) | vs plateforme : -21.4 pts -> fait moins bien que sa plateforme.
+
+4. OBJECTIFS DE PRIME
+------------------------------------------------------------------------------
+  - 56 combinaison(s) compte x plateforme x format disposent d'objectifs chiffres exploitables.
+  - Abi's Cream / facebook / photo : N1=185, N2=245, N3=265 vues (fiabilite elevee, 144 publications).
+  - Abi's Cream / facebook / reel : N1=425, N2=460, N3=485 vues (fiabilite moyenne, 19 publications).
+  - Abi's Cream / facebook / video : N1=225, N2=270, N3=295 vues (fiabilite moyenne, 18 publications).
+  - Abi'scream / instagram / carousel : N1=310, N2=485, N3=560 vues (fiabilite elevee, 44 publications).
+  - Abi'scream / instagram / photo : N1=285, N2=400, N3=450 vues (fiabilite elevee, 117 publications).
+  - Abi'scream / instagram / reel : N1=440, N2=760, N3=1145 vues (fiabilite elevee, 44 publications).
+  - Bonici Africa / facebook / photo : N1=370, N2=430, N3=530 vues (fiabilite elevee, 31 publications).
+  - Clair Optic Togo / facebook / photo : N1=65, N2=80, N3=95 vues (fiabilite elevee, 94 publications).
+  - Clair Optic Togo / instagram / carousel : N1=50, N2=70, N3=85 vues (fiabilite moyenne, 16 publications).
+  - Clair Optic Togo / instagram / photo : N1=75, N2=105, N3=120 vues (fiabilite elevee, 79 publications).
+  - Clair Optic Togo / instagram / reel : N1=155, N2=235, N3=240 vues (fiabilite moyenne, 12 publications).
+  - DAGAN MAGAZINE / instagram / photo : N1=180, N2=220, N3=245 vues (fiabilite elevee, 52 publications).
+  - DOM'S Restaurant / facebook / photo : N1=225, N2=280, N3=325 vues (fiabilite elevee, 150 publications).
+  - DOM'S Restaurant / facebook / reel : N1=290, N2=415, N3=515 vues (fiabilite elevee, 65 publications).
+  - DOM'S Restaurant / facebook / video : N1=110, N2=120, N3=125 vues (fiabilite moyenne, 13 publications).
+  - Dagan Magazine / facebook / photo : N1=245, N2=345, N3=420 vues (fiabilite elevee, 120 publications).
+  - Dom's Restaurant / instagram / carousel : N1=135, N2=200, N3=310 vues (fiabilite elevee, 72 publications).
+  - Dom's Restaurant / instagram / photo : N1=145, N2=300, N3=405 vues (fiabilite elevee, 90 publications).
+  - Dom's Restaurant / instagram / reel : N1=230, N2=310, N3=510 vues (fiabilite elevee, 90 publications).
+  - GRETY'S LDM / instagram / carousel : N1=30, N2=35, N3=40 vues (fiabilite moyenne, 24 publications).
+  - GRETY'S LDM / instagram / photo : N1=25, N2=30, N3=35 vues (fiabilite moyenne, 12 publications).
+  - GRETY'S LDM / instagram / reel : N1=105, N2=140, N3=1815 vues (fiabilite moyenne, 23 publications).
+  - Grety's LDM / facebook / photo : N1=65, N2=90, N3=100 vues (fiabilite elevee, 39 publications).
+  - Grety's LDM / facebook / reel : N1=105, N2=120, N3=140 vues (fiabilite moyenne, 16 publications).
+  - Krystal Optique / facebook / photo : N1=175, N2=220, N3=245 vues (fiabilite elevee, 38 publications).
+  - Krystal Optique / instagram / carousel : N1=85, N2=110, N3=150 vues (fiabilite moyenne, 12 publications).
+  - Krystal Optique / instagram / photo : N1=105, N2=155, N3=170 vues (fiabilite elevee, 30 publications).
+  - Krystal Optique / instagram / reel : N1=195, N2=255, N3=540 vues (fiabilite moyenne, 11 publications).
+  - Krystal Optique Benin / instagram / photo : N1=30, N2=100, N3=105 vues (fiabilite moyenne, 23 publications).
+  - Krystal Optique Bénin / facebook / photo : N1=35, N2=40, N3=45 vues (fiabilite elevee, 35 publications).
+  - Orithane / facebook / photo : N1=145, N2=165, N3=170 vues (fiabilite moyenne, 20 publications).
+  - Pressing du Soleil / facebook / photo : N1=95, N2=110, N3=120 vues (fiabilite moyenne, 17 publications).
+  - Pressing_du_Soleil / instagram / photo : N1=25, N2=30, N3=35 vues (fiabilite moyenne, 14 publications).
+  - Pressing_du_Soleil / instagram / reel : N1=100, N2=205, N3=285 vues (fiabilite moyenne, 11 publications).
+  - SODIGAZ TOGO / instagram / carousel : N1=145, N2=170, N3=230 vues (fiabilite moyenne, 18 publications).
+  - SODIGAZ TOGO / instagram / photo : N1=120, N2=145, N3=165 vues (fiabilite elevee, 69 publications).
+  - SODIGAZ TOGO / instagram / reel : N1=150, N2=220, N3=240 vues (fiabilite elevee, 41 publications).
+  - Sodigaztg / facebook / photo : N1=925, N2=1635, N3=1915 vues (fiabilite elevee, 85 publications).
+  - Sodigaztg / facebook / reel : N1=610, N2=755, N3=1075 vues (fiabilite elevee, 43 publications).
+  - Wakabi - Le guide des bons coins / facebook / photo : N1=125, N2=160, N3=185 vues (fiabilite elevee, 58 publications).
+  - Wakabi - Le guide des bons coins / facebook / reel : N1=565, N2=975, N3=1705 vues (fiabilite elevee, 125 publications).
+  - Wakabi Le Guide | Découverte | Bons plans | Divertissement / instagram / carousel : N1=395, N2=560, N3=710 vues (fiabilite elevee, 45 publications).
+  - Wakabi Le Guide | Découverte | Bons plans | Divertissement / instagram / reel : N1=705, N2=1540, N3=2570 vues (fiabilite elevee, 152 publications).
+  - Woodin Fashion Togo / facebook / photo : N1=1105, N2=1455, N3=1755 vues (fiabilite elevee, 302 publications).
+  - Woodin Fashion Togo / facebook / reel : N1=705, N2=840, N3=1240 vues (fiabilite moyenne, 21 publications).
+  - Woodin Fashion Togo / facebook / video : N1=505, N2=605, N3=755 vues (fiabilite elevee, 51 publications).
+  - Woodin Fashion Togo / instagram / carousel : N1=1420, N2=1775, N3=2155 vues (fiabilite elevee, 63 publications).
+  - Woodin Fashion Togo / instagram / photo : N1=640, N2=1295, N3=1475 vues (fiabilite elevee, 342 publications).
+  - Woodin Fashion Togo / instagram / reel : N1=855, N2=1155, N3=1715 vues (fiabilite elevee, 90 publications).
+  - Zener SA / facebook / photo : N1=1220, N2=1760, N3=2475 vues (fiabilite elevee, 198 publications).
+  - Zener SA / facebook / reel : N1=865, N2=1150, N3=1550 vues (fiabilite elevee, 31 publications).
+  - Zener SA / instagram / carousel : N1=215, N2=260, N3=330 vues (fiabilite moyenne, 22 publications).
+  - Zener SA / instagram / photo : N1=110, N2=150, N3=175 vues (fiabilite elevee, 183 publications).
+  - Zener SA / instagram / reel : N1=235, N2=295, N3=345 vues (fiabilite elevee, 39 publications).
+  - bonici.africa / instagram / carousel : N1=110, N2=130, N3=135 vues (fiabilite moyenne, 10 publications).
+  - bonici.africa / instagram / photo : N1=330, N2=420, N3=625 vues (fiabilite elevee, 32 publications).
+  - Bonici Africa / facebook / reel : donnees insuffisantes (4 publications) - aucun objectif fiable ne peut etre fixe.
+  - Bonici Africa / facebook / video : donnees insuffisantes (1 publications) - aucun objectif fiable ne peut etre fixe.
+  - Clair Optic Togo / facebook / reel : donnees insuffisantes (8 publications) - aucun objectif fiable ne peut etre fixe.
+  - Clair Optic Togo / facebook / video : donnees insuffisantes (2 publications) - aucun objectif fiable ne peut etre fixe.
+  - DAGAN MAGAZINE / instagram / carousel : donnees insuffisantes (6 publications) - aucun objectif fiable ne peut etre fixe.
+  - DAGAN MAGAZINE / instagram / reel : donnees insuffisantes (2 publications) - aucun objectif fiable ne peut etre fixe.
+  - Dagan Magazine / facebook / reel : donnees insuffisantes (1 publications) - aucun objectif fiable ne peut etre fixe.
+  - Krystal Optique / facebook / reel : donnees insuffisantes (9 publications) - aucun objectif fiable ne peut etre fixe.
+  - Krystal Optique Benin / instagram / reel : donnees insuffisantes (7 publications) - aucun objectif fiable ne peut etre fixe.
+  - Krystal Optique Bénin / facebook / reel : donnees insuffisantes (8 publications) - aucun objectif fiable ne peut etre fixe.
+  - Krystal Optique Bénin / facebook / video : donnees insuffisantes (1 publications) - aucun objectif fiable ne peut etre fixe.
+  - Orithane / facebook / reel : donnees insuffisantes (9 publications) - aucun objectif fiable ne peut etre fixe.
+  - Pressing du Soleil / facebook / reel : donnees insuffisantes (5 publications) - aucun objectif fiable ne peut etre fixe.
+  - Pressing du Soleil / facebook / video : donnees insuffisantes (1 publications) - aucun objectif fiable ne peut etre fixe.
+  - Pressing_du_Soleil / instagram / carousel : donnees insuffisantes (1 publications) - aucun objectif fiable ne peut etre fixe.
+  - Sodigaztg / facebook / video : donnees insuffisantes (7 publications) - aucun objectif fiable ne peut etre fixe.
+  - Wakabi - Le guide des bons coins / facebook / video : donnees insuffisantes (1 publications) - aucun objectif fiable ne peut etre fixe.
+  - Wakabi Le Guide | Découverte | Bons plans | Divertissement / instagram / photo : donnees insuffisantes (8 publications) - aucun objectif fiable ne peut etre fixe.
+  - Zener SA / facebook / video : donnees insuffisantes (7 publications) - aucun objectif fiable ne peut etre fixe.
+  - bonici.africa / instagram / reel : donnees insuffisantes (7 publications) - aucun objectif fiable ne peut etre fixe.
+
+  - ATTENTION - paliers 3 portes par des publications exceptionnelles, a ne pas utiliser tels quels comme condition de prime :
+  -   GRETY'S LDM / instagram / reel : N1=105 mais N3=1815 (17.3 x). Quelques publications virales tirent le palier haut ; le viser releve du pari, pas du travail regulier.
+
+5. OBJECTIFS PAR CATEGORIE
+------------------------------------------------------------------------------
+  - Ces paliers decrivent le COMPTE TYPE de la categorie : chaque compte y pese pour 1, quel que soit son volume de publication. Un calcul sur l'ensemble des publications aurait donne le niveau du plus gros publieur, pas celui de la categorie.
+
+  - Carburant / facebook / photo (2 comptes) : N1=1070 | N2=1700 | N3=2195 vues.
+  -     Derogation : categorie calculee sur 2 compte(s) seulement (minimum general : 3). Les paliers decrivent ces comptes, pas un marche.
+  - Carburant / facebook / reel (2 comptes) : N1=740 | N2=955 | N3=1310 vues.
+  -     Derogation : categorie calculee sur 2 compte(s) seulement (minimum general : 3). Les paliers decrivent ces comptes, pas un marche.
+  - Carburant / instagram / carousel (2 comptes) : N1=180 | N2=215 | N3=280 vues.
+  -     Derogation : categorie calculee sur 2 compte(s) seulement (minimum general : 3). Les paliers decrivent ces comptes, pas un marche.
+  - Carburant / instagram / photo (2 comptes) : N1=115 | N2=145 | N3=170 vues.
+  -     Derogation : categorie calculee sur 2 compte(s) seulement (minimum general : 3). Les paliers decrivent ces comptes, pas un marche.
+  - Carburant / instagram / reel (2 comptes) : N1=195 | N2=255 | N3=290 vues.
+  -     Derogation : categorie calculee sur 2 compte(s) seulement (minimum general : 3). Les paliers decrivent ces comptes, pas un marche.
+  - Mode Lifestyle et Bien-etre / facebook / photo (9 comptes) : N1=125 | N2=160 | N3=170 vues.
+  -     Comptes tres heterogenes (rapport 31.5 x entre le plus fort et le plus faible) : une cible unique de categorie a peu de sens ici, privilegier les objectifs par compte.
+  - Mode Lifestyle et Bien-etre / facebook / reel (8 comptes) : N1=140 | N2=145 | N3=165 vues.
+  -     Comptes tres heterogenes (rapport 24.2 x entre le plus fort et le plus faible) : une cible unique de categorie a peu de sens ici, privilegier les objectifs par compte.
+  - Mode Lifestyle et Bien-etre / instagram / carousel (6 comptes) : N1=210 | N2=225 | N3=295 vues.
+  -     Comptes tres heterogenes (rapport 54.5 x entre le plus fort et le plus faible) : une cible unique de categorie a peu de sens ici, privilegier les objectifs par compte.
+  - Mode Lifestyle et Bien-etre / instagram / photo (8 comptes) : N1=90 | N2=130 | N3=145 vues.
+  -     Comptes tres heterogenes (rapport 30.3 x entre le plus fort et le plus faible) : une cible unique de categorie a peu de sens ici, privilegier les objectifs par compte.
+  - Mode Lifestyle et Bien-etre / instagram / reel (7 comptes) : N1=155 | N2=235 | N3=540 vues.
+  -     Comptes tres heterogenes (rapport 8.8 x entre le plus fort et le plus faible) : une cible unique de categorie a peu de sens ici, privilegier les objectifs par compte.
+  - Nourriture / facebook / photo (3 comptes) : N1=225 | N2=280 | N3=325 vues.
+  - Nourriture / instagram / carousel (3 comptes) : N1=135 | N2=200 | N3=310 vues.
+  - Nourriture / instagram / photo (3 comptes) : N1=285 | N2=400 | N3=450 vues.
+  - Nourriture / instagram / reel (3 comptes) : N1=230 | N2=310 | N3=510 vues.
+
+  - 4 categorie(s) sans objectif commun, faute de comptes ou de publications en nombre suffisant (detail dans objectifs_par_categorie.csv).
+
+6. POINTS D'ATTENTION SUR L'ENGAGEMENT
+------------------------------------------------------------------------------
+  - Abi's Cream / reel : engagement median 2.56 % contre 4.05 % en reference, malgre une portee comparable - le contenu touche mais fait peu reagir.
+  - Clair Optic Togo / reel : engagement median 2.33 % contre 4.05 % en reference, malgre une portee comparable - le contenu touche mais fait peu reagir.
+  - DOM'S Restaurant / photo : engagement median 1.96 % contre 4.05 % en reference, malgre une portee comparable - le contenu touche mais fait peu reagir.
+  - DOM'S Restaurant / reel : engagement median 2.09 % contre 4.05 % en reference, malgre une portee comparable - le contenu touche mais fait peu reagir.
+  - GRETY'S LDM / reel : engagement median 2.15 % contre 4.05 % en reference, malgre une portee comparable - le contenu touche mais fait peu reagir.
+  - Grety's LDM / reel : engagement median 2.50 % contre 4.05 % en reference, malgre une portee comparable - le contenu touche mais fait peu reagir.
+  - Krystal Optique / photo : engagement median 2.49 % contre 4.05 % en reference, malgre une portee comparable - le contenu touche mais fait peu reagir.
+  - Krystal Optique Bénin / photo : engagement median 0.00 % contre 4.05 % en reference, malgre une portee comparable - le contenu touche mais fait peu reagir.
+  - Orithane / photo : engagement median 2.61 % contre 4.05 % en reference, malgre une portee comparable - le contenu touche mais fait peu reagir.
+  - Pressing_du_Soleil / reel : engagement median 1.45 % contre 4.05 % en reference, malgre une portee comparable - le contenu touche mais fait peu reagir.
+  - Wakabi - Le guide des bons coins / reel : engagement median 2.59 % contre 4.05 % en reference, malgre une portee comparable - le contenu touche mais fait peu reagir.
+  - Woodin Fashion Togo / photo : engagement median 2.26 % contre 4.05 % en reference, malgre une portee comparable - le contenu touche mais fait peu reagir.
+  - Woodin Fashion Togo / video : engagement median 2.56 % contre 4.05 % en reference, malgre une portee comparable - le contenu touche mais fait peu reagir.
+
+7. BENCHMARK SECTORIEL
+------------------------------------------------------------------------------
+  - Secteur Mode Lifestyle et Bien-etre / facebook / photo : mediane sectorielle 125 vues (9 comptes, 723 publications).
+  - Secteur Mode Lifestyle et Bien-etre / facebook / reel : mediane sectorielle 138 vues (8 comptes, 202 publications).
+  - Secteur Mode Lifestyle et Bien-etre / instagram / carousel : mediane sectorielle 214 vues (6 comptes, 167 publications).
+  - Secteur Mode Lifestyle et Bien-etre / instagram / photo : mediane sectorielle 90 vues (8 comptes, 560 publications).
+  - Secteur Mode Lifestyle et Bien-etre / instagram / reel : mediane sectorielle 158 vues (7 comptes, 308 publications).
+  - Secteur Nourriture / facebook / photo : mediane sectorielle 224 vues (3 comptes, 325 publications).
+  - Secteur Nourriture / instagram / carousel : mediane sectorielle 134 vues (3 comptes, 126 publications).
+  - Secteur Nourriture / instagram / photo : mediane sectorielle 284 vues (3 comptes, 239 publications).
+  - Secteur Nourriture / instagram / reel : mediane sectorielle 230 vues (3 comptes, 141 publications).
+  - 9 combinaison(s) sectorielle(s) marquee(s) INSUFFISANT : elles ne doivent PAS servir de reference pour une prime.
+
+7. LIMITES METHODOLOGIQUES A GARDER EN TETE
+------------------------------------------------------------------------------
+  - Les seuils refletent l'historique du compte : ils doivent etre recalcules periodiquement (trimestriellement) car l'algorithme Meta et la saisonnalite evoluent.
+  - Les vues ne sont pas normalisees par la taille de l'audience : les exports par publication ne contiennent pas le nombre d'abonnes.
+  - Les publications exceptionnelles sont signalees mais jamais supprimees : une publication virale est une performance reelle, pas une erreur de mesure.
+  - Un benchmark sectoriel marque INSUFFISANT est indicatif seulement et ne doit pas fonder une decision de prime.
+==============================================================================

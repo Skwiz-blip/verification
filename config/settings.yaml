@@ -1,0 +1,113 @@
+# Configuration du systeme d'analyse de performance des Community Managers.
+# Tous les parametres sont modifiables sans toucher au code.
+
+# --- Periode d'analyse -------------------------------------------------------
+# all | last_3_months | last_6_months | last_12_months | custom
+analysis_period: "all"
+custom_period:
+  start: null      # "2026-05-01"
+  end: null        # "2026-08-20"
+
+# Reference utilisee pour les fenetres glissantes (last_N_months).
+# "data_max" = date de publication la plus recente du jeu de donnees (recommande,
+# car les exports peuvent etre anciens). "today" = date du jour.
+period_reference: "data_max"
+
+# --- Publications sponsorisees ----------------------------------------------
+exclude_sponsored: true
+
+# --- Fiabilite statistique (nombre de publications par groupe) ---------------
+reliability:
+  insufficient_below: 5     # n < 5  -> Insuffisante (aucun seuil produit)
+  low_below: 10             # n < 10 -> Faible (seuils indicatifs)
+  medium_below: 30          # n < 30 -> Moyenne ; n >= 30 -> Elevee
+
+# Effectif minimum pour qu'un groupe recoive des objectifs chiffres.
+min_observations: 10
+
+# Volume minimum de publications pour qu'un compte entre dans l'analyse.
+# Les exports Meta contiennent des comptes a 1 ou 2 publications (publications
+# isolees, tests, comptes tiers) qui ne produiront jamais d'objectif fiable.
+# Mettre 0 pour tout conserver.
+min_publications_per_account: 10
+
+# --- Benchmark sectoriel -----------------------------------------------------
+sector:
+  min_accounts: 3
+  min_publications: 20
+  # Effectif minimum d'un compte pour qu'il compte comme "compte qualifie"
+  # dans la mediane des medianes.
+  min_observations_per_account: 5
+  # Categories analysees malgre un nombre de comptes sous min_accounts.
+  # Derogation nominative : le resultat est calcule et publie, mais reste
+  # signale comme reposant sur peu de comptes.
+  forced_sectors:
+    - "Carburant"
+
+# --- Objectifs de prime ------------------------------------------------------
+objectives:
+  level_1_quantile: 0.50
+  level_2_quantile: 0.70
+  level_3_quantile: 0.80
+  # Arrondi des seuils de vues (1 = entier, 5 = multiple de 5, 10 = dizaine).
+  rounding: 5
+  # Si Niveau 3 depasse ce multiple du Niveau 1, la distribution est jugee trop
+  # dispersee : le palier haut est signale comme dependant de publications
+  # virales plutot que du travail regulier.
+  max_level_spread: 5.0
+
+# --- Outliers (detection informative, JAMAIS suppression) --------------------
+outliers:
+  method: "iqr"      # iqr | mad
+  multiplier: 1.5    # 1.5 = standard, 3.0 = extremes uniquement
+  mad_threshold: 3.5 # utilise si method = mad
+
+# --- Tendances ---------------------------------------------------------------
+trend:
+  min_observations: 8
+  change_threshold_pct: 15   # +/- 15% -> progression / baisse, sinon stable
+
+# --- Formats -----------------------------------------------------------------
+# Mapping des libelles Meta vers les formats canoniques.
+format_aliases:
+  # --- Facebook ---
+  "Photos": photo
+  "Photo": photo
+  "Vidéos": video
+  "Vidéo": video
+  "Videos": video
+  "Reels": reel
+  "Reel": reel
+  "Texte": text
+  "Statut": text
+  "Liens": link
+  "Lien": link
+  "Carrousel": carousel
+  "Album": carousel
+  "Story": story
+  "Stories": story
+  # --- Instagram (libelles francais et anglais des exports IG) ---
+  "Image IG": photo
+  "IG image": photo
+  "Reel IG": reel
+  "IG reel": reel
+  "Carrousel IG": carousel
+  "IG carousel": carousel
+  "Story IG": story
+  "IG story": story
+
+# IMPORTANT : dans les exports Meta recents, les Reels sont etiquetes "Vidéos".
+# Le permalien (/reel/) est alors le seul signal fiable. Mettre a false
+# uniquement si un export futur redevient fiable sur ce point.
+detect_reel_from_permalink: true
+
+# Formats exclus de l'analyse des objectifs (trop marginaux ou non pilotables).
+excluded_formats:
+  - text
+  - link
+
+# --- Sorties -----------------------------------------------------------------
+output:
+  charts: true
+  excel: true
+  chart_dpi: 150

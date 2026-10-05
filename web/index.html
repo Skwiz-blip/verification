@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contrôle mensuel</title>
+  <link rel="stylesheet" href="app.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="topbar">
+    <div class="bar">
+      <div class="brand">
+        <h1>Contrôle mensuel</h1>
+        <p id="resume" class="muted"></p>
+      </div>
+      <div class="controls" role="group" aria-label="Paramètres du contrôle">
+        <label class="field">
+          <span>Mois contrôlé</span>
+          <select id="mois"></select>
+        </label>
+        <label class="field">
+          <span>Objectifs calculés sur</span>
+          <select id="ref">
+            <option value="before">Tout l'historique précédent</option>
+            <option value="6">Les 6 mois précédents</option>
+            <option value="3">Les 3 mois précédents</option>
+            <option value="all">Toute la période chargée</option>
+            <option value="custom">Période personnalisée</option>
+          </select>
+        </label>
+        <label class="field" data-perso hidden>
+          <span>Du</span>
+          <select id="debut"></select>
+        </label>
+        <label class="field" data-perso hidden>
+          <span>Au</span>
+          <select id="fin"></select>
+        </label>
+        <label class="field field-narrow" title="En dessous de ce nombre de publications, le mois ne reçoit aucun niveau.">
+          <span>Publications min.</span>
+          <input id="min" type="number" min="1" max="30" step="1" value="3" inputmode="numeric">
+        </label>
+        <button type="button" id="importer" class="btn btn-primary">Ajouter des exports</button>
+        <input type="file" id="fichiers" accept=".csv,text/csv" multiple hidden>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Vues">
+      <button type="button" role="tab" data-vue="ensemble" aria-controls="contenu">Vue d'ensemble</button>
+      <button type="button" role="tab" data-vue="compte" aria-controls="contenu">Par compte</button>
+      <button type="button" role="tab" data-vue="categorie" aria-controls="contenu">Par catégorie</button>
+      <button type="button" role="tab" data-vue="donnees" aria-controls="contenu">Données</button>
+      <span id="etat" class="status" role="status" aria-live="polite"></span>
+    </nav>
+  </header>
+
+  <div class="page">
+    <div id="alertes" class="alerts" aria-live="polite"></div>
+    <main id="contenu" role="tabpanel" tabindex="-1"></main>
+  </div>
+
+  <div id="bulle" class="tooltip" hidden></div>
+</body>
+</html>

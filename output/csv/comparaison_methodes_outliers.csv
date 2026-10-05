@@ -1,0 +1,6 @@
+﻿methode,valeur_centrale,outliers_detectes,commentaire
+Moyenne classique,1064.8,0,Sensible aux publications virales
+Mediane,316.0,0,"Robuste, ignore l'amplitude des succes"
+Moyenne tronquee 10%,479.1,756,"Compromis, taux de troncature arbitraire"
+IQR (x1.5),316.0,344,Bornes [0 ; 1906]
+MAD (seuil 3.5),316.0,479,Bornes [0 ; 1525]

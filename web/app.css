@@ -1,0 +1,1152 @@
+/* Controle mensuel — feuille de style.
+   Toutes les couleurs passent par des roles ; le theme sombre redefinit les
+   memes roles. La rampe N1 -> N3 est une seule teinte, du clair au fonce :
+   « sous le Niveau 1 » reste neutre, car N1 etant la mediane du compte, s'y
+   trouver arrive par construction un mois sur deux. */
+
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #6f6d68;
+  --hairline: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.1);
+  --hover: rgba(11, 11, 11, 0.04);
+  --accent: #256abf;
+  --on-accent: #ffffff;
+  --link: #256abf;
+  --focus: #2a78d6;
+
+  --n1: #86b6ef;
+  --n1-ink: #0b0b0b;
+  --n2: #256abf;
+  --n2-ink: #ffffff;
+  --n3: #0d366b;
+  --n3-ink: #ffffff;
+  --below: #e1e0d9;
+  --below-ink: #0b0b0b;
+  --below-mark: #898781;
+  --few-mark: #d6d5cd;
+  --band: rgba(11, 11, 11, 0.045);
+
+  --warn-bg: #fdf3d8;
+  --warn-ink: #7a4b00;
+  --info-bg: #e8f0fb;
+  --info-ink: #184f95;
+  --good: #0ca30c;
+  --warning: #fab219;
+  --critical: #d03b3b;
+
+  --s1: #2a78d6;
+  --s2: #eb6834;
+  --s3: #1baf7a;
+  --s4: #eda100;
+  --s5: #e87ba4;
+  --s6: #008300;
+  --deemph: #898781;
+
+  --radius: 6px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --ink-3: #9a988f;
+    --hairline: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.1);
+    --hover: rgba(255, 255, 255, 0.05);
+    --accent: #256abf;
+    --link: #6da7ec;
+    --focus: #6da7ec;
+
+    --n1: #184f95;
+    --n1-ink: #ffffff;
+    --n2: #3987e5;
+    --n2-ink: #0b0b0b;
+    --n3: #9ec5f4;
+    --n3-ink: #0b0b0b;
+    --below: #383835;
+    --below-ink: #ffffff;
+    --below-mark: #898781;
+    --few-mark: #383835;
+    --band: rgba(255, 255, 255, 0.05);
+
+    --warn-bg: #3a2c05;
+    --warn-ink: #fbd98a;
+    --info-bg: #10233f;
+    --info-ink: #b7d3f6;
+
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --s5: #d55181;
+    --s6: #008300;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* L'attribut hidden doit l'emporter sur les display declares plus bas. */
+[hidden] {
+  display: none !important;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 0.875rem/1.45 var(--font);
+  -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.muted {
+  color: var(--ink-3);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 100;
+  padding: 8px 12px;
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: var(--radius);
+}
+
+.skip:focus {
+  left: 8px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* --- Bandeau ------------------------------------------------------------ */
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* Fixe seulement quand il tient sur une ligne : sinon il mangerait l'ecran. */
+@media (min-width: 1100px) {
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+}
+
+.bar,
+.tabs,
+.page {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding-inline: 24px;
+}
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-block: 14px 12px;
+}
+
+.brand h1 {
+  font-size: 1.0625rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.brand p {
+  font-size: 0.8125rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 12px;
+}
+
+.field {
+  display: grid;
+  gap: 3px;
+  font-size: 0.75rem;
+  color: var(--ink-2);
+}
+
+select,
+input[type="number"] {
+  height: 34px;
+  min-width: 0;
+  padding: 0 10px;
+  border: 1px solid var(--axis);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+select {
+  padding-right: 28px;
+  cursor: pointer;
+}
+
+.field-narrow input {
+  width: 92px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--axis);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 550;
+  cursor: pointer;
+  transition: background-color 150ms ease-out, opacity 150ms ease-out;
+}
+
+.btn:hover {
+  background: var(--hover);
+}
+
+.btn-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  opacity: 0.9;
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: progress;
+}
+
+.btn-quiet {
+  height: 28px;
+  padding: 0 8px;
+  border-color: transparent;
+  background: none;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+}
+
+.tabs [role="tab"] {
+  flex: none;
+  height: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tabs [role="tab"]:hover {
+  color: var(--ink);
+}
+
+.tabs [role="tab"][aria-selected="true"] {
+  border-bottom-color: var(--accent);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Le rappel de la reference cede sa place avant que les onglets ne debordent. */
+.status {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 0.8125rem;
+  color: var(--ink-3);
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --- Page --------------------------------------------------------------- */
+.page {
+  padding-block: 20px 56px;
+}
+
+main {
+  display: grid;
+  gap: 28px;
+  transition: opacity 150ms ease-out;
+}
+
+main:focus {
+  outline: none;
+}
+
+/* Pendant un recalcul, l'affichage precedent reste en place, attenue. */
+body.busy main {
+  opacity: 0.5;
+}
+
+section {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* Une table large defile dans son cadre au lieu d'elargir la page. */
+section > * {
+  min-width: 0;
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+h2 {
+  font-size: 0.9375rem;
+  font-weight: 650;
+}
+
+h3 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.hint {
+  max-width: 78ch;
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 12px;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.check input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+
+
+.empty {
+  padding: 28px 16px;
+  border: 1px dashed var(--axis);
+  border-radius: var(--radius);
+  color: var(--ink-2);
+  text-align: center;
+}
+
+/* --- Alertes ------------------------------------------------------------ */
+.alerts {
+  display: grid;
+  gap: 8px;
+}
+
+.alerts:not(:empty) {
+  margin-bottom: 20px;
+}
+
+.alert {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: var(--info-bg);
+  color: var(--info-ink);
+  font-size: 0.8125rem;
+}
+
+.alert .icon {
+  margin-top: 1px;
+}
+
+.alert-warn {
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+}
+
+.alert-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert-body strong {
+  display: block;
+  font-weight: 650;
+}
+
+.alert-body ul {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.alert-body li {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+}
+
+.alert .btn-quiet {
+  color: inherit;
+}
+
+.link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+}
+
+.mark .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.mark-good .icon {
+  stroke: var(--good);
+}
+
+.mark-critical .icon {
+  stroke: var(--critical);
+}
+
+/* --- Tuiles ------------------------------------------------------------- */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.tile {
+  display: grid;
+  gap: 2px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.tile-label {
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+}
+
+.tile-value {
+  font-size: 1.625rem;
+  font-weight: 620;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.tile-sub {
+  min-height: 1.2em;
+  font-size: 0.75rem;
+  color: var(--ink-3);
+}
+
+.meter {
+  height: 6px;
+  margin-top: 6px;
+  border-radius: 3px;
+  background: var(--n1);
+  overflow: hidden;
+}
+
+.meter span {
+  display: block;
+  height: 100%;
+  background: var(--n3);
+}
+
+/* --- Tables ------------------------------------------------------------- */
+.table-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+th,
+td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--hairline);
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+thead th {
+  color: var(--ink-2);
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+th.num,
+td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+td.wrap {
+  min-width: 220px;
+  max-width: 380px;
+  white-space: normal;
+  color: var(--ink-2);
+}
+
+/* Un nom de compte long passe a la ligne au lieu de chasser les chiffres hors ecran. */
+td.name {
+  min-width: 140px;
+  max-width: 260px;
+  white-space: normal;
+}
+
+td .link,
+th .link {
+  color: var(--link);
+  text-decoration: none;
+}
+
+td .link:hover,
+th .link:hover,
+td .link[aria-pressed="true"] {
+  text-decoration: underline;
+}
+
+tbody tr:hover {
+  background: var(--hover);
+}
+
+tbody tr[aria-current="true"] {
+  background: var(--info-bg);
+}
+
+.sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.sort::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-inline: 4px solid transparent;
+  opacity: 0;
+}
+
+th[aria-sort="ascending"] .sort::after {
+  border-bottom: 5px solid currentColor;
+  opacity: 1;
+}
+
+th[aria-sort="descending"] .sort::after {
+  border-top: 5px solid currentColor;
+  opacity: 1;
+}
+
+.sub {
+  color: var(--ink-3);
+}
+
+/* Niveau atteint : une pastille pour la couleur, le libelle pour le sens. */
+.lv {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.lv::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: transparent;
+}
+
+.lv-n1::before {
+  background: var(--n1);
+}
+
+.lv-n2::before {
+  background: var(--n2);
+}
+
+.lv-n3::before {
+  background: var(--n3);
+}
+
+.lv-below::before {
+  background: var(--below-mark);
+}
+
+.lv-few,
+.lv-fewc,
+.lv-none,
+.lv-nopost {
+  color: var(--ink-3);
+}
+
+.lv-few::before,
+.lv-fewc::before,
+.lv-none::before,
+.lv-nopost::before {
+  box-shadow: inset 0 0 0 1px var(--axis);
+}
+
+/* --- Grille mois par mois ---------------------------------------------- */
+.grid-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow-x: auto;
+}
+
+.hm {
+  border-collapse: separate;
+  border-spacing: 2px;
+  padding: 6px;
+}
+
+.hm th,
+.hm td {
+  padding: 0;
+  border: 0;
+}
+
+.hm thead th {
+  padding: 2px 4px 6px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.hm thead th[aria-current="true"] {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.hm tbody th {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 180px;
+  max-width: 300px;
+  padding: 2px 12px 2px 4px;
+  background: var(--surface);
+  font-weight: 400;
+  white-space: normal;
+}
+
+.hm tbody tr:hover {
+  background: none;
+}
+
+.hm td {
+  width: 52px;
+  min-width: 46px;
+  height: 26px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.hm .c-n1 {
+  background: var(--n1);
+  color: var(--n1-ink);
+}
+
+.hm .c-n2 {
+  background: var(--n2);
+  color: var(--n2-ink);
+}
+
+.hm .c-n3 {
+  background: var(--n3);
+  color: var(--n3-ink);
+}
+
+.hm .c-below {
+  background: var(--below);
+  color: var(--below-ink);
+  font-weight: 500;
+}
+
+.hm .c-few,
+.hm .c-none {
+  color: var(--ink-3);
+  font-weight: 400;
+}
+
+/* --- Graphiques --------------------------------------------------------- */
+.figure {
+  margin: 0;
+  padding: 14px 16px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  color: var(--ink-2);
+}
+
+.key {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.key i {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.key i.line {
+  width: 16px;
+  height: 0;
+  border-top: 2px solid var(--deemph);
+  border-radius: 0;
+}
+
+.key i.dash {
+  width: 16px;
+  height: 0;
+  border-top: 1px dashed var(--ink-2);
+  border-radius: 0;
+}
+
+.key i.shade {
+  background: var(--band);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+}
+
+.k-n1 {
+  background: var(--n1);
+}
+
+.k-n2 {
+  background: var(--n2);
+}
+
+.k-n3 {
+  background: var(--n3);
+}
+
+.k-below,
+.k-none {
+  background: var(--below-mark);
+}
+
+.k-few,
+.k-fewc {
+  background: var(--few-mark);
+}
+
+.chart {
+  width: 100%;
+}
+
+.chart svg {
+  display: block;
+  overflow: visible;
+}
+
+.chart text {
+  fill: var(--ink-3);
+  font: 12px var(--font);
+  font-variant-numeric: tabular-nums;
+}
+
+.chart .now {
+  fill: var(--ink);
+  font-weight: 700;
+}
+
+.chart .gridline {
+  stroke: var(--hairline);
+}
+
+.chart .baseline {
+  stroke: var(--axis);
+}
+
+.chart .band {
+  fill: var(--band);
+}
+
+.chart .thr {
+  stroke: var(--ink-2);
+  stroke-dasharray: 5 4;
+}
+
+.chart .thr-label {
+  fill: var(--ink-2);
+  font-weight: 600;
+}
+
+.chart .bar {
+  transition: opacity 150ms ease-out;
+}
+
+.chart .bar.on {
+  opacity: 0.78;
+}
+
+.chart .bar.n1 {
+  fill: var(--n1);
+}
+
+.chart .bar.n2 {
+  fill: var(--n2);
+}
+
+.chart .bar.n3 {
+  fill: var(--n3);
+}
+
+.chart .bar.below,
+.chart .bar.none {
+  fill: var(--below-mark);
+}
+
+.chart .bar.few,
+.chart .bar.fewc {
+  fill: var(--few-mark);
+}
+
+.chart .now-mark {
+  fill: var(--ink);
+}
+
+.chart .hit {
+  fill: transparent;
+  outline: none;
+}
+
+.chart .hit:focus-visible {
+  stroke: var(--focus);
+  stroke-width: 2;
+}
+
+.chart .serie {
+  fill: none;
+  stroke: var(--deemph);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.chart .dot {
+  fill: var(--deemph);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+
+.chart .cross {
+  stroke: var(--axis);
+}
+
+.chart .end-label {
+  fill: var(--ink-2);
+  font-weight: 600;
+}
+
+.c1 {
+  --c: var(--s1);
+}
+
+.c2 {
+  --c: var(--s2);
+}
+
+.c3 {
+  --c: var(--s3);
+}
+
+.c4 {
+  --c: var(--s4);
+}
+
+.c5 {
+  --c: var(--s5);
+}
+
+.c6 {
+  --c: var(--s6);
+}
+
+.chart .serie[class*=" c"] {
+  stroke: var(--c);
+}
+
+.chart .dot[class*=" c"] {
+  fill: var(--c);
+}
+
+.key i.line[class*=" c"] {
+  border-top-color: var(--c);
+}
+
+details summary {
+  width: fit-content;
+  margin-top: 8px;
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+details .table-wrap {
+  margin-top: 8px;
+}
+
+/* --- Bulle -------------------------------------------------------------- */
+.tooltip {
+  position: fixed;
+  z-index: 40;
+  max-width: 280px;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--surface);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+.tooltip b {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+.tooltip .t-title {
+  opacity: 0.75;
+}
+
+.tooltip .t-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.tooltip .t-row strong {
+  min-width: 34px;
+  font-weight: 650;
+}
+
+.tooltip .t-key {
+  width: 12px;
+  border-top: 2px solid var(--deemph);
+}
+
+.tooltip .t-key[class*=" c"] {
+  border-top-color: var(--c);
+}
+
+/* --- Listes de faits ---------------------------------------------------- */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 12px 24px;
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.facts dt {
+  font-size: 0.75rem;
+  color: var(--ink-2);
+}
+
+.facts dd {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Adaptation --------------------------------------------------------- */
+@media (max-width: 960px) {
+  .tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .hm tbody th {
+    min-width: 132px;
+    max-width: 168px;
+  }
+
+  .bar,
+  .tabs,
+  .page {
+    padding-inline: 16px;
+  }
+
+  .controls,
+  .controls .field {
+    width: 100%;
+  }
+
+  .controls select,
+  .field-narrow input,
+  .controls .btn {
+    width: 100%;
+    height: 44px;
+  }
+
+  .controls .btn {
+    justify-content: center;
+  }
+
+  .tabs [role="tab"] {
+    height: 44px;
+  }
+
+  .status {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+@media print {
+  .topbar {
+    position: static;
+  }
+
+  .controls,
+  .tabs,
+  .btn {
+    display: none;
+  }
+}

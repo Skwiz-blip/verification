@@ -1,0 +1,211 @@
+# Mapping des colonnes brutes Meta Business Suite vers le schema canonique.
+#
+# Fonctionnement :
+#   - La comparaison est faite sur des noms NORMALISES (minuscules, accents
+#     supprimes, apostrophes typographiques et espaces insecables unifies).
+#     Il est donc inutile de lister les variantes d'accentuation ou de casse.
+#   - "exact" est prioritaire et sans ambiguite : c'est la strategie principale.
+#   - "patterns" (expressions regulieres, sur nom normalise) n'est utilise QUE
+#     si aucune correspondance exacte n'a ete trouvee pour le champ. Les motifs
+#     sont volontairement ancres : un motif trop large comme ".*organique.*"
+#     capturerait "vues de video de 3 secondes de publications organiques",
+#     qui n'est PAS la metrique voulue.
+#
+# Pour supporter un nouveau format d'export : ajouter le libelle dans "exact".
+
+fields:
+
+  post_id:
+    exact:
+      - "identifiant de la publication"
+      - "post id"
+      - "id de la publication"
+    required: true
+
+  account_id:
+    exact:
+      - "id de la page"
+      - "page id"
+      - "id du compte"
+      - "identifiant du compte"
+      - "account id"
+
+  account_name:
+    # Ordre = priorite. Le nom d'affichage prime sur l'identifiant technique ;
+    # "account username" ne sert que de repli pour les exports bilingues.
+    exact:
+      - "nom de la page"
+      - "page name"
+      - "nom du compte"
+      - "account name"
+      - "nom de profil du compte"
+      - "account username"
+      - "compte"
+    required: true
+
+  published_at:
+    exact:
+      - "heure de publication"
+      - "date de publication"
+      - "publish time"
+      - "date"
+    required: true
+
+  # "type de publication" et "post type" coexistent dans les exports bilingues,
+  # chacune ne couvrant qu'une partie des lignes : les deux sont fusionnees.
+  post_type_raw:
+    exact:
+      - "type de publication"
+      - "post type"
+      - "type de contenu"
+
+  permalink:
+    exact:
+      - "permalien"
+      - "permalink"
+      - "lien"
+      - "url"
+
+  title:
+    exact: ["titre", "title"]
+
+  description:
+    exact: ["description", "legende", "caption", "message"]
+
+  duration_s:
+    exact: ["duree (s)", "duration (sec)", "duree"]
+
+  # --- Portee / vues ---------------------------------------------------------
+  views_total:
+    exact:
+      - "vues"
+      - "views"
+      - "impressions"
+
+  views_organic:
+    exact:
+      - "vues de publications organiques"
+      - "organic views"
+    patterns:
+      - "^vues de publications organiques$"
+
+  views_boosted:
+    exact:
+      - "vues de publications boostees"
+      - "boosted views"
+    patterns:
+      - "^vues de publications boostees$"
+
+  reach_total:
+    exact:
+      - "couverture"
+      - "reach"
+      - "portee"
+      - "comptes touches"
+
+  reach_organic:
+    exact:
+      - "couverture de publications organiques"
+      - "organic reach"
+
+  reach_boosted:
+    exact:
+      - "couverture de publications boostees"
+      - "boosted reach"
+
+  # --- Interactions ----------------------------------------------------------
+  interactions_total:
+    exact:
+      - "reactions, commentaires et partages"
+      - "interactions"
+      - "engagement"
+
+  reactions:
+    exact: ["reactions", "j'aime", "likes", "mentions j'aime"]
+
+  comments:
+    exact: ["commentaires", "comments"]
+
+  shares:
+    exact: ["partages", "shares"]
+
+  saves:
+    exact: ["enregistrements", "saves", "publications enregistrees"]
+
+  # --- Clics -----------------------------------------------------------------
+  clicks_total:
+    exact: ["total des clics", "clics", "clicks", "post clicks"]
+
+  link_clicks:
+    exact: ["clics sur un lien", "link clicks"]
+
+  other_clicks:
+    exact: ["autres clics", "other clicks"]
+
+  profile_visits:
+    exact: ["visites du profil", "profile visits", "visites"]
+
+  # --- Signaux publicitaires (detection du sponsorise) ----------------------
+  sponsored_status:
+    exact: ["statut du contenu financee", "statut du contenu finance", "branded content status"]
+
+  ad_impressions:
+    exact: ["impressions publicitaires", "ad impressions"]
+
+  ad_cpm:
+    exact: ["cpm publicitaire (usd)", "ad cpm (usd)"]
+
+  estimated_earnings:
+    exact: ["revenus estimes (usd)", "estimated earnings (usd)"]
+
+  # --- Audience -------------------------------------------------------------
+  # Nombre total d'abonnes : absent des exports par publication observes.
+  followers:
+    exact: ["abonnes", "followers", "fans", "nombre d'abonnes"]
+
+  # Abonnes GAGNES grace a la publication (Instagram). A ne pas confondre avec
+  # le nombre total d'abonnes : c'est un indicateur d'acquisition, pas d'audience.
+  followers_gained:
+    exact: ["followers en plus", "abonnes gagnes", "follows"]
+
+# Champs numeriques : convertis avec coercition (valeurs non numeriques -> NaN).
+numeric_fields:
+  - duration_s
+  - views_total
+  - views_organic
+  - views_boosted
+  - reach_total
+  - reach_organic
+  - reach_boosted
+  - interactions_total
+  - reactions
+  - comments
+  - shares
+  - saves
+  - clicks_total
+  - link_clicks
+  - other_clicks
+  - profile_visits
+  - ad_impressions
+  - ad_cpm
+  - estimated_earnings
+  - followers
+  - followers_gained
+
+# Formats de date testes, dans l'ordre. Les exports Meta observes utilisent
+# MM/DD/YYYY HH:MM. Le parsing tombe en dernier recours sur l'inference pandas.
+date_formats:
+  - "%m/%d/%Y %H:%M"
+  - "%m/%d/%Y %H:%M:%S"
+  - "%Y-%m-%d %H:%M:%S"
+  - "%Y-%m-%d %H:%M"
+  - "%Y-%m-%d"
+  - "%d/%m/%Y %H:%M"
+
+# Valeurs traitees comme "vide" dans les colonnes texte.
+null_tokens:
+  - "N/A"
+  - "n/a"
+  - "-"
+  - "--"
+  - "Global"

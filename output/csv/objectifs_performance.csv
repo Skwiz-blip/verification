@@ -1,0 +1,77 @@
+﻿Compte,Secteur,Plateforme,Format,Publications,Mediane observee,Fiabilite,Niveau 1,Niveau 2,Niveau 3,Engagement cible (%),Atteinte N1 (%),Atteinte N2 (%),Atteinte N3 (%),Dispersion N3/N1,Statut,Avertissement
+Abi's Cream,Nourriture,facebook,photo,144,185.0,Elevee,185.0,245.0,265.0,3.16,50.7,28.5,20.1,1.4,Objectifs calcules,
+Abi's Cream,Nourriture,facebook,reel,19,422.0,Moyenne,425.0,460.0,485.0,2.56,47.4,31.6,21.1,1.1,Objectifs calcules,
+Abi's Cream,Nourriture,facebook,video,18,237.5,Moyenne,225.0,270.0,295.0,3.94,50.0,33.3,22.2,1.3,Objectifs calcules,
+Abi'scream,Nourriture,instagram,carousel,44,311.0,Elevee,310.0,485.0,560.0,9.39,50.0,31.8,20.5,1.8,Objectifs calcules,
+Abi'scream,Nourriture,instagram,photo,117,284.0,Elevee,285.0,400.0,450.0,7.01,49.6,29.9,20.5,1.6,Objectifs calcules,
+Abi'scream,Nourriture,instagram,reel,44,451.0,Elevee,440.0,760.0,1145.0,5.27,50.0,31.8,20.5,2.6,Objectifs calcules,
+Bonici Africa,Nourriture,facebook,photo,31,370.0,Elevee,370.0,430.0,530.0,3.7,51.6,29.0,19.4,1.4,Objectifs calcules,
+Bonici Africa,Nourriture,facebook,reel,4,370.5,Insuffisante,,,,,,,,,Echantillon insuffisant (4 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Bonici Africa,Nourriture,facebook,video,1,229.0,Insuffisante,,,,,,,,,Echantillon insuffisant (1 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Clair Optic Togo,Mode Lifestyle et Bien-etre,facebook,photo,94,63.5,Elevee,65.0,80.0,95.0,8.7,46.8,30.9,20.2,1.5,Objectifs calcules,
+Clair Optic Togo,Mode Lifestyle et Bien-etre,facebook,reel,8,76.0,Faible,,,,,,,,,Echantillon insuffisant (8 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Clair Optic Togo,Mode Lifestyle et Bien-etre,facebook,video,2,65.5,Insuffisante,,,,,,,,,Echantillon insuffisant (2 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Clair Optic Togo,Mode Lifestyle et Bien-etre,instagram,carousel,16,51.0,Moyenne,50.0,70.0,85.0,10.98,50.0,31.2,18.8,1.7,Objectifs calcules,
+Clair Optic Togo,Mode Lifestyle et Bien-etre,instagram,photo,79,71.0,Elevee,75.0,105.0,120.0,15.79,46.8,31.6,19.0,1.6,Objectifs calcules,
+Clair Optic Togo,Mode Lifestyle et Bien-etre,instagram,reel,12,158.5,Moyenne,155.0,235.0,240.0,2.33,50.0,25.0,25.0,1.5,Objectifs calcules,
+DAGAN MAGAZINE,Mode Lifestyle et Bien-etre,instagram,carousel,6,335.5,Faible,,,,,,,,,Echantillon insuffisant (6 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+DAGAN MAGAZINE,Mode Lifestyle et Bien-etre,instagram,photo,52,181.0,Elevee,180.0,220.0,245.0,7.33,51.9,30.8,19.2,1.4,Objectifs calcules,
+DAGAN MAGAZINE,Mode Lifestyle et Bien-etre,instagram,reel,2,1003.0,Insuffisante,,,,,,,,,Echantillon insuffisant (2 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+DOM'S Restaurant,Nourriture,facebook,photo,150,223.5,Elevee,225.0,280.0,325.0,1.96,49.3,29.3,20.7,1.4,Objectifs calcules,
+DOM'S Restaurant,Nourriture,facebook,reel,65,288.0,Elevee,290.0,415.0,515.0,2.09,49.2,30.8,18.5,1.8,Objectifs calcules,
+DOM'S Restaurant,Nourriture,facebook,video,13,109.0,Moyenne,110.0,120.0,125.0,3.03,46.2,30.8,23.1,1.1,Objectifs calcules,
+Dagan Magazine,Mode Lifestyle et Bien-etre,facebook,photo,120,243.5,Elevee,245.0,345.0,420.0,3.44,50.0,30.8,20.0,1.7,Objectifs calcules,
+Dagan Magazine,Mode Lifestyle et Bien-etre,facebook,reel,1,314.0,Insuffisante,,,,,,,,,Echantillon insuffisant (1 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Dom's Restaurant,Nourriture,instagram,carousel,72,133.5,Elevee,135.0,200.0,310.0,5.16,48.6,30.6,20.8,2.3,Objectifs calcules,
+Dom's Restaurant,Nourriture,instagram,photo,90,148.0,Elevee,145.0,300.0,405.0,3.81,51.1,30.0,20.0,2.8,Objectifs calcules,
+Dom's Restaurant,Nourriture,instagram,reel,90,230.5,Elevee,230.0,310.0,510.0,3.02,50.0,30.0,20.0,2.2,Objectifs calcules,
+GRETY'S LDM,Mode Lifestyle et Bien-etre,instagram,carousel,24,26.0,Moyenne,30.0,35.0,40.0,3.01,37.5,25.0,20.8,1.3,Objectifs calcules,
+GRETY'S LDM,Mode Lifestyle et Bien-etre,instagram,photo,12,21.5,Moyenne,25.0,30.0,35.0,5.0,41.7,25.0,25.0,1.4,Objectifs calcules,
+GRETY'S LDM,Mode Lifestyle et Bien-etre,instagram,reel,23,105.0,Moyenne,105.0,140.0,1815.0,2.15,52.2,30.4,21.7,17.3,Objectifs calcules,Distribution tres dispersee (N3 = 17.3 x N1) : le palier 3 depend de publications exceptionnelles et ne constitue pas un objectif de travail realiste.
+Grety's LDM,Mode Lifestyle et Bien-etre,facebook,photo,39,62.0,Elevee,65.0,90.0,100.0,4.17,48.7,25.6,17.9,1.5,Objectifs calcules,
+Grety's LDM,Mode Lifestyle et Bien-etre,facebook,reel,16,104.0,Moyenne,105.0,120.0,140.0,2.5,50.0,31.2,18.8,1.3,Objectifs calcules,
+Krystal Optique,Mode Lifestyle et Bien-etre,facebook,photo,38,176.5,Elevee,175.0,220.0,245.0,2.49,50.0,28.9,21.1,1.4,Objectifs calcules,
+Krystal Optique,Mode Lifestyle et Bien-etre,facebook,reel,9,291.0,Faible,,,,,,,,,Echantillon insuffisant (9 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Krystal Optique,Mode Lifestyle et Bien-etre,instagram,carousel,12,93.5,Moyenne,85.0,110.0,150.0,6.75,50.0,33.3,25.0,1.8,Objectifs calcules,
+Krystal Optique,Mode Lifestyle et Bien-etre,instagram,photo,30,109.5,Elevee,105.0,155.0,170.0,4.61,50.0,30.0,20.0,1.6,Objectifs calcules,
+Krystal Optique,Mode Lifestyle et Bien-etre,instagram,reel,11,193.0,Moyenne,195.0,255.0,540.0,5.68,45.5,36.4,18.2,2.8,Objectifs calcules,
+Krystal Optique Benin,Mode Lifestyle et Bien-etre,instagram,photo,23,26.0,Moyenne,30.0,100.0,105.0,12.5,47.8,30.4,21.7,3.5,Objectifs calcules,
+Krystal Optique Benin,Mode Lifestyle et Bien-etre,instagram,reel,7,133.0,Faible,,,,,,,,,Echantillon insuffisant (7 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Krystal Optique Bénin,Mode Lifestyle et Bien-etre,facebook,photo,35,35.0,Elevee,35.0,40.0,45.0,0.0,54.3,31.4,14.3,1.3,Objectifs calcules,
+Krystal Optique Bénin,Mode Lifestyle et Bien-etre,facebook,reel,8,31.5,Faible,,,,,,,,,Echantillon insuffisant (8 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Krystal Optique Bénin,Mode Lifestyle et Bien-etre,facebook,video,1,19.0,Insuffisante,,,,,,,,,Echantillon insuffisant (1 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Orithane,Mode Lifestyle et Bien-etre,facebook,photo,20,147.0,Moyenne,145.0,165.0,170.0,2.61,50.0,30.0,25.0,1.2,Objectifs calcules,
+Orithane,Mode Lifestyle et Bien-etre,facebook,reel,9,147.0,Faible,,,,,,,,,Echantillon insuffisant (9 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Pressing du Soleil,Mode Lifestyle et Bien-etre,facebook,photo,17,91.0,Moyenne,95.0,110.0,120.0,6.19,47.1,29.4,17.6,1.3,Objectifs calcules,
+Pressing du Soleil,Mode Lifestyle et Bien-etre,facebook,reel,5,130.0,Faible,,,,,,,,,Echantillon insuffisant (5 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Pressing du Soleil,Mode Lifestyle et Bien-etre,facebook,video,1,102.0,Insuffisante,,,,,,,,,Echantillon insuffisant (1 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Pressing_du_Soleil,Mode Lifestyle et Bien-etre,instagram,carousel,1,29.0,Insuffisante,,,,,,,,,Echantillon insuffisant (1 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Pressing_du_Soleil,Mode Lifestyle et Bien-etre,instagram,photo,14,23.0,Moyenne,25.0,30.0,35.0,19.09,35.7,21.4,14.3,1.4,Objectifs calcules,
+Pressing_du_Soleil,Mode Lifestyle et Bien-etre,instagram,reel,11,97.0,Moyenne,100.0,205.0,285.0,1.45,45.5,27.3,18.2,2.9,Objectifs calcules,
+SODIGAZ TOGO,Carburant,instagram,carousel,18,145.5,Moyenne,145.0,170.0,230.0,5.22,55.6,33.3,16.7,1.6,Objectifs calcules,
+SODIGAZ TOGO,Carburant,instagram,photo,69,119.0,Elevee,120.0,145.0,165.0,4.88,49.3,29.0,18.8,1.4,Objectifs calcules,
+SODIGAZ TOGO,Carburant,instagram,reel,41,147.0,Elevee,150.0,220.0,240.0,3.45,48.8,26.8,17.1,1.6,Objectifs calcules,
+Sodigaztg,Carburant,facebook,photo,85,921.0,Elevee,925.0,1635.0,1915.0,3.3,49.4,30.6,20.0,2.1,Objectifs calcules,
+Sodigaztg,Carburant,facebook,reel,43,607.0,Elevee,610.0,755.0,1075.0,3.26,48.8,30.2,20.9,1.8,Objectifs calcules,
+Sodigaztg,Carburant,facebook,video,7,480.0,Faible,,,,,,,,,Echantillon insuffisant (7 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Wakabi - Le guide des bons coins,Mode Lifestyle et Bien-etre,facebook,photo,58,125.0,Elevee,125.0,160.0,185.0,3.88,50.0,32.8,20.7,1.5,Objectifs calcules,
+Wakabi - Le guide des bons coins,Mode Lifestyle et Bien-etre,facebook,reel,125,563.0,Elevee,565.0,975.0,1705.0,2.59,49.6,30.4,20.0,3.0,Objectifs calcules,
+Wakabi - Le guide des bons coins,Mode Lifestyle et Bien-etre,facebook,video,1,108.0,Insuffisante,,,,,,,,,Echantillon insuffisant (1 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Wakabi Le Guide | Découverte | Bons plans | Divertissement,Mode Lifestyle et Bien-etre,instagram,carousel,45,391.0,Elevee,395.0,560.0,710.0,6.4,48.9,31.1,20.0,1.8,Objectifs calcules,
+Wakabi Le Guide | Découverte | Bons plans | Divertissement,Mode Lifestyle et Bien-etre,instagram,photo,8,184.5,Faible,,,,,,,,,Echantillon insuffisant (8 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Wakabi Le Guide | Découverte | Bons plans | Divertissement,Mode Lifestyle et Bien-etre,instagram,reel,152,707.0,Elevee,705.0,1540.0,2570.0,6.63,50.7,30.3,20.4,3.6,Objectifs calcules,
+Woodin Fashion Togo,Mode Lifestyle et Bien-etre,facebook,photo,302,1103.5,Elevee,1105.0,1455.0,1755.0,2.26,50.0,30.1,20.2,1.6,Objectifs calcules,
+Woodin Fashion Togo,Mode Lifestyle et Bien-etre,facebook,reel,21,701.0,Moyenne,705.0,840.0,1240.0,3.11,47.6,28.6,19.0,1.8,Objectifs calcules,
+Woodin Fashion Togo,Mode Lifestyle et Bien-etre,facebook,video,51,502.0,Elevee,505.0,605.0,755.0,2.56,49.0,29.4,19.6,1.5,Objectifs calcules,
+Woodin Fashion Togo,Mode Lifestyle et Bien-etre,instagram,carousel,63,1417.0,Elevee,1420.0,1775.0,2155.0,4.73,47.6,31.7,20.6,1.5,Objectifs calcules,
+Woodin Fashion Togo,Mode Lifestyle et Bien-etre,instagram,photo,342,639.0,Elevee,640.0,1295.0,1475.0,2.93,50.0,30.4,20.2,2.3,Objectifs calcules,
+Woodin Fashion Togo,Mode Lifestyle et Bien-etre,instagram,reel,90,852.5,Elevee,855.0,1155.0,1715.0,4.43,48.9,30.0,21.1,2.0,Objectifs calcules,
+Zener SA,Carburant,facebook,photo,198,1223.0,Elevee,1220.0,1760.0,2475.0,3.06,50.0,30.3,20.2,2.0,Objectifs calcules,
+Zener SA,Carburant,facebook,reel,31,865.0,Elevee,865.0,1150.0,1550.0,3.08,51.6,29.0,19.4,1.8,Objectifs calcules,
+Zener SA,Carburant,facebook,video,7,365.0,Faible,,,,,,,,,Echantillon insuffisant (7 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.
+Zener SA,Carburant,instagram,carousel,22,212.5,Moyenne,215.0,260.0,330.0,11.08,45.5,31.8,22.7,1.5,Objectifs calcules,
+Zener SA,Carburant,instagram,photo,183,109.0,Elevee,110.0,150.0,175.0,8.7,49.7,28.4,20.8,1.6,Objectifs calcules,
+Zener SA,Carburant,instagram,reel,39,235.0,Elevee,235.0,295.0,345.0,5.83,51.3,30.8,17.9,1.5,Objectifs calcules,
+bonici.africa,Nourriture,instagram,carousel,10,111.0,Moyenne,110.0,130.0,135.0,5.88,60.0,30.0,20.0,1.2,Objectifs calcules,
+bonici.africa,Nourriture,instagram,photo,32,336.5,Elevee,330.0,420.0,625.0,4.44,53.1,34.4,21.9,1.9,Objectifs calcules,
+bonici.africa,Nourriture,instagram,reel,7,176.0,Faible,,,,,,,,,Echantillon insuffisant (7 < 10),Aucun seuil chiffre : statistiques descriptives uniquement. Accumulez davantage de publications avant de fixer un objectif.

@@ -1,0 +1,992 @@
+08:01:33 | INFO    | socialstats.loader | 3 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+08:01:33 | INFO    | socialstats.loader | Lu Apr-01-2025_Jun-01-2025_2059834951559762.csv : 237 lignes x 227 colonnes (encodage=utf-8-sig, separateur=',')
+08:01:33 | INFO    | socialstats.loader | Lu Jul-24-2026_Aug-20-2026_1458711842799467.csv : 50 lignes x 35 colonnes (encodage=utf-8-sig, separateur=',')
+08:01:33 | INFO    | socialstats.loader | Lu May-23-2026_Aug-20-2026_1073172728550564.csv : 224 lignes x 32 colonnes (encodage=utf-8-sig, separateur=',')
+08:01:33 | INFO    | socialstats.schema_mapper | Apr-01-2025_Jun-01-2025_2059834951559762.csv : 26/227 colonnes mappees, plateforme=facebook, 3 champ(s) canonique(s) absent(s).
+08:01:33 | INFO    | socialstats.schema_mapper | 12 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:01:33 | INFO    | socialstats.schema_mapper | Jul-24-2026_Aug-20-2026_1458711842799467.csv : 20/35 colonnes mappees, plateforme=facebook, 9 champ(s) canonique(s) absent(s).
+08:01:33 | INFO    | socialstats.schema_mapper | 29 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:01:33 | INFO    | socialstats.schema_mapper | May-23-2026_Aug-20-2026_1073172728550564.csv : 22/32 colonnes mappees, plateforme=facebook, 7 champ(s) canonique(s) absent(s).
+08:01:33 | INFO    | socialstats.cleaner | Concatenation : 511 ligne(s) issues de 3 fichier(s).
+08:01:33 | INFO    | socialstats.sponsored | Sponsorise : 33/511 publication(s) detectee(s) (6.5 %), dont 0 sans detail organique.
+08:01:33 | INFO    | socialstats.dedup | Deduplication : 511 -> 467 lignes (44 publication(s) presente(s) dans plusieurs fichiers).
+08:01:33 | INFO    | socialstats.sponsored | Vues organiques resolues : 287 dediees, 180 via vues totales, 0 indisponibles.
+08:01:33 | INFO    | socialstats.validator | Validation : les 467 lignes sont exploitables.
+08:01:33 | INFO    | socialstats.engagement | Engagement : 464 taux calcules, 3 non calculables (dont 3 base nulle).
+08:01:33 | INFO    | socialstats.cleaner | Jeu de donnees final : 434 publication(s) organique(s), 6 compte(s), 5 format(s).
+08:01:33 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (434 lignes)
+08:01:33 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 44 publication(s) sur 434, aucune supprimee.
+08:01:33 | INFO    | socialstats.descriptive | Statistiques calculees pour 18 groupe(s).
+08:01:33 | INFO    | socialstats.objectives | Objectifs : 8 groupe(s) avec seuils chiffres, 8 en echantillon insuffisant.
+08:01:33 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 13 combinaison(s), dont 0 exploitable(s).
+08:01:34 | INFO    | socialstats.trends | Tendances : {'Performance en progression': 3, 'Performance en baisse': 1, 'Donnees insuffisantes': 1, 'Performance stable': 1}
+08:01:34 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+08:01:34 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+08:01:34 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+08:01:35 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+08:01:35 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+08:01:35 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+08:01:35 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+08:01:35 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+08:07:14 | INFO    | socialstats.loader | 3 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+08:07:14 | INFO    | socialstats.loader | Lu Apr-01-2025_Jun-01-2025_2059834951559762.csv : 237 lignes x 227 colonnes (encodage=utf-8-sig, separateur=',')
+08:07:14 | INFO    | socialstats.loader | Lu Jul-24-2026_Aug-20-2026_1458711842799467.csv : 50 lignes x 35 colonnes (encodage=utf-8-sig, separateur=',')
+08:07:14 | INFO    | socialstats.loader | Lu May-23-2026_Aug-20-2026_1073172728550564.csv : 224 lignes x 32 colonnes (encodage=utf-8-sig, separateur=',')
+08:07:14 | INFO    | socialstats.schema_mapper | Apr-01-2025_Jun-01-2025_2059834951559762.csv : 26/227 colonnes mappees, plateforme=facebook, 3 champ(s) canonique(s) absent(s).
+08:07:14 | INFO    | socialstats.schema_mapper | 12 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:07:14 | INFO    | socialstats.schema_mapper | Jul-24-2026_Aug-20-2026_1458711842799467.csv : 20/35 colonnes mappees, plateforme=facebook, 9 champ(s) canonique(s) absent(s).
+08:07:14 | INFO    | socialstats.schema_mapper | 29 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:07:14 | INFO    | socialstats.schema_mapper | May-23-2026_Aug-20-2026_1073172728550564.csv : 22/32 colonnes mappees, plateforme=facebook, 7 champ(s) canonique(s) absent(s).
+08:07:14 | INFO    | socialstats.cleaner | Concatenation : 511 ligne(s) issues de 3 fichier(s).
+08:07:14 | INFO    | socialstats.sponsored | Sponsorise : 33/511 publication(s) detectee(s) (6.5 %), dont 0 sans detail organique.
+08:07:14 | INFO    | socialstats.dedup | Deduplication : 511 -> 467 lignes (44 publication(s) presente(s) dans plusieurs fichiers).
+08:07:14 | INFO    | socialstats.sponsored | Vues organiques resolues : 287 dediees, 180 via vues totales, 0 indisponibles.
+08:07:14 | INFO    | socialstats.validator | Validation : les 467 lignes sont exploitables.
+08:07:14 | INFO    | socialstats.engagement | Engagement : 464 taux calcules, 3 non calculables (dont 3 base nulle).
+08:07:14 | INFO    | socialstats.cleaner | Jeu de donnees final : 434 publication(s) organique(s), 6 compte(s), 5 format(s).
+08:07:14 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (434 lignes)
+08:07:14 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 44 publication(s) sur 434, aucune supprimee.
+08:07:14 | INFO    | socialstats.descriptive | Statistiques calculees pour 18 groupe(s).
+08:07:14 | INFO    | socialstats.objectives | Objectifs : 8 groupe(s) avec seuils chiffres, 8 en echantillon insuffisant.
+08:07:14 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 13 combinaison(s), dont 0 exploitable(s).
+08:07:14 | INFO    | socialstats.trends | Tendances : {'Performance en progression': 3, 'Performance en baisse': 1, 'Donnees insuffisantes': 1, 'Performance stable': 1}
+08:07:14 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+08:07:14 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+08:07:15 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+08:07:15 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+08:07:15 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+08:07:16 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+08:07:16 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+08:07:16 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+08:07:52 | INFO    | socialstats.loader | 3 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+08:07:52 | INFO    | socialstats.loader | Lu Apr-01-2025_Jun-01-2025_2059834951559762.csv : 237 lignes x 227 colonnes (encodage=utf-8-sig, separateur=',')
+08:07:52 | INFO    | socialstats.loader | Lu Jul-24-2026_Aug-20-2026_1458711842799467.csv : 50 lignes x 35 colonnes (encodage=utf-8-sig, separateur=',')
+08:07:52 | INFO    | socialstats.loader | Lu May-23-2026_Aug-20-2026_1073172728550564.csv : 224 lignes x 32 colonnes (encodage=utf-8-sig, separateur=',')
+08:07:52 | INFO    | socialstats.schema_mapper | Apr-01-2025_Jun-01-2025_2059834951559762.csv : 26/227 colonnes mappees, plateforme=facebook, 3 champ(s) canonique(s) absent(s).
+08:07:52 | INFO    | socialstats.schema_mapper | 12 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:07:52 | INFO    | socialstats.schema_mapper | Jul-24-2026_Aug-20-2026_1458711842799467.csv : 20/35 colonnes mappees, plateforme=facebook, 9 champ(s) canonique(s) absent(s).
+08:07:52 | INFO    | socialstats.schema_mapper | 29 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:07:52 | INFO    | socialstats.schema_mapper | May-23-2026_Aug-20-2026_1073172728550564.csv : 22/32 colonnes mappees, plateforme=facebook, 7 champ(s) canonique(s) absent(s).
+08:07:52 | INFO    | socialstats.cleaner | Concatenation : 511 ligne(s) issues de 3 fichier(s).
+08:07:52 | INFO    | socialstats.sponsored | Sponsorise : 33/511 publication(s) detectee(s) (6.5 %), dont 0 sans detail organique.
+08:07:52 | INFO    | socialstats.dedup | Deduplication : 511 -> 467 lignes (44 publication(s) presente(s) dans plusieurs fichiers).
+08:07:52 | INFO    | socialstats.sponsored | Vues organiques resolues : 287 dediees, 180 via vues totales, 0 indisponibles.
+08:07:52 | INFO    | socialstats.validator | Validation : les 467 lignes sont exploitables.
+08:07:52 | INFO    | socialstats.engagement | Engagement : 464 taux calcules, 3 non calculables (dont 3 base nulle).
+08:07:52 | INFO    | socialstats.cleaner | Jeu de donnees final : 434 publication(s) organique(s), 6 compte(s), 5 format(s).
+08:07:52 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (434 lignes)
+08:07:52 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 44 publication(s) sur 434, aucune supprimee.
+08:07:52 | INFO    | socialstats.descriptive | Statistiques calculees pour 18 groupe(s).
+08:07:53 | INFO    | socialstats.objectives | Objectifs : 8 groupe(s) avec seuils chiffres, 8 en echantillon insuffisant.
+08:07:53 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 13 combinaison(s), dont 0 exploitable(s).
+08:07:53 | INFO    | socialstats.trends | Tendances : {'Performance en progression': 3, 'Performance en baisse': 1, 'Donnees insuffisantes': 1, 'Performance stable': 1}
+08:07:53 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+08:07:53 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+08:07:53 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+08:07:54 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+08:07:54 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+08:07:54 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+08:07:54 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+08:07:54 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+08:09:53 | INFO    | socialstats.loader | 3 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+08:09:53 | INFO    | socialstats.loader | Lu Apr-01-2025_Jun-01-2025_2059834951559762.csv : 237 lignes x 227 colonnes (encodage=utf-8-sig, separateur=',')
+08:09:53 | INFO    | socialstats.loader | Lu Jul-24-2026_Aug-20-2026_1458711842799467.csv : 50 lignes x 35 colonnes (encodage=utf-8-sig, separateur=',')
+08:09:53 | INFO    | socialstats.loader | Lu May-23-2026_Aug-20-2026_1073172728550564.csv : 224 lignes x 32 colonnes (encodage=utf-8-sig, separateur=',')
+08:09:53 | INFO    | socialstats.schema_mapper | Apr-01-2025_Jun-01-2025_2059834951559762.csv : 26/227 colonnes mappees, plateforme=facebook, 3 champ(s) canonique(s) absent(s).
+08:09:53 | INFO    | socialstats.schema_mapper | 12 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:09:53 | INFO    | socialstats.schema_mapper | Jul-24-2026_Aug-20-2026_1458711842799467.csv : 20/35 colonnes mappees, plateforme=facebook, 9 champ(s) canonique(s) absent(s).
+08:09:53 | INFO    | socialstats.schema_mapper | 29 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:09:53 | INFO    | socialstats.schema_mapper | May-23-2026_Aug-20-2026_1073172728550564.csv : 22/32 colonnes mappees, plateforme=facebook, 7 champ(s) canonique(s) absent(s).
+08:09:53 | INFO    | socialstats.cleaner | Concatenation : 511 ligne(s) issues de 3 fichier(s).
+08:09:53 | INFO    | socialstats.sponsored | Sponsorise : 33/511 publication(s) detectee(s) (6.5 %), dont 0 sans detail organique.
+08:09:53 | INFO    | socialstats.dedup | Deduplication : 511 -> 467 lignes (44 publication(s) presente(s) dans plusieurs fichiers).
+08:09:53 | INFO    | socialstats.sponsored | Vues organiques resolues : 287 dediees, 180 via vues totales, 0 indisponibles.
+08:09:53 | INFO    | socialstats.validator | Validation : les 467 lignes sont exploitables.
+08:09:53 | INFO    | socialstats.engagement | Engagement : 464 taux calcules, 3 non calculables (dont 3 base nulle).
+08:09:53 | INFO    | socialstats.cleaner | Jeu de donnees final : 434 publication(s) organique(s), 6 compte(s), 5 format(s).
+08:09:53 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (434 lignes)
+08:09:53 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 5 publication(s) sur 34, aucune supprimee.
+08:09:53 | INFO    | socialstats.descriptive | Statistiques calculees pour 3 groupe(s).
+08:09:53 | INFO    | socialstats.objectives | Objectifs : 1 groupe(s) avec seuils chiffres, 2 en echantillon insuffisant.
+08:09:53 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 3 combinaison(s), dont 0 exploitable(s).
+08:09:53 | INFO    | socialstats.trends | Tendances : {'Performance en baisse': 1}
+08:09:53 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+08:09:54 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+08:09:54 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+08:09:54 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+08:09:54 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+08:09:54 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+08:09:55 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+08:09:55 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+08:09:57 | INFO    | socialstats.loader | 3 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+08:09:57 | INFO    | socialstats.loader | Lu Apr-01-2025_Jun-01-2025_2059834951559762.csv : 237 lignes x 227 colonnes (encodage=utf-8-sig, separateur=',')
+08:09:57 | INFO    | socialstats.loader | Lu Jul-24-2026_Aug-20-2026_1458711842799467.csv : 50 lignes x 35 colonnes (encodage=utf-8-sig, separateur=',')
+08:09:57 | INFO    | socialstats.loader | Lu May-23-2026_Aug-20-2026_1073172728550564.csv : 224 lignes x 32 colonnes (encodage=utf-8-sig, separateur=',')
+08:09:57 | INFO    | socialstats.schema_mapper | Apr-01-2025_Jun-01-2025_2059834951559762.csv : 26/227 colonnes mappees, plateforme=facebook, 3 champ(s) canonique(s) absent(s).
+08:09:57 | INFO    | socialstats.schema_mapper | 12 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:09:57 | INFO    | socialstats.schema_mapper | Jul-24-2026_Aug-20-2026_1458711842799467.csv : 20/35 colonnes mappees, plateforme=facebook, 9 champ(s) canonique(s) absent(s).
+08:09:57 | INFO    | socialstats.schema_mapper | 29 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:09:57 | INFO    | socialstats.schema_mapper | May-23-2026_Aug-20-2026_1073172728550564.csv : 22/32 colonnes mappees, plateforme=facebook, 7 champ(s) canonique(s) absent(s).
+08:09:57 | INFO    | socialstats.cleaner | Concatenation : 511 ligne(s) issues de 3 fichier(s).
+08:09:57 | INFO    | socialstats.sponsored | Sponsorise : 33/511 publication(s) detectee(s) (6.5 %), dont 0 sans detail organique.
+08:09:57 | INFO    | socialstats.dedup | Deduplication : 511 -> 467 lignes (44 publication(s) presente(s) dans plusieurs fichiers).
+08:09:57 | INFO    | socialstats.sponsored | Vues organiques resolues : 287 dediees, 180 via vues totales, 0 indisponibles.
+08:09:57 | INFO    | socialstats.validator | Validation : les 467 lignes sont exploitables.
+08:09:57 | INFO    | socialstats.cleaner | Periode last_3_months : 2026-05-20 -> 2026-08-20, 237 publication(s) hors periode ecartee(s).
+08:09:57 | INFO    | socialstats.engagement | Engagement : 229 taux calcules, 1 non calculables (dont 1 base nulle).
+08:09:57 | INFO    | socialstats.cleaner | Jeu de donnees final : 228 publication(s) organique(s), 6 compte(s), 4 format(s).
+08:09:57 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (228 lignes)
+08:09:57 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 25 publication(s) sur 228, aucune supprimee.
+08:09:57 | INFO    | socialstats.descriptive | Statistiques calculees pour 12 groupe(s).
+08:09:57 | INFO    | socialstats.objectives | Objectifs : 5 groupe(s) avec seuils chiffres, 5 en echantillon insuffisant.
+08:09:57 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 8 combinaison(s), dont 0 exploitable(s).
+08:09:57 | INFO    | socialstats.trends | Tendances : {'Performance en baisse': 3, 'Donnees insuffisantes': 2, 'Performance en progression': 1}
+08:09:57 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+08:09:57 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+08:09:58 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+08:09:58 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+08:09:58 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+08:09:58 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+08:09:59 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+08:09:59 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+08:10:01 | INFO    | socialstats.loader | 3 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+08:10:01 | INFO    | socialstats.loader | Lu Apr-01-2025_Jun-01-2025_2059834951559762.csv : 237 lignes x 227 colonnes (encodage=utf-8-sig, separateur=',')
+08:10:01 | INFO    | socialstats.loader | Lu Jul-24-2026_Aug-20-2026_1458711842799467.csv : 50 lignes x 35 colonnes (encodage=utf-8-sig, separateur=',')
+08:10:01 | INFO    | socialstats.loader | Lu May-23-2026_Aug-20-2026_1073172728550564.csv : 224 lignes x 32 colonnes (encodage=utf-8-sig, separateur=',')
+08:10:01 | INFO    | socialstats.schema_mapper | Apr-01-2025_Jun-01-2025_2059834951559762.csv : 26/227 colonnes mappees, plateforme=facebook, 3 champ(s) canonique(s) absent(s).
+08:10:01 | INFO    | socialstats.schema_mapper | 12 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:10:01 | INFO    | socialstats.schema_mapper | Jul-24-2026_Aug-20-2026_1458711842799467.csv : 20/35 colonnes mappees, plateforme=facebook, 9 champ(s) canonique(s) absent(s).
+08:10:01 | INFO    | socialstats.schema_mapper | 29 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:10:01 | INFO    | socialstats.schema_mapper | May-23-2026_Aug-20-2026_1073172728550564.csv : 22/32 colonnes mappees, plateforme=facebook, 7 champ(s) canonique(s) absent(s).
+08:10:01 | INFO    | socialstats.cleaner | Concatenation : 511 ligne(s) issues de 3 fichier(s).
+08:10:01 | INFO    | socialstats.sponsored | Sponsorise : 33/511 publication(s) detectee(s) (6.5 %), dont 0 sans detail organique.
+08:10:01 | INFO    | socialstats.dedup | Deduplication : 511 -> 467 lignes (44 publication(s) presente(s) dans plusieurs fichiers).
+08:10:01 | INFO    | socialstats.sponsored | Vues organiques resolues : 287 dediees, 180 via vues totales, 0 indisponibles.
+08:10:01 | INFO    | socialstats.validator | Validation : les 467 lignes sont exploitables.
+08:10:01 | INFO    | socialstats.engagement | Engagement : 464 taux calcules, 3 non calculables (dont 3 base nulle).
+08:10:01 | INFO    | socialstats.cleaner | Jeu de donnees final : 434 publication(s) organique(s), 6 compte(s), 5 format(s).
+08:10:01 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (434 lignes)
+08:10:01 | WARNING | socialstats | Compte(s) inconnu(s) ignore(s) : Compte Fantome
+08:10:12 | INFO    | socialstats.loader | 3 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+08:10:12 | INFO    | socialstats.loader | Lu Apr-01-2025_Jun-01-2025_2059834951559762.csv : 237 lignes x 227 colonnes (encodage=utf-8-sig, separateur=',')
+08:10:12 | INFO    | socialstats.loader | Lu Jul-24-2026_Aug-20-2026_1458711842799467.csv : 50 lignes x 35 colonnes (encodage=utf-8-sig, separateur=',')
+08:10:12 | INFO    | socialstats.loader | Lu May-23-2026_Aug-20-2026_1073172728550564.csv : 224 lignes x 32 colonnes (encodage=utf-8-sig, separateur=',')
+08:10:12 | INFO    | socialstats.schema_mapper | Apr-01-2025_Jun-01-2025_2059834951559762.csv : 26/227 colonnes mappees, plateforme=facebook, 3 champ(s) canonique(s) absent(s).
+08:10:12 | INFO    | socialstats.schema_mapper | 12 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:10:12 | INFO    | socialstats.schema_mapper | Jul-24-2026_Aug-20-2026_1458711842799467.csv : 20/35 colonnes mappees, plateforme=facebook, 9 champ(s) canonique(s) absent(s).
+08:10:12 | INFO    | socialstats.schema_mapper | 29 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:10:12 | INFO    | socialstats.schema_mapper | May-23-2026_Aug-20-2026_1073172728550564.csv : 22/32 colonnes mappees, plateforme=facebook, 7 champ(s) canonique(s) absent(s).
+08:10:12 | INFO    | socialstats.cleaner | Concatenation : 511 ligne(s) issues de 3 fichier(s).
+08:10:12 | INFO    | socialstats.sponsored | Sponsorise : 33/511 publication(s) detectee(s) (6.5 %), dont 0 sans detail organique.
+08:10:12 | INFO    | socialstats.dedup | Deduplication : 511 -> 467 lignes (44 publication(s) presente(s) dans plusieurs fichiers).
+08:10:12 | INFO    | socialstats.sponsored | Vues organiques resolues : 287 dediees, 180 via vues totales, 0 indisponibles.
+08:10:12 | INFO    | socialstats.validator | Validation : les 467 lignes sont exploitables.
+08:10:12 | INFO    | socialstats.engagement | Engagement : 464 taux calcules, 3 non calculables (dont 3 base nulle).
+08:10:12 | INFO    | socialstats.cleaner | Jeu de donnees final : 434 publication(s) organique(s), 6 compte(s), 5 format(s).
+08:10:12 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (434 lignes)
+08:10:12 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 44 publication(s) sur 434, aucune supprimee.
+08:10:12 | INFO    | socialstats.descriptive | Statistiques calculees pour 18 groupe(s).
+08:10:12 | INFO    | socialstats.objectives | Objectifs : 8 groupe(s) avec seuils chiffres, 8 en echantillon insuffisant.
+08:10:12 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 13 combinaison(s), dont 0 exploitable(s).
+08:10:12 | INFO    | socialstats.trends | Tendances : {'Performance en progression': 3, 'Performance en baisse': 1, 'Donnees insuffisantes': 1, 'Performance stable': 1}
+08:10:12 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+08:10:13 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+08:10:13 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+08:10:13 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+08:10:14 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+08:10:14 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+08:10:14 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+08:10:14 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+11:38:52 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+11:38:52 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+11:38:52 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+11:38:52 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+11:38:52 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+11:38:52 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+11:38:52 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+11:38:52 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+11:38:52 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+11:38:52 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+11:38:52 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+11:38:52 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+11:38:53 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+11:38:53 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+11:38:53 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+11:38:53 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+11:38:53 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+11:38:53 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+11:38:53 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+11:38:53 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+11:38:53 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+11:38:53 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+11:38:57 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, GRETY’S LDM, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+11:38:57 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+11:38:57 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+11:38:57 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+11:38:57 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+11:38:58 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+11:38:58 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+11:38:58 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+11:38:59 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+11:38:59 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+11:39:00 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+11:39:01 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+11:39:02 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+11:39:03 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+11:39:05 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+11:39:06 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+11:39:06 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+11:39:23 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+11:39:23 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+11:39:23 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+11:39:23 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+11:39:23 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+11:39:23 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+11:39:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+11:39:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+11:39:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+11:39:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+11:39:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+11:39:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+11:39:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+11:39:23 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+11:39:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+11:39:23 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+11:39:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+11:39:23 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+11:39:23 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+11:39:23 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+11:39:23 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+11:39:23 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+11:39:27 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, GRETY’S LDM, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+11:39:27 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+11:39:27 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+11:39:27 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+11:39:27 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+11:39:28 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+11:39:28 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+11:39:28 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+11:39:29 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+11:39:29 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+11:39:30 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+11:39:31 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+11:39:32 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+11:39:33 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+11:39:34 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+11:39:36 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+11:39:36 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+08:45:41 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+08:45:41 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+08:45:41 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+08:45:41 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+08:45:41 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+08:45:41 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+08:45:41 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+08:45:41 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+08:45:41 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+08:45:41 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+08:45:41 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+08:45:41 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+08:45:41 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+08:45:41 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:45:41 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+08:45:41 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:45:41 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+08:45:41 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+08:45:41 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+08:45:42 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+08:45:42 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+08:45:42 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+08:45:45 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, Grety's Ldm, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+08:45:46 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+08:45:46 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+08:45:46 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+08:45:46 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+08:45:46 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+08:45:46 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+08:45:47 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+08:45:47 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+08:45:47 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+08:45:49 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+08:45:50 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+08:45:51 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+08:45:52 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+08:45:54 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+08:45:55 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+08:45:55 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+08:46:00 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+08:46:00 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+08:46:00 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+08:46:00 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+08:46:01 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+08:46:01 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+08:46:01 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+08:46:01 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+08:46:01 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+08:46:01 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+08:46:01 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+08:46:01 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+08:46:01 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+08:46:01 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:46:01 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+08:46:01 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:46:01 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+08:46:01 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+08:46:01 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+08:46:01 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+08:46:01 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+08:46:01 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+08:46:05 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, Grety's Ldm, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+08:46:05 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+08:46:05 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+08:46:05 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+08:46:05 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+08:46:05 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+08:46:06 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+08:46:06 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+08:46:07 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+08:46:07 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+08:46:08 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+08:46:09 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+08:46:10 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+08:46:12 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+08:46:13 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+08:46:15 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+08:46:15 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+08:51:23 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+08:51:23 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+08:51:23 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+08:51:23 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+08:51:23 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+08:51:23 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+08:51:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+08:51:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+08:51:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+08:51:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+08:51:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+08:51:23 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+08:51:24 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+08:51:24 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:51:24 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+08:51:24 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+08:51:24 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+08:51:24 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+08:51:24 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+08:51:24 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+08:51:24 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+08:51:24 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+08:51:28 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, GRETY'S LDM, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+08:51:28 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+08:51:28 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+08:51:28 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+08:51:28 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+08:51:29 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+08:51:29 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+08:51:29 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+08:51:30 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+08:51:30 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+08:51:31 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+08:51:32 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+08:51:34 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+08:51:35 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+08:51:37 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+08:51:38 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+08:51:38 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+09:00:17 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+09:00:17 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+09:00:17 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+09:00:17 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+09:00:17 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+09:00:17 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+09:00:17 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:00:17 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:00:17 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+09:00:17 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+09:00:17 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+09:00:17 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+09:00:17 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:00:17 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+09:00:17 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+09:00:17 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+09:00:17 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+09:00:17 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+09:00:17 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+09:00:17 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+09:00:17 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+09:00:18 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+09:00:22 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, GRETY'S LDM, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+09:00:22 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+09:00:22 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+09:00:22 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+09:00:22 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+09:00:23 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+09:00:23 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+09:00:23 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+09:00:24 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+09:00:24 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+09:00:25 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+09:00:27 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+09:00:28 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+09:00:29 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+09:00:30 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+09:00:32 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+09:00:32 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+09:01:58 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+09:01:58 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+09:01:58 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+09:01:58 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+09:01:58 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+09:01:58 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+09:01:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:01:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:01:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+09:01:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+09:01:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+09:01:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+09:01:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:01:58 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+09:01:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+09:01:58 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+09:01:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+09:01:58 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+09:01:58 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+09:01:58 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+09:01:58 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+09:01:58 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+09:02:02 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, GRETY'S LDM, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+09:02:02 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+09:02:02 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+09:02:03 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+09:02:03 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+09:02:03 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+09:02:03 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+09:02:04 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+09:02:04 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+09:02:04 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+09:02:05 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+09:02:07 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+09:02:08 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+09:02:09 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+09:02:10 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+09:02:12 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+09:02:12 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+09:35:19 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+09:35:19 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+09:35:19 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+09:35:19 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+09:35:19 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+09:35:19 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+09:35:19 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:35:19 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:35:19 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+09:35:19 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+09:35:19 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+09:35:19 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+09:35:19 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:35:19 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+09:35:19 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+09:35:19 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+09:35:19 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+09:35:19 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+09:35:20 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+09:35:20 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+09:35:20 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+09:35:20 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+09:35:24 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, GRETY'S LDM, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+09:35:24 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+09:35:24 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+09:35:24 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+09:35:25 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+09:35:25 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+09:35:25 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+09:35:25 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+09:35:26 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+09:35:26 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+09:35:28 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+09:35:29 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+09:35:31 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+09:35:32 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+09:35:34 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+09:35:36 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+09:35:36 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+09:54:29 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+09:54:29 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+09:54:29 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+09:54:29 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+09:54:29 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+09:54:29 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+09:54:29 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:54:30 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:54:30 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+09:54:30 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+09:54:30 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+09:54:30 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+09:54:30 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:54:30 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+09:54:30 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+09:54:30 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+09:54:30 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+09:54:30 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+09:54:30 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+09:54:30 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+09:54:30 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+09:54:30 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+09:54:34 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, GRETY'S LDM, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+09:54:34 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+09:54:34 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+09:54:34 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+09:54:34 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+09:54:35 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+09:54:35 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+09:54:35 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+09:54:36 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+09:54:36 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+09:54:37 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+09:54:39 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+09:54:40 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+09:54:41 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+09:54:43 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+09:54:44 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+09:54:44 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+10:22:00 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+10:22:00 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+10:22:00 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+10:22:00 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+10:22:00 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+10:22:00 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+10:22:00 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:22:00 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:22:00 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+10:22:00 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+10:22:00 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+10:22:00 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+10:22:00 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:22:00 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:22:00 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:22:01 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:22:01 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:22:01 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+10:22:01 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+10:22:01 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+10:22:01 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+10:22:01 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+10:22:05 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, GRETY'S LDM, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+10:22:05 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+10:22:05 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+10:22:05 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+10:22:05 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+10:22:06 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+10:22:06 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+10:22:06 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+10:22:07 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+10:22:07 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+10:22:08 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+10:22:10 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+10:22:11 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+10:22:12 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+10:22:14 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+10:22:15 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+10:22:15 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+10:23:12 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+10:23:12 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+10:23:12 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+10:23:12 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+10:23:12 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+10:23:12 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+10:23:12 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:23:12 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:23:12 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+10:23:12 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+10:23:12 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+10:23:12 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+10:23:12 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:23:13 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:23:13 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:23:13 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:23:13 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:23:13 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+10:23:13 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+10:23:13 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+10:23:13 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+10:23:13 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+10:23:17 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, GRETY'S LDM, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+10:23:17 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+10:23:17 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+10:23:17 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+10:23:17 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+10:23:17 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+10:23:18 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+10:23:18 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+10:23:19 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+10:23:19 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+10:23:20 | INFO    | socialstats.reporting | 14 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+10:23:21 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+10:23:22 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+10:23:23 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+10:23:24 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+10:23:26 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+10:23:26 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+19:12:35 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+19:12:35 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+19:12:35 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+19:12:35 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+19:12:35 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+19:12:36 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+19:12:36 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+19:12:36 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+19:12:36 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+19:12:36 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+19:12:36 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+19:12:36 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+19:12:36 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+19:12:36 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+19:12:36 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+19:12:36 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+19:12:36 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+19:12:36 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+19:12:36 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+19:12:36 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+19:12:36 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+19:12:36 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+19:12:41 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, GRETY'S LDM, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+19:12:41 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+19:12:41 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+19:12:41 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+19:12:41 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+19:12:41 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+19:12:42 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+19:12:42 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+19:13:05 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+19:13:05 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+19:13:05 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+19:13:05 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+19:13:05 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+19:13:05 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+19:13:05 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+19:13:05 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+19:13:05 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+19:13:05 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+19:13:05 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+19:13:05 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+19:13:05 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+19:13:05 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+19:13:05 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+19:13:05 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+19:13:05 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+19:13:05 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+19:13:05 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+19:13:05 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+19:13:05 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+19:13:05 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+19:13:10 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, GRETY'S LDM, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+19:13:10 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+19:13:10 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+19:13:10 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+19:13:10 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+19:13:11 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+19:13:11 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+19:13:11 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+19:13:11 | INFO    | socialstats.objectives | Objectifs sectoriels : 6 categorie(s) avec seuils chiffres, 12 insuffisante(s).
+19:13:12 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+19:13:12 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+19:13:14 | INFO    | socialstats.reporting | 15 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+19:13:15 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+19:13:16 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+19:13:17 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+19:13:19 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+19:13:20 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+19:13:20 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+19:14:51 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+19:14:51 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+19:14:51 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+19:14:51 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+19:14:51 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+19:14:51 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+19:14:51 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+19:14:51 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+19:14:51 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+19:14:51 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+19:14:51 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+19:14:51 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+19:14:51 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+19:14:51 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+19:14:51 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+19:14:51 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+19:14:51 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+19:14:51 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+19:14:51 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+19:14:51 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+19:14:51 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+19:14:51 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+19:14:56 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, GRETY'S LDM, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+19:14:56 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+19:14:56 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+19:14:56 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+19:14:56 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+19:14:57 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+19:14:57 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+19:14:57 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+19:14:57 | INFO    | socialstats.objectives | Objectifs sectoriels : 6 categorie(s) avec seuils chiffres, 12 insuffisante(s).
+19:14:58 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+19:14:59 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+19:15:00 | INFO    | socialstats.reporting | 15 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+19:15:01 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+19:15:02 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+19:15:04 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+19:15:06 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+19:15:07 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+19:15:07 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+19:15:47 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+19:15:47 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+19:15:47 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+19:15:47 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+19:15:47 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+19:15:47 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+19:15:47 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+19:15:47 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+19:15:47 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+19:15:47 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+19:15:47 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+19:15:47 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+19:15:47 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+19:15:48 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+19:15:48 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+19:15:48 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+19:15:48 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+19:15:48 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+19:15:48 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+19:15:48 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+19:15:48 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+19:15:48 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+19:15:52 | WARNING | socialstats.cleaner | 17 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, GRETY'S LDM, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+19:15:52 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+19:15:52 | INFO    | socialstats.cleaner | Jeu de donnees final : 2685 publication(s) organique(s), 33 compte(s), 6 format(s).
+19:15:52 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2685 lignes)
+19:15:53 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2685, aucune supprimee.
+19:15:53 | INFO    | socialstats.descriptive | Statistiques calculees pour 74 groupe(s).
+19:15:53 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 28 en echantillon insuffisant.
+19:15:53 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 6 exploitable(s).
+19:15:54 | INFO    | socialstats.objectives | Objectifs sectoriels : 6 categorie(s) avec seuils chiffres, 12 insuffisante(s).
+19:15:54 | INFO    | socialstats.trends | Tendances : {'Donnees insuffisantes': 17, 'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+19:15:55 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+19:15:56 | INFO    | socialstats.reporting | 15 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+19:15:57 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+19:15:58 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+19:15:59 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+19:16:01 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+19:16:02 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+19:16:02 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+09:51:54 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+09:51:54 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+09:51:54 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+09:51:55 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+09:51:55 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+09:51:55 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+09:51:55 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:51:55 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:51:55 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+09:51:55 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+09:51:55 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+09:51:55 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+09:51:55 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:51:55 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+09:51:55 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+09:51:55 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+09:51:55 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+09:51:55 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+09:51:55 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+09:51:55 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+09:51:55 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+09:51:55 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+09:52:01 | WARNING | socialstats.cleaner | 16 compte(s) sans secteur declare dans config/clients.csv : C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, Laetitia, Le coin d'eden, Loïc Léo, Moena Garden| AfroLuxury, Orncity Orncity, Salon international de l'automobile du Togo, Succès Afrique, THE LEVEL NIGHT CLUB, Togo Fashion week, Yasmine Ouro., ZanziBar Lomé, Öri Infos
+09:52:01 | INFO    | socialstats.engagement | Engagement : 2760 taux calcules, 1 non calculables (dont 1 base nulle).
+09:52:01 | INFO    | socialstats.cleaner | 17 compte(s) ecarte(s) : moins de 10 publication(s) sur la periode (C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, Laetitia, Le coin d'eden, Live Y Dream, Loïc Léo ...).
+09:52:01 | INFO    | socialstats.cleaner | Jeu de donnees final : 2662 publication(s) organique(s), 16 compte(s), 6 format(s).
+09:52:01 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2662 lignes)
+09:52:01 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2662, aucune supprimee.
+09:52:01 | INFO    | socialstats.descriptive | Statistiques calculees pour 55 groupe(s).
+09:52:02 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 10 en echantillon insuffisant.
+09:52:02 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 15 combinaison(s), dont 6 exploitable(s).
+09:52:02 | INFO    | socialstats.objectives | Objectifs sectoriels : 6 categorie(s) avec seuils chiffres, 9 insuffisante(s).
+09:52:03 | INFO    | socialstats.trends | Tendances : {'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+09:52:03 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+09:52:04 | INFO    | socialstats.reporting | 15 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+09:52:05 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+09:52:06 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+09:52:07 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+09:52:08 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+09:52:10 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+09:52:10 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+09:52:58 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+09:52:58 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+09:52:58 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+09:52:58 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+09:52:58 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+09:52:58 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+09:52:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:52:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:52:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+09:52:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+09:52:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+09:52:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+09:52:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+09:52:58 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+09:52:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+09:52:58 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+09:52:58 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+09:52:58 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+09:52:58 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+09:52:58 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+09:52:58 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+09:52:58 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+09:52:58 | INFO    | socialstats.cleaner | 17 compte(s) ecarte(s) : moins de 10 publication(s) sur la periode (C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, Laetitia, Le coin d'eden, Live Y Dream, Loïc Léo ...).
+09:53:03 | INFO    | socialstats.engagement | Engagement : 2737 taux calcules, 1 non calculables (dont 1 base nulle).
+09:53:03 | INFO    | socialstats.cleaner | Jeu de donnees final : 2662 publication(s) organique(s), 16 compte(s), 6 format(s).
+09:53:03 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2662 lignes)
+09:53:03 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2662, aucune supprimee.
+09:53:03 | INFO    | socialstats.descriptive | Statistiques calculees pour 55 groupe(s).
+09:53:04 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 10 en echantillon insuffisant.
+09:53:04 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 15 combinaison(s), dont 6 exploitable(s).
+09:53:04 | INFO    | socialstats.objectives | Objectifs sectoriels : 6 categorie(s) avec seuils chiffres, 9 insuffisante(s).
+09:53:05 | INFO    | socialstats.trends | Tendances : {'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+09:53:05 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+09:53:06 | INFO    | socialstats.reporting | 15 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+09:53:07 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+09:53:08 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+09:53:09 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+09:53:11 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+09:53:12 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+09:53:12 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+10:05:01 | INFO    | socialstats.loader | 5 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+10:05:02 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+10:05:02 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+10:05:02 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+10:05:02 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+10:05:02 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+10:05:02 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:05:02 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:05:02 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+10:05:02 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+10:05:02 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+10:05:02 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+10:05:02 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:05:02 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:05:02 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:05:02 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:05:02 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:05:02 | INFO    | socialstats.cleaner | Concatenation : 2770 ligne(s) issues de 5 fichier(s).
+10:05:02 | INFO    | socialstats.sponsored | Sponsorise : 76/2770 publication(s) detectee(s) (2.7 %), dont 0 sans detail organique.
+10:05:02 | INFO    | socialstats.dedup | Deduplication : 2770 -> 2763 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+10:05:02 | INFO    | socialstats.sponsored | Vues organiques resolues : 826 dediees, 1935 via vues totales, 2 indisponibles.
+10:05:02 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 2763.
+10:05:02 | INFO    | socialstats.cleaner | 17 compte(s) ecarte(s) : moins de 10 publication(s) sur la periode (C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, Laetitia, Le coin d'eden, Live Y Dream, Loïc Léo ...).
+10:05:07 | INFO    | socialstats.engagement | Engagement : 2737 taux calcules, 1 non calculables (dont 1 base nulle).
+10:05:07 | INFO    | socialstats.cleaner | Jeu de donnees final : 2662 publication(s) organique(s), 16 compte(s), 6 format(s).
+10:05:08 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (2662 lignes)
+10:05:08 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 220 publication(s) sur 2662, aucune supprimee.
+10:05:08 | INFO    | socialstats.descriptive | Statistiques calculees pour 55 groupe(s).
+10:05:08 | INFO    | socialstats.objectives | Objectifs : 39 groupe(s) avec seuils chiffres, 10 en echantillon insuffisant.
+10:05:09 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 15 combinaison(s), dont 6 exploitable(s).
+10:05:09 | INFO    | socialstats.objectives | Objectifs sectoriels : 11 categorie(s) avec seuils chiffres, 4 insuffisante(s).
+10:05:09 | INFO    | socialstats.trends | Tendances : {'Performance en baisse': 13, 'Performance en progression': 3, 'Tendance incertaine': 1}
+10:05:09 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+10:05:10 | INFO    | socialstats.reporting | 15 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+10:05:12 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+10:05:12 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+10:05:13 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+10:05:15 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+10:05:16 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+10:05:16 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+10:31:33 | INFO    | socialstats.loader | 7 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+10:31:33 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1035597415774796.csv : 41 lignes x 201 colonnes (encodage=utf-8-sig, separateur=',')
+10:31:34 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+10:31:34 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+10:31:34 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1452097196970501.csv : 1190 lignes x 364 colonnes (encodage=utf-8-sig, separateur=',')
+10:31:34 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+10:31:34 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+10:31:34 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+10:31:34 | INFO    | socialstats.schema_mapper | 17 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:31:34 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1035597415774796.csv : 26/201 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:31:34 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:31:34 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:31:34 | INFO    | socialstats.schema_mapper | 171 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:31:34 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1452097196970501.csv : 26/364 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:31:34 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+10:31:34 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+10:31:34 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+10:31:34 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+10:31:34 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:31:34 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:31:34 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:31:34 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:31:34 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:31:34 | INFO    | socialstats.cleaner | Concatenation : 4001 ligne(s) issues de 7 fichier(s).
+10:31:34 | INFO    | socialstats.sponsored | Sponsorise : 184/4001 publication(s) detectee(s) (4.6 %), dont 0 sans detail organique.
+10:31:35 | INFO    | socialstats.dedup | Deduplication : 4001 -> 3994 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+10:31:35 | INFO    | socialstats.sponsored | Vues organiques resolues : 2057 dediees, 1935 via vues totales, 2 indisponibles.
+10:31:35 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 3994.
+10:31:35 | INFO    | socialstats.cleaner | 17 compte(s) ecarte(s) : moins de 10 publication(s) sur la periode (C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, Laetitia, Le coin d'eden, Live Y Dream, Loïc Léo ...).
+10:31:41 | WARNING | socialstats.cleaner | 2 compte(s) sans secteur declare dans config/clients.csv : Abi's Cream, Orithane
+10:31:41 | INFO    | socialstats.engagement | Engagement : 3957 taux calcules, 12 non calculables (dont 12 base nulle).
+10:31:41 | INFO    | socialstats.cleaner | Jeu de donnees final : 3785 publication(s) organique(s), 23 compte(s), 6 format(s).
+10:31:41 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (3785 lignes)
+10:31:41 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 309 publication(s) sur 3785, aucune supprimee.
+10:31:42 | INFO    | socialstats.descriptive | Statistiques calculees pour 84 groupe(s).
+10:31:42 | INFO    | socialstats.objectives | Objectifs : 56 groupe(s) avec seuils chiffres, 20 en echantillon insuffisant.
+10:31:42 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 21 combinaison(s), dont 8 exploitable(s).
+10:31:43 | INFO    | socialstats.objectives | Objectifs sectoriels : 13 categorie(s) avec seuils chiffres, 8 insuffisante(s).
+10:31:43 | INFO    | socialstats.trends | Tendances : {'Performance en baisse': 19, 'Performance en progression': 6, 'Performance stable': 1, 'Tendance incertaine': 1}
+10:31:43 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+10:31:45 | INFO    | socialstats.reporting | 15 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+10:31:46 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+10:31:47 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+10:31:48 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+10:31:50 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+10:31:52 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+10:31:52 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
+10:32:30 | INFO    | socialstats.loader | 7 fichier(s) detecte(s) dans C:\Users\HP\Donnée_\data\raw
+10:32:30 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1035597415774796.csv : 41 lignes x 201 colonnes (encodage=utf-8-sig, separateur=',')
+10:32:30 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1370642331942894.csv : 464 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+10:32:30 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1372820905056232.csv : 194 lignes x 18 colonnes (encodage=utf-8-sig, separateur=',')
+10:32:30 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1452097196970501.csv : 1190 lignes x 364 colonnes (encodage=utf-8-sig, separateur=',')
+10:32:30 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1584226533248834.csv : 1286 lignes x 23 colonnes (encodage=utf-8-sig, separateur=',')
+10:32:30 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_1761932608284496.csv : 551 lignes x 302 colonnes (encodage=utf-8-sig, separateur=',')
+10:32:31 | INFO    | socialstats.loader | Lu Aug-01-2025_Aug-01-2026_2014371369279366.csv : 275 lignes x 257 colonnes (encodage=utf-8-sig, separateur=',')
+10:32:31 | INFO    | socialstats.schema_mapper | 17 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:32:31 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1035597415774796.csv : 26/201 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:32:31 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1370642331942894.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:32:31 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1372820905056232.csv : 15/18 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:32:31 | INFO    | socialstats.schema_mapper | 171 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:32:31 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1452097196970501.csv : 26/364 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:32:31 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_id complete sur 128 ligne(s) via la colonne 'Post ID'.
+10:32:31 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ account_id complete sur 128 ligne(s) via la colonne 'Account ID'.
+10:32:31 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ post_type_raw complete sur 81 ligne(s) via la colonne 'Post type'.
+10:32:31 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : champ permalink complete sur 81 ligne(s) via la colonne 'Permalink'.
+10:32:31 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1584226533248834.csv : 15/23 colonnes mappees, plateforme=instagram, 15 champ(s) canonique(s) absent(s).
+10:32:31 | INFO    | socialstats.schema_mapper | 191 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:32:31 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_1761932608284496.csv : 26/302 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:32:31 | INFO    | socialstats.schema_mapper | 49 publication(s) reclassee(s) en Reel d'apres le permalien (type Meta declare : Vidéos).
+10:32:31 | INFO    | socialstats.schema_mapper | Aug-01-2025_Aug-01-2026_2014371369279366.csv : 26/257 colonnes mappees, plateforme=facebook, 4 champ(s) canonique(s) absent(s).
+10:32:31 | INFO    | socialstats.cleaner | Concatenation : 4001 ligne(s) issues de 7 fichier(s).
+10:32:31 | INFO    | socialstats.sponsored | Sponsorise : 184/4001 publication(s) detectee(s) (4.6 %), dont 0 sans detail organique.
+10:32:31 | INFO    | socialstats.dedup | Deduplication : 4001 -> 3994 lignes (7 publication(s) presente(s) dans plusieurs fichiers).
+10:32:31 | INFO    | socialstats.sponsored | Vues organiques resolues : 2057 dediees, 1935 via vues totales, 2 indisponibles.
+10:32:31 | WARNING | socialstats.validator | Validation : 2 ligne(s) mise(s) en quarantaine sur 3994.
+10:32:31 | INFO    | socialstats.cleaner | 17 compte(s) ecarte(s) : moins de 10 publication(s) sur la periode (C'est Du Génie, Cavalicci Joseph Nyaliwou, Cyprien Atavi-G, Enora Gaz, Laetitia, Le coin d'eden, Live Y Dream, Loïc Léo ...).
+10:32:37 | INFO    | socialstats.engagement | Engagement : 3957 taux calcules, 12 non calculables (dont 12 base nulle).
+10:32:37 | INFO    | socialstats.cleaner | Jeu de donnees final : 3785 publication(s) organique(s), 23 compte(s), 6 format(s).
+10:32:37 | INFO    | socialstats.cleaner | Dataset nettoye ecrit : C:\Users\HP\Donnée_\data\processed\cleaned_social_data.csv (3785 lignes)
+10:32:38 | INFO    | socialstats.outliers | Outliers signales (methode=iqr) : 309 publication(s) sur 3785, aucune supprimee.
+10:32:38 | INFO    | socialstats.descriptive | Statistiques calculees pour 84 groupe(s).
+10:32:38 | INFO    | socialstats.objectives | Objectifs : 56 groupe(s) avec seuils chiffres, 20 en echantillon insuffisant.
+10:32:39 | INFO    | socialstats.sector_analysis | Benchmark sectoriel : 18 combinaison(s), dont 9 exploitable(s).
+10:32:39 | INFO    | socialstats.objectives | Objectifs sectoriels : 14 categorie(s) avec seuils chiffres, 4 insuffisante(s).
+10:32:40 | INFO    | socialstats.trends | Tendances : {'Performance en baisse': 19, 'Performance en progression': 6, 'Performance stable': 1, 'Tendance incertaine': 1}
+10:32:40 | INFO    | socialstats.cm_rollup | Aucun Community Manager declare dans clients.csv : analyse conservee au niveau compte.
+10:32:41 | INFO    | socialstats.reporting | 15 sortie(s) ecrite(s) dans C:\Users\HP\Donnée_\output
+10:32:42 | INFO    | socialstats.visualization | Graphique ecrit : 01_distribution_vues_par_format.png
+10:32:42 | INFO    | socialstats.visualization | Graphique ecrit : 02_comparaison_formats.png
+10:32:43 | INFO    | socialstats.visualization | Graphique ecrit : 03_evolution_temporelle.png
+10:32:45 | INFO    | socialstats.visualization | Graphique ecrit : 04_comparaison_sectorielle.png
+10:32:47 | INFO    | socialstats.visualization | Graphique ecrit : 05_objectifs_par_niveau.png
+10:32:47 | INFO    | socialstats.visualization | 5 graphique(s) genere(s).
