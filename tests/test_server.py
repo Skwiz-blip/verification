@@ -119,6 +119,13 @@ class TestHttp:
         assert "default-src 'self'" in headers["Content-Security-Policy"]
         assert headers["X-Content-Type-Options"] == "nosniff"
 
+    def test_la_configuration_en_ligne_n_est_jamais_servie_en_local(self, live):
+        """`web/config.js` vise Supabase : le serveur local repond a sa place."""
+        port, _ = live
+        status, _, body = request(port, "GET", "/config.js")
+        assert status == 200
+        assert body.strip() == b"window.CONTROLE_CONFIG = null;"
+
     def test_le_controle_repond_sur_un_export_reel(self, live):
         port, _ = live
         status, _, body = request(port, "GET", "/api/controle")

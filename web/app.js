@@ -59,6 +59,12 @@ let imports = [];
 let charts = [];
 let requests = 0;
 
+/* Deux sources de donnees, un seul affichage. En local, le serveur Python calcule a la
+   demande. En ligne, `config.js` designe Supabase, ou les resultats ont ete publies :
+   l'interface ne fait alors que lire. */
+const REMOTE = window.CONTROLE_CONFIG?.supabaseUrl ? window.CONTROLE_CONFIG : null;
+let published = null;
+
 /* --- Outils ---------------------------------------------------------------- */
 const $ = (id) => document.getElementById(id);
 
@@ -181,6 +187,65 @@ async function getJSON(path, params = {}) {
   return body;
 }
 
+async function supabase(path) {
+  let response;
+  try {
+    response = await fetch(`${REMOTE.supabaseUrl}/rest/v1/${path}`, {
+      headers: {
+        apikey: REMOTE.supabaseKey,
+        Authorization: `Bearer ${REMOTE.supabaseKey}`,
+        Accept: 'application/json',
+      },
+    });
+  } catch {
+    throw new Error('La base en ligne ne répond pas. Vérifiez votre connexion.');
+  }
+  if (response.status === 401 || response.status === 403) {
+    throw new Error('Accès refusé par la base en ligne : la clé publique de config.js est invalide.');
+  }
+  if (!response.ok) throw new Error(`La base en ligne a répondu par une erreur ${response.status}.`);
+  return response.json();
+}
+
+async function fetchControl() {
+  if (!REMOTE) {
+    return getJSON('/api/controle', {
+      mois: state.mois, ref: state.ref, debut: state.debut, fin: state.fin, min: state.min,
+    });
+  }
+  if (!REMOTE.supabaseKey) throw new Error('La clé publique Supabase est absente de config.js.');
+  if (!published) {
+    const rows = await supabase('etat?select=valeur&cle=eq.publication');
+    if (!rows.length) return { vide: true, import_autorise: false };
+    published = rows[0].valeur;
+  }
+  // Seuls les mois et les references publies existent en ligne.
+  const month = published.mois.includes(state.mois) ? state.mois : published.mois_defaut;
+  const ref = published.refs.includes(state.ref) ? state.ref : published.refs[0];
+  const query = new URLSearchParams({ select: 'payload', mois: `eq.${month}`, ref: `eq.${ref}` });
+  const rows = await supabase(`controles?${query}`);
+  if (!rows.length) return { vide: true, import_autorise: false };
+  return { ...rows[0].payload, import_autorise: false };
+}
+
+async function fetchPosts(row) {
+  const month = data.meta.mois_controle;
+  if (!REMOTE) {
+    const payload = await getJSON('/api/publications', {
+      compte: row.compte, plateforme: row.plateforme, format: row.format, mois: month,
+    });
+    return payload.publications;
+  }
+  return supabase(`publications?${new URLSearchParams({
+    select: 'date:publie_le,vues,couverture,engagement,lien,texte',
+    compte: `eq.${row.compte}`,
+    plateforme: `eq.${row.plateforme}`,
+    format: `eq.${row.format}`,
+    mois: `eq.${month}`,
+    order: 'publie_le.desc',
+  })}`);
+}
+
 function setBusy(message) {
   document.body.classList.toggle('busy', Boolean(message));
   $('etat').textContent = message;
@@ -188,11 +253,9 @@ function setBusy(message) {
 
 async function load() {
   const mine = ++requests;
-  setBusy(data ? 'Calcul en cours…' : 'Lecture et nettoyage des exports…');
+  setBusy(REMOTE ? 'Chargement…' : data ? 'Calcul en cours…' : 'Lecture et nettoyage des exports…');
   try {
-    const payload = await getJSON('/api/controle', {
-      mois: state.mois, ref: state.ref, debut: state.debut, fin: state.fin, min: state.min,
-    });
+    const payload = await fetchControl();
     if (mine !== requests) return;
     data = payload;
     failure = null;
@@ -243,6 +306,8 @@ function renderControls() {
   $('importer').hidden = data?.import_autorise === false;
   const ready = Boolean(data && !data.vide && !failure);
   for (const id of ['mois', 'ref', 'debut', 'fin', 'min']) $(id).disabled = !ready;
+  // En ligne, le minimum de publications est celui retenu a la publication.
+  if (REMOTE) $('min').disabled = true;
   if (!ready) {
     $('resume').textContent = '';
     return;
@@ -259,7 +324,8 @@ function renderControls() {
     plural(meta.fichiers, 'fichier', 'fichiers'),
     `${int(meta.publications)} publications organiques`,
     `${monthLabel(meta.mois[0])} → ${monthLabel(meta.mois.at(-1))}`,
-  ].join(' · ');
+    published && `publié le ${dayLabel(published.publie_le)}`,
+  ].filter(Boolean).join(' · ');
   if (!document.body.classList.contains('busy')) {
     $('etat').textContent =
       `Objectifs : ${monthLabel(meta.ref.debut)} → ${monthLabel(meta.ref.fin)} · ${int(meta.ref.publications)} publications`;
@@ -789,7 +855,7 @@ function postsTable(row) {
     return badge('below', '< N1');
   };
   const columns = [
-    { key: 'date', label: 'Date', text: (p) => `${dayLabel(p.date)} ${p.date.slice(11)}` },
+    { key: 'date', label: 'Date', text: (p) => `${dayLabel(p.date)} ${p.date.slice(11, 16)}` },
     { key: 'vues', label: 'Vues', num: true, text: (p) => int(p.vues) },
     { key: 'couverture', label: 'Couverture', num: true, text: (p) => int(p.couverture) },
     { key: 'engagement', label: 'Engagement', num: true, text: (p) => (p.engagement == null ? '' : `${nf1.format(p.engagement)} %`) },
@@ -802,11 +868,9 @@ function postsTable(row) {
     },
     { key: 'texte', label: 'Texte', wrap: true, text: (p) => p.texte ?? '' },
   ];
-  getJSON('/api/publications', {
-    compte: row.compte, plateforme: row.plateforme, format: row.format, mois: data.meta.mois_controle,
-  }).then((payload) => {
+  fetchPosts(row).then((posts) => {
     if (!box.isConnected) return;
-    box.replaceChildren(dataTable('publications', 'Publications du mois', columns, payload.publications,
+    box.replaceChildren(dataTable('publications', 'Publications du mois', columns, posts,
       { sortable: false, empty: 'Aucune publication ce mois-ci.' }));
   }).catch((error) => {
     if (box.isConnected) box.replaceChildren(h('p', { class: 'empty', text: error.message }));
@@ -897,14 +961,8 @@ function viewCategory() {
     },
   ];
 
-  const notes = [];
-  if (current.some((row) => row.derogation)) {
-    notes.push('Dérogation : cette catégorie est calculée sur moins de comptes que le minimum général. Ses paliers décrivent ces comptes, pas un marché.');
-  }
-  const mixed = current.filter((row) => row.heterogene);
-  if (mixed.length) {
-    notes.push(`Comptes très hétérogènes (${mixed.map((row) => `${platformLabel(row.plateforme)} ${formatLabel(row.format).toLowerCase()} : ×${nf0.format(row.dispersion)}`).join(', ')}) : une cible commune a peu de sens, lisez plutôt « Comptes à leur N1 ».`);
-  }
+  const notes = []; 
+  const mixed = current.filter((row) => row.heterogene); 
 
   const pairs = new Map();
   for (const row of history) {
@@ -1025,7 +1083,7 @@ function viewData() {
   return [
     h('section', {},
       h('h2', { text: 'Exports chargés' }),
-      h('p', { class: 'hint', text: `Dossier : ${donnees.dossier}. « Publications retenues » : organiques, dédupliquées, sur des comptes suffisamment alimentés.` }),
+      h('p', { class: 'hint', text: `${donnees.dossier ? `Dossier : ${donnees.dossier}. ` : ''}« Publications retenues » : organiques, dédupliquées, sur des comptes suffisamment alimentés.` }),
       files, alerts),
     h('section', {},
       h('h2', { text: 'Nettoyage' }),
@@ -1068,7 +1126,10 @@ function render() {
   }
   if (!data) return;
   if (data.vide) {
-    main.replaceChildren(data.import_autorise === false
+    main.replaceChildren(REMOTE
+      ? statePanel('Aucun résultat publié',
+        'Les résultats apparaîtront ici après la prochaine publication.', 'Actualiser', load)
+      : data.import_autorise === false
       ? statePanel('Aucun export chargé',
         "Les exports s'ajoutent depuis le poste qui héberge l'interface.", 'Actualiser', load)
       : statePanel('Aucun export chargé',
@@ -1113,6 +1174,8 @@ async function upload(files) {
 
 function init() {
   readURL();
+  // La periode personnalisee demande un calcul a la demande : elle reste locale.
+  if (REMOTE) $('ref').querySelector('[value="custom"]').remove();
   $('importer').prepend(icon('upload'));
   $('mois').addEventListener('change', (e) => { state.mois = e.target.value; load(); });
   $('ref').addEventListener('change', (e) => {

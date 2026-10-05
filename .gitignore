@@ -1,0 +1,8 @@
+# Secrets : la cle secrete Supabase ne doit jamais etre versionnee.
+.env
+.env.*
+!.env.example
+
+__pycache__/
+*.pyc
+.pytest_cache/

@@ -90,13 +90,49 @@ Pour la retirer : `Remove-NetFirewallRule -DisplayName "Controle mensuel CM"`.
 
 **Contrôle du comptage des vues** : l'onglet « Données » trace le nombre de vues par personne touchée. Ce ratio ne dépend pas de la taille de l'audience ; s'il change d'échelle pendant la période de référence, les seuils en vues mélangent deux façons de compter, et les séries concernées sont mises en couleur sur le graphique. C'est le cas d'Instagram photo et carrousel sur les exports actuels (environ 4 vues par personne jusqu'en novembre 2025, environ 1,7 ensuite) : pour ces formats, préférer une référence postérieure à janvier 2026.
 
+### Mise en ligne (Vercel + Supabase)
+
+L'interface peut aussi être consultée en ligne. Les calculs restent faits sur ce poste, par le pipeline ; Supabase ne stocke que des résultats prêts à afficher, et le site hébergé sur Vercel se contente de les lire. Il n'existe donc toujours qu'une seule version des objectifs.
+
+```
+exports CSV  ->  pipeline Python (ce poste)  ->  Supabase  ->  interface sur Vercel
+```
+
+**Mise en place, une seule fois**
+
+1. Dans Supabase, ouvrir *SQL Editor*, coller le contenu de `supabase/schema.sql` et l'exécuter. Il crée trois tables (`controles`, `publications`, `etat`) et un dépôt privé `exports`.
+2. Copier `.env.example` sous le nom `.env` et y renseigner les deux clés (*Project Settings > API Keys*). `.env` n'est pas versionné.
+
+**Chaque mois**
+
+```powershell
+.\publier.bat
+```
+
+La commande nettoie les exports de `data/raw/`, calcule un contrôle par mois et par période de référence (environ deux minutes pour une année), envoie le tout, puis écrit `web/config.js`. Il reste à pousser le dossier `web/` vers son dépôt pour que Vercel redéploie, uniquement quand un fichier de `web/` a changé. Pour tout calculer sans rien envoyer : `.\publier.bat --dry-run`.
+
+**Ce que contient Supabase**
+
+| Emplacement | Contenu | Lisible avec la clé publique |
+|---|---|---|
+| `controles` | Une réponse précalculée par mois contrôlé et par période de référence | Oui |
+| `publications` | Les publications organiques retenues, avec leurs mesures | Oui |
+| `etat` | Mois disponibles, références publiées, date de publication | Oui |
+| Dépôt `exports` | Les exports Meta bruts, en archive | Non |
+
+**Deux clés, deux rôles.** La clé secrète écrit dans la base : elle ne se trouve que dans `.env`. La clé publique ne permet que de lire : c'est la seule recopiée dans `web/config.js`. La commande refuse de publier si les deux sont interverties.
+
+**Accès public.** Aucune connexion n'est demandée : toute personne qui a l'adresse du site voit les résultats, et la clé publique permet de lire directement les trois tables. Le site demande aux moteurs de recherche de ne pas l'indexer, ce qui n'empêche pas un lien de circuler.
+
+**Différences avec l'interface locale.** En ligne, on consulte seulement : pas d'ajout d'exports, quatre périodes de référence (tout l'historique précédent, 6 mois, 3 mois, toute la période) et un minimum de publications fixé à la publication (`--min-posts`, 3 par défaut). La période personnalisée reste propre à l'interface locale.
+
 ### Tests
 
 ```bash
 python -m pytest
 ```
 
-159 tests, dont une suite d'intégration qui s'exécute sur les vrais exports présents dans `data/raw/` (ignorée automatiquement si le dossier est vide).
+181 tests, dont une suite d'intégration qui s'exécute sur les vrais exports présents dans `data/raw/` (ignorée automatiquement si le dossier est vide).
 
 ---
 
@@ -360,9 +396,11 @@ src/socialstats/
     monthly.py           contrôle mensuel : référence, niveaux atteints, catégories, comptage des vues
     ingest.py            ajout contrôlé d'un export à data/raw
     server.py            serveur local de l'interface (bibliothèque standard uniquement)
+    publish.py           publication des résultats vers Supabase pour l'interface en ligne
+supabase/        schema.sql : tables et règles d'accès à créer une fois
 web/             index.html, app.css, app.js : interface de contrôle mensuel
 output/          csv/ excel/ charts/ reports/
-tests/           159 tests, dont intégration sur les exports réels
+tests/           181 tests, dont intégration sur les exports réels
 ```
 
 Le module de statistiques descriptives s'appelle `descriptive.py` et non `statistics.py` afin de ne pas masquer le module `statistics` de la bibliothèque standard.

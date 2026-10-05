@@ -81,6 +81,7 @@ STATIC_FILES = {
     "/app.css": ("app.css", "text/css; charset=utf-8"),
     "/app.js": ("app.js", "text/javascript; charset=utf-8"),
 }
+LOCAL_CONFIG = b"window.CONTROLE_CONFIG = null;\n"
 RESPONSE_HEADERS = {
     "Cache-Control": "no-store",
     "X-Content-Type-Options": "nosniff",
@@ -527,6 +528,10 @@ class ControlHandler(BaseHTTPRequestHandler):
                 self._error(HTTPStatus.INTERNAL_SERVER_ERROR, f"Fichier d'interface manquant : {file_name}")
                 return
             self._send(HTTPStatus.OK, body, content_type)
+        elif url.path == "/config.js":
+            # `web/config.js` branche l'interface EN LIGNE sur Supabase. Servi
+            # ici, il detournerait l'interface locale de son propre serveur.
+            self._send(HTTPStatus.OK, LOCAL_CONFIG, "text/javascript; charset=utf-8")
         elif url.path == "/api/controle":
             # La reponse calculee est partagee entre les postes ; le droit
             # d'importer depend de celui qui demande et s'ajoute a la volee.
@@ -672,3 +677,5 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+ 
