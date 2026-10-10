@@ -12,7 +12,13 @@ import pytest
 
 from socialstats import publish as publish_module
 from socialstats.cleaner import CleaningResult
+from socialstats.config import load_settings
 from socialstats.publish import (
+    ACCEPTED,
+    DUPLICATE,
+    REFUSED,
+    RUNNING,
+    WAITING,
     PUBLISHED_PRESETS,
     ROLE_PUBLIC,
     ROLE_SECRET,
@@ -25,11 +31,15 @@ from socialstats.publish import (
     load_env,
     publication_rows,
     publish,
+    run,
     state_row,
+    stored_exports,
     write_web_config,
 )
 
-from helpers import make_posts
+from helpers import make_export_csv, make_posts
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 STAMP = "2026-10-05T19:40:00+00:00"
 URL = "https://exemple.supabase.co"
@@ -206,16 +216,13 @@ class TestClient:
 
 
 class TestPublish:
-    def test_les_nouvelles_lignes_arrivent_avant_le_retrait_des_anciennes(self, tmp_path):
-        export = tmp_path / "juin.csv"
-        export.write_bytes(b"a,b")
+    def test_les_nouvelles_lignes_arrivent_avant_le_retrait_des_anciennes(self):
         recorder = Recorder()
         publish(
             SupabaseClient(URL, "cle", recorder),
             [{"post_id": "1"}],
             [{"mois": "2026-06", "ref": "before", "payload": {}}],
             {"cle": "publication", "valeur": {}},
-            [export],
             STAMP,
         )
         assert [(method, path.split("?")[0]) for method, path in recorder.calls()] == [
@@ -224,7 +231,6 @@ class TestPublish:
             ("POST", "/rest/v1/etat"),
             ("DELETE", "/rest/v1/publications"),
             ("DELETE", "/rest/v1/controles"),
-            ("POST", "/storage/v1/object/exports/juin.csv"),
         ]
 
     def test_configuration_de_l_interface(self, tmp_path):
@@ -241,3 +247,154 @@ class TestPublish:
         )
         assert publish_module.main(["--config", str(Path(tmp_path))]) == 1
         assert "SUPABASE_URL" in capsys.readouterr().err
+
+
+class FakeSupabase:
+    """Supabase en memoire : depot de fichiers, table imports, resultats publies."""
+
+    def __init__(self, files: dict[str, bytes], imports: list[dict], fail_on_publish: bool = False):
+        self.files = dict(files)
+        self.imports = [dict(row) for row in imports]
+        self.published: dict[str, list] = {}
+        self.fail_on_publish = fail_on_publish
+        self.downloads = 0
+
+    def select(self, table, query):
+        assert table == "imports"
+        return [
+            {k: row[k] for k in ("id", "nom", "chemin")}
+            for row in self.imports
+            if row["statut"] in (WAITING, RUNNING)
+        ]
+
+    def update(self, table, query, values):
+        assert table == "imports"
+        wanted = query.split(".", 1)[1].strip("()").split(",")
+        for row in self.imports:
+            if row["id"] in wanted:
+                row.update(values)
+
+    def list_objects(self, bucket, prefix=""):
+        names = sorted(self.files)
+        if prefix:
+            inside = [n[len(prefix) + 1:] for n in names if n.startswith(prefix + "/")]
+            return [{"id": "f", "name": n} for n in inside]
+        root = [{"id": "f", "name": n} for n in names if "/" not in n]
+        return root + [{"id": None, "name": "imports"}]
+
+    def download(self, bucket, name):
+        self.downloads += 1
+        return self.files[name]
+
+    def remove(self, bucket, names):
+        for name in names:
+            self.files.pop(name, None)
+
+    def upsert(self, table, rows, on_conflict, batch):
+        if self.fail_on_publish:
+            raise RuntimeError("coupure reseau")
+        self.published[table] = rows
+
+    def delete_older(self, table, stamp):
+        pass
+
+    def status(self, row_id):
+        return next(row for row in self.imports if row["id"] == row_id)
+
+
+def deposit(row_id: str, path: str) -> dict:
+    return {"id": row_id, "nom": path.rsplit("-", 1)[-1], "chemin": path, "statut": WAITING}
+
+
+@pytest.fixture
+def real_settings():
+    return load_settings(PROJECT_ROOT / "config")
+
+
+ARCHIVE = make_export_csv(n=40, account="Compte A", start="2026-05-01").encode("utf-8")
+JULY = make_export_csv(n=30, account="Compte B", start="2026-07-01").encode("utf-8")
+
+
+class TestDeposits:
+    def test_les_exports_du_depot_sont_listes_racine_et_imports(self):
+        fake = FakeSupabase({"mai.csv": ARCHIVE, "imports/x-juillet.csv": JULY, "note.txt": b""}, [])
+        assert stored_exports(fake) == ["imports/x-juillet.csv", "mai.csv"]
+
+    def test_un_export_valide_est_integre_et_publie(self, real_settings):
+        fake = FakeSupabase(
+            {"mai.csv": ARCHIVE, "imports/x-juillet.csv": JULY}, [deposit("1", "imports/x-juillet.csv")]
+        )
+        assert run(fake, real_settings, 3, only_if_pending=True) is True
+
+        row = fake.status("1")
+        assert row["statut"] == ACCEPTED
+        assert (row["publications"], row["plateforme"], row["debut"]) == (30, "facebook", "2026-07-01")
+        months = {r["mois"] for r in fake.published["controles"]}
+        assert "2026-07" in months and "2026-05" in months
+        assert "imports/x-juillet.csv" in fake.files
+
+    def test_un_export_deja_present_est_retire_sans_recalcul(self, real_settings):
+        fake = FakeSupabase(
+            {"mai.csv": ARCHIVE, "imports/x-mai.csv": ARCHIVE}, [deposit("1", "imports/x-mai.csv")]
+        )
+        assert run(fake, real_settings, 3, only_if_pending=True) is False
+        assert fake.status("1")["statut"] == DUPLICATE
+        assert "mai.csv" in fake.status("1")["detail"]
+        assert "imports/x-mai.csv" not in fake.files
+        assert fake.published == {}
+
+    def test_un_fichier_non_reconnu_est_refuse_et_retire(self, real_settings):
+        fake = FakeSupabase(
+            {"mai.csv": ARCHIVE, "imports/x-autre.csv": b"a,b\n1,2\n"},
+            [deposit("1", "imports/x-autre.csv")],
+        )
+        assert run(fake, real_settings, 3, only_if_pending=True) is False
+        assert fake.status("1")["statut"] == REFUSED
+        assert "imports/x-autre.csv" not in fake.files
+
+    def test_un_depot_sans_fichier_est_refuse(self, real_settings):
+        fake = FakeSupabase({"mai.csv": ARCHIVE}, [deposit("1", "imports/x-perdu.csv")])
+        run(fake, real_settings, 3, only_if_pending=True)
+        assert fake.status("1")["statut"] == REFUSED
+        assert "introuvable" in fake.status("1")["detail"]
+
+    def test_deux_depots_identiques_ne_comptent_qu_une_fois(self, real_settings):
+        fake = FakeSupabase(
+            {"mai.csv": ARCHIVE, "imports/a-juillet.csv": JULY, "imports/b-juillet.csv": JULY},
+            [deposit("1", "imports/a-juillet.csv"), deposit("2", "imports/b-juillet.csv")],
+        )
+        run(fake, real_settings, 3, only_if_pending=True)
+        assert fake.status("1")["statut"] == ACCEPTED
+        assert fake.status("2")["statut"] == DUPLICATE
+
+    def test_sans_depot_en_attente_rien_n_est_telecharge(self, real_settings):
+        fake = FakeSupabase({"mai.csv": ARCHIVE}, [])
+        assert run(fake, real_settings, 3, only_if_pending=True) is False
+        assert fake.downloads == 0
+
+    def test_un_recalcul_force_part_du_depot(self, real_settings):
+        fake = FakeSupabase({"mai.csv": ARCHIVE}, [])
+        assert run(fake, real_settings, 3, only_if_pending=False) is True
+        assert {r["mois"] for r in fake.published["controles"]} == {"2026-05", "2026-06"}
+
+    def test_un_calcul_interrompu_remet_l_export_en_attente(self, real_settings):
+        fake = FakeSupabase(
+            {"mai.csv": ARCHIVE, "imports/x-juillet.csv": JULY},
+            [deposit("1", "imports/x-juillet.csv")],
+            fail_on_publish=True,
+        )
+        with pytest.raises(RuntimeError):
+            run(fake, real_settings, 3, only_if_pending=True)
+        row = fake.status("1")
+        assert row["statut"] == WAITING
+        assert "coupure reseau" in row["detail"]
+        assert "imports/x-juillet.csv" in fake.files
+
+    def test_le_dossier_local_ne_sert_pas_au_calcul(self, real_settings, tmp_path):
+        """Le depot est la seule source : data/raw n'est pas lu par `run`."""
+        real_settings.project_root = tmp_path
+        (tmp_path / "data" / "raw").mkdir(parents=True)
+        (tmp_path / "data" / "raw" / "local.csv").write_bytes(JULY)
+        fake = FakeSupabase({"mai.csv": ARCHIVE}, [])
+        run(fake, real_settings, 3, only_if_pending=False)
+        assert "2026-07" not in {r["mois"] for r in fake.published["controles"]}

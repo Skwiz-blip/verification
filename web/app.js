@@ -65,6 +65,23 @@ let requests = 0;
 const REMOTE = window.CONTROLE_CONFIG?.supabaseUrl ? window.CONTROLE_CONFIG : null;
 let published = null;
 
+/* En ligne, un export depose part dans Supabase ; le calcul tourne ensuite dans
+   GitHub Actions. Le suivi des depots est relu tant qu'un export attend. */
+let deposits = null;
+let depositTimer = null;
+const DEPOSIT_POLL = 20000;
+const WAITING = new Set(['en_attente', 'en_cours']);
+const IMPORT_STATES = {
+  added: ['Ajouté', 'good', 'check'],
+  ajoute: ['Ajouté', 'good', 'check'],
+  duplicate: ['Déjà chargé', 'good', 'check'],
+  deja_charge: ['Déjà chargé', 'good', 'check'],
+  rejected: ['Refusé', 'critical', 'x'],
+  refuse: ['Refusé', 'critical', 'x'],
+  en_attente: ['En attente du calcul', 'pending', 'info'],
+  en_cours: ['Calcul en cours', 'pending', 'info'],
+};
+
 /* --- Outils ---------------------------------------------------------------- */
 const $ = (id) => document.getElementById(id);
 
@@ -187,15 +204,13 @@ async function getJSON(path, params = {}) {
   return body;
 }
 
+const remoteAuth = () => ({ apikey: REMOTE.supabaseKey, Authorization: `Bearer ${REMOTE.supabaseKey}` });
+
 async function supabase(path) {
   let response;
   try {
     response = await fetch(`${REMOTE.supabaseUrl}/rest/v1/${path}`, {
-      headers: {
-        apikey: REMOTE.supabaseKey,
-        Authorization: `Bearer ${REMOTE.supabaseKey}`,
-        Accept: 'application/json',
-      },
+      headers: { ...remoteAuth(), Accept: 'application/json' },
     });
   } catch {
     throw new Error('La base en ligne ne répond pas. Vérifiez votre connexion.');
@@ -216,7 +231,7 @@ async function fetchControl() {
   if (!REMOTE.supabaseKey) throw new Error('La clé publique Supabase est absente de config.js.');
   if (!published) {
     const rows = await supabase('etat?select=valeur&cle=eq.publication');
-    if (!rows.length) return { vide: true, import_autorise: false };
+    if (!rows.length) return { vide: true, import_autorise: true };
     published = rows[0].valeur;
   }
   // Seuls les mois et les references publies existent en ligne.
@@ -224,8 +239,74 @@ async function fetchControl() {
   const ref = published.refs.includes(state.ref) ? state.ref : published.refs[0];
   const query = new URLSearchParams({ select: 'payload', mois: `eq.${month}`, ref: `eq.${ref}` });
   const rows = await supabase(`controles?${query}`);
-  if (!rows.length) return { vide: true, import_autorise: false };
-  return { ...rows[0].payload, import_autorise: false };
+  if (!rows.length) return { vide: true, import_autorise: true };
+  return { ...rows[0].payload, import_autorise: true };
+}
+
+/* Nom de stockage : unique, et limite aux caracteres que Supabase accepte. */
+function storagePath(name) {
+  const base = name.normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/\.csv$/i, '').replace(/[^A-Za-z0-9._-]+/g, '_').replace(/^[._-]+/, '')
+    .slice(0, 100) || 'export';
+  const stamp = new Date().toISOString().replace(/\D/g, '').slice(0, 14);
+  return `imports/${stamp}-${Math.random().toString(36).slice(2, 8)}-${base}.csv`;
+}
+
+async function depositRemote(file) {
+  const refused = (detail) => ({ nom: file.name, statut: 'rejected', detail });
+  if (!/\.csv$/i.test(file.name)) return refused('seuls les exports CSV sont acceptés');
+  const path = storagePath(file.name);
+  let response;
+  try {
+    response = await fetch(`${REMOTE.supabaseUrl}/storage/v1/object/exports/${path}`, {
+      method: 'POST',
+      headers: { ...remoteAuth(), 'Content-Type': 'text/csv', 'x-upsert': 'false' },
+      body: file,
+    });
+  } catch {
+    return refused('la base en ligne ne répond pas');
+  }
+  if (!response.ok) {
+    const body = await response.json().catch(() => ({}));
+    const code = String(body.statusCode ?? response.status);
+    if (code === '413') return refused('fichier trop volumineux (50 Mo maximum)');
+    if (code === '403' || code === '401') return refused("dépôt refusé par la base : le script supabase/schema.sql n'a pas été exécuté");
+    return refused(`la base a refusé le fichier (erreur ${code})`);
+  }
+  try {
+    response = await fetch(`${REMOTE.supabaseUrl}/rest/v1/imports`, {
+      method: 'POST',
+      headers: { ...remoteAuth(), 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+      body: JSON.stringify({ nom: file.name.slice(0, 200), chemin: path, taille: file.size }),
+    });
+  } catch {
+    response = null;
+  }
+  if (!response?.ok) return refused('fichier reçu mais pas inscrit pour le calcul : déposez-le à nouveau');
+  return { nom: file.name, statut: 'en_attente', chemin: path };
+}
+
+const countAdded = (rows) => (rows ?? []).filter((row) => row.statut === 'ajoute').length;
+
+async function loadDeposits() {
+  clearTimeout(depositTimer);
+  if (!REMOTE?.supabaseKey) return;
+  let rows;
+  try {
+    rows = await supabase('imports?select=nom,chemin,statut,detail,publications,plateforme,comptes,debut,fin,depose_le,traite_le&order=depose_le.desc&limit=50');
+  } catch {
+    return; // Suivi indisponible (table pas encore creee) : le site reste consultable.
+  }
+  const before = deposits;
+  deposits = rows;
+  if (before && countAdded(rows) > countAdded(before)) {
+    // Un export vient d'etre integre : les resultats publies ont change.
+    published = null;
+    await load();
+  } else if (JSON.stringify(before) !== JSON.stringify(rows)) {
+    render();
+  }
+  if (rows.some((row) => WAITING.has(row.statut))) depositTimer = setTimeout(loadDeposits, DEPOSIT_POLL);
 }
 
 async function fetchPosts(row) {
@@ -358,25 +439,30 @@ function alertBox(kind, title, body, action) {
   );
 }
 
+function importDetail(item) {
+  if (item.statut === 'added' || item.statut === 'ajoute') {
+    return `${int(item.publications)} publications ${platformLabel(item.plateforme)}, `
+      + `${plural(item.comptes, 'compte', 'comptes')}, du ${dayLabel(item.debut)} au ${dayLabel(item.fin)}`;
+  }
+  if (item.statut === 'duplicate' || item.statut === 'deja_charge') {
+    return 'contenu identique à un fichier déjà présent, rien à ajouter';
+  }
+  if (WAITING.has(item.statut)) {
+    return item.detail || 'le calcul tourne en ligne et prend quelques minutes';
+  }
+  return item.detail ?? '';
+}
+
+const importMark = (status) => {
+  const [label, tone, glyph] = IMPORT_STATES[status] ?? IMPORT_STATES.rejected;
+  return h('span', { class: `mark mark-${tone}` }, icon(glyph), label);
+};
+
 function importPanel() {
-  const labels = {
-    added: ['Ajouté', 'good', 'check'],
-    duplicate: ['Déjà chargé', 'good', 'check'],
-    rejected: ['Refusé', 'critical', 'x'],
-  };
   const items = imports.map((item) => {
-    const [label, tone, glyph] = labels[item.statut] ?? labels.rejected;
-    let detail = item.detail ?? '';
-    if (item.statut === 'added') {
-      detail = `${int(item.publications)} publications ${platformLabel(item.plateforme)}, `
-        + `${plural(item.comptes, 'compte', 'comptes')}, du ${dayLabel(item.debut)} au ${dayLabel(item.fin)}`;
-    } else if (item.statut === 'duplicate') {
-      detail = 'contenu identique à un fichier déjà présent, rien à ajouter';
-    }
-    return h('li', {},
-      h('span', { class: `mark mark-${tone}` }, icon(glyph), label),
-      h('span', { text: `${item.nom} : ${detail}` }),
-    );
+    // Un depot en ligne suit l'avancement du calcul, relu dans Supabase.
+    const live = (item.chemin && deposits?.find((row) => row.chemin === item.chemin)) || item;
+    return h('li', {}, importMark(live.statut), h('span', { text: `${item.nom} : ${importDetail(live)}` }));
   });
   const close = h('button', {
     class: 'btn btn-quiet', type: 'button',
@@ -388,6 +474,12 @@ function importPanel() {
 function renderAlerts() {
   const alerts = [];
   if (imports.length) alerts.push(importPanel());
+  const waiting = (deposits ?? []).filter((row) => WAITING.has(row.statut));
+  if (waiting.length && !imports.some((item) => item.chemin)) {
+    alerts.push(alertBox('info', `${plural(waiting.length, 'export', 'exports')} en cours d'intégration`,
+      h('span', { text: 'Le calcul tourne en ligne et prend quelques minutes. Les résultats se mettront à jour seuls.' }),
+      h('button', { class: 'btn btn-quiet', type: 'button', onclick: () => goTo('donnees') }, 'Voir le suivi')));
+  }
   if (data && !data.vide && !failure) {
     const { ref } = data.meta;
     const month = monthLabel(data.meta.mois_controle);
@@ -839,7 +931,6 @@ function viewOverview() {
       dataTable('ensemble', `Résultats de ${month}`, columns, rows)),
     h('section', {},
       h('h2', { text: 'Mois par mois' }),
-      h('p', { class: 'hint', text: 'N1, N2, N3 : palier atteint par la médiane du mois. « peu » : trop peu de publications. « – » : pas d\'objectif. Case vide : aucune publication.' }),
       monthGrid(scope(data.historique))),
   ];
 }
@@ -1080,7 +1171,21 @@ function viewData() {
     })));
   }
 
+  const depositSection = REMOTE && h('section', {},
+    h('h2', { text: 'Exports déposés sur le site' }),
+    h('p', { class: 'hint', text: 'Chaque export déposé est contrôlé puis intégré au calcul, en général en quelques minutes. Un export refusé ou déjà présent est retiré.' }),
+    dataTable('depots', 'Exports déposés sur le site', [
+      { key: 'nom', label: 'Fichier', cls: 'name' },
+      {
+        key: 'depose_le', label: 'Déposé le',
+        text: (r) => new Date(r.depose_le).toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' }),
+      },
+      { key: 'statut', label: 'Statut', cell: (r) => importMark(r.statut) },
+      { key: 'detail', label: 'Détail', wrap: true, text: (r) => importDetail(r) },
+    ], deposits ?? [], { sortable: false, empty: 'Aucun export déposé depuis le site pour l\'instant.' }));
+
   return [
+    depositSection,
     h('section', {},
       h('h2', { text: 'Exports chargés' }),
       h('p', { class: 'hint', text: `${donnees.dossier ? `Dossier : ${donnees.dossier}. ` : ''}« Publications retenues » : organiques, dédupliquées, sur des comptes suffisamment alimentés.` }),
@@ -1128,7 +1233,8 @@ function render() {
   if (data.vide) {
     main.replaceChildren(REMOTE
       ? statePanel('Aucun résultat publié',
-        'Les résultats apparaîtront ici après la prochaine publication.', 'Actualiser', load)
+        'Ajoutez vos exports Meta Business Suite (CSV) : ils seront calculés puis publiés en quelques minutes.',
+        'Ajouter des exports', () => $('fichiers').click())
       : data.import_autorise === false
       ? statePanel('Aucun export chargé',
         "Les exports s'ajoutent depuis le poste qui héberge l'interface.", 'Actualiser', load)
@@ -1153,6 +1259,10 @@ async function upload(files) {
       imports.push({ nom: file.name, statut: 'rejected', detail: 'fichier trop volumineux (50 Mo maximum)' });
       continue;
     }
+    if (REMOTE) {
+      imports.push(await depositRemote(file));
+      continue;
+    }
     try {
       const response = await fetch(`/api/import?nom=${encodeURIComponent(file.name)}`, {
         method: 'POST',
@@ -1169,6 +1279,13 @@ async function upload(files) {
   }
   $('fichiers').value = '';
   $('importer').disabled = false;
+  if (REMOTE) {
+    // Les resultats ne changeront qu'apres le calcul en ligne : on suit le depot.
+    setBusy('');
+    await loadDeposits();
+    render();
+    return;
+  }
   await load();
 }
 
@@ -1218,6 +1335,7 @@ function init() {
 
   renderTabs();
   load();
+  if (REMOTE) loadDeposits();
 }
 
 init();

@@ -90,41 +90,59 @@ Pour la retirer : `Remove-NetFirewallRule -DisplayName "Controle mensuel CM"`.
 
 **Contrôle du comptage des vues** : l'onglet « Données » trace le nombre de vues par personne touchée. Ce ratio ne dépend pas de la taille de l'audience ; s'il change d'échelle pendant la période de référence, les seuils en vues mélangent deux façons de compter, et les séries concernées sont mises en couleur sur le graphique. C'est le cas d'Instagram photo et carrousel sur les exports actuels (environ 4 vues par personne jusqu'en novembre 2025, environ 1,7 ensuite) : pour ces formats, préférer une référence postérieure à janvier 2026.
 
-### Mise en ligne (Vercel + Supabase)
+### Mise en ligne (Vercel + Supabase + GitHub Actions)
 
-L'interface peut aussi être consultée en ligne. Les calculs restent faits sur ce poste, par le pipeline ; Supabase ne stocke que des résultats prêts à afficher, et le site hébergé sur Vercel se contente de les lire. Il n'existe donc toujours qu'une seule version des objectifs.
+L'interface est aussi en ligne, et les exports peuvent y être déposés directement, sans connexion. Supabase conserve tout : les exports, le suivi des dépôts et les résultats. Le calcul reste celui du pipeline Python ; comme Supabase n'exécute pas de Python, il tourne dans GitHub Actions, déclenché par Supabase à chaque dépôt.
 
 ```
-exports CSV  ->  pipeline Python (ce poste)  ->  Supabase  ->  interface sur Vercel
+site (Vercel) --dépôt CSV--> Supabase (fichier + ligne "imports")
+                                 |  déclencheur
+                                 v
+                          GitHub Actions : pipeline Python
+                                 |  résultats
+                                 v
+                             Supabase --lecture--> site
 ```
+
+Un dépôt est intégré en trois à cinq minutes ; la page suit l'avancement et se met à jour seule. Chaque fichier déposé est contrôlé avant le calcul : un export reconnu est **ajouté**, un contenu déjà présent est **déjà chargé**, un fichier non reconnu est **refusé** (avec le motif). Les deux derniers sont retirés du stockage. Le suivi est visible dans l'onglet « Données ».
 
 **Mise en place, une seule fois**
 
-1. Dans Supabase, ouvrir *SQL Editor*, coller le contenu de `supabase/schema.sql` et l'exécuter. Il crée trois tables (`controles`, `publications`, `etat`) et un dépôt privé `exports`.
-2. Copier `.env.example` sous le nom `.env` et y renseigner les deux clés (*Project Settings > API Keys*). `.env` n'est pas versionné.
+1. **Supabase** : ouvrir *SQL Editor*, coller le contenu de `supabase/schema.sql` et l'exécuter. Le script peut être rejoué sans risque.
+2. **GitHub, secrets** : dans le dépôt `verification`, *Settings > Secrets and variables > Actions*, créer `SUPABASE_URL` et `SUPABASE_SERVICE_ROLE_KEY` (la clé secrète).
+3. **GitHub, code** : pousser le dépôt, qui contient le workflow `.github/workflows/publier.yml`.
+4. **Déclenchement immédiat** (facultatif) : créer un jeton GitHub *fine-grained* limité au dépôt `verification`, permission *Actions : Read and write*, puis l'enregistrer dans Supabase (*SQL Editor*) :
+   ```sql
+   select vault.create_secret('<jeton>', 'github_token');
+   ```
+   Sans ce jeton, les dépôts sont traités par la vérification horaire du workflow, donc avec jusqu'à une heure de délai.
+5. **Poste local** (pour `publier.bat`) : copier `.env.example` sous le nom `.env` et y renseigner les deux clés (*Project Settings > API Keys*). `.env` n'est pas versionné.
 
-**Chaque mois**
+**Depuis ce poste**
 
 ```powershell
 .\publier.bat
 ```
 
-La commande nettoie les exports de `data/raw/`, calcule un contrôle par mois et par période de référence (environ deux minutes pour une année), envoie le tout, puis écrit `web/config.js`. Il reste à pousser le dossier `web/` vers son dépôt pour que Vercel redéploie, uniquement quand un fichier de `web/` a changé. Pour tout calculer sans rien envoyer : `.\publier.bat --dry-run`.
+La commande envoie les exports de `data/raw/` dans le stockage, puis recalcule et publie à partir de **tout** le stockage, dépôts du site compris. Le poste et GitHub Actions partent donc toujours des mêmes fichiers. Pour calculer à partir de `data/raw/` sans rien envoyer : `.\publier.bat --dry-run`. Pour forcer un recalcul en ligne sans nouvel export : onglet *Actions* du dépôt, workflow « Publier les résultats », case « Recalculer ».
 
 **Ce que contient Supabase**
 
-| Emplacement | Contenu | Lisible avec la clé publique |
+| Emplacement | Contenu | Avec la clé publique (le site) |
 |---|---|---|
-| `controles` | Une réponse précalculée par mois contrôlé et par période de référence | Oui |
-| `publications` | Les publications organiques retenues, avec leurs mesures | Oui |
-| `etat` | Mois disponibles, références publiées, date de publication | Oui |
-| Dépôt `exports` | Les exports Meta bruts, en archive | Non |
+| `controles` | Une réponse précalculée par mois contrôlé et par période de référence | Lecture |
+| `publications` | Les publications organiques retenues, avec leurs mesures | Lecture |
+| `etat` | Mois disponibles, références publiées, date de publication | Lecture |
+| `imports` | Le suivi des exports déposés sur le site | Lecture, et ajout d'une ligne en attente |
+| Dépôt `exports` | Les exports bruts : archives à la racine, dépôts du site dans `imports/` | Dépôt d'un CSV dans `imports/`, sans lecture ni remplacement |
 
-**Deux clés, deux rôles.** La clé secrète écrit dans la base : elle ne se trouve que dans `.env`. La clé publique ne permet que de lire : c'est la seule recopiée dans `web/config.js`. La commande refuse de publier si les deux sont interverties.
+**Deux clés, deux rôles.** La clé secrète écrit les résultats : elle ne se trouve que dans `.env` et dans les secrets GitHub. La clé publique, recopiée dans `web/config.js`, ne permet que de lire et de déposer. La commande refuse de publier si les deux sont interverties.
 
-**Accès public.** Aucune connexion n'est demandée : toute personne qui a l'adresse du site voit les résultats, et la clé publique permet de lire directement les trois tables. Le site demande aux moteurs de recherche de ne pas l'indexer, ce qui n'empêche pas un lien de circuler.
+**Accès public, dépôt compris.** Aucune connexion n'est demandée : toute personne qui a l'adresse du site voit les résultats et peut déposer un export. Un dépôt ne peut ni remplacer ni supprimer un fichier existant, et chaque dépôt reste tracé dans `imports`. En revanche, un export retouché mais bien formé serait intégré : comme la déduplication garde la valeur la plus haute de chaque compteur, il pourrait gonfler des résultats. Pour retirer un dépôt, supprimer son fichier du dossier `imports/` dans Supabase, puis forcer un recalcul.
 
-**Différences avec l'interface locale.** En ligne, on consulte seulement : pas d'ajout d'exports, quatre périodes de référence (tout l'historique précédent, 6 mois, 3 mois, toute la période) et un minimum de publications fixé à la publication (`--min-posts`, 3 par défaut). La période personnalisée reste propre à l'interface locale.
+**Comptes nouveaux.** Un compte absent de `config/clients.csv` arrive « Non catégorisé ». La liste est lue depuis le dépôt GitHub : après l'avoir complétée, la pousser puis forcer un recalcul.
+
+**Différences avec l'interface locale.** En ligne : quatre périodes de référence (tout l'historique précédent, 6 mois, 3 mois, toute la période) et un minimum de publications fixé à la publication (`--min-posts`, 3 par défaut). La période personnalisée reste propre à l'interface locale.
 
 ### Tests
 
@@ -132,7 +150,7 @@ La commande nettoie les exports de `data/raw/`, calcule un contrôle par mois et
 python -m pytest
 ```
 
-181 tests, dont une suite d'intégration qui s'exécute sur les vrais exports présents dans `data/raw/` (ignorée automatiquement si le dossier est vide).
+191 tests, dont une suite d'intégration qui s'exécute sur les vrais exports présents dans `data/raw/` (ignorée automatiquement si le dossier est vide).
 
 ---
 
@@ -397,10 +415,11 @@ src/socialstats/
     ingest.py            ajout contrôlé d'un export à data/raw
     server.py            serveur local de l'interface (bibliothèque standard uniquement)
     publish.py           publication des résultats vers Supabase pour l'interface en ligne
-supabase/        schema.sql : tables et règles d'accès à créer une fois
+supabase/        schema.sql : tables, règles d'accès et déclencheur à créer une fois
+.github/workflows/publier.yml   publication dans GitHub Actions à chaque dépôt du site
 web/             index.html, app.css, app.js : interface de contrôle mensuel
 output/          csv/ excel/ charts/ reports/
-tests/           181 tests, dont intégration sur les exports réels
+tests/           191 tests, dont intégration sur les exports réels
 ```
 
 Le module de statistiques descriptives s'appelle `descriptive.py` et non `statistics.py` afin de ne pas masquer le module `statistics` de la bibliothèque standard.

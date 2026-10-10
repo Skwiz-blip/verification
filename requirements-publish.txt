@@ -1,0 +1,4 @@
+# Dependances de la seule publication (GitHub Actions) : ni graphiques ni tests.
+pandas>=2.0
+numpy>=1.24
+PyYAML>=6.0

@@ -1,0 +1,60 @@
+# Publication des resultats pour l'interface en ligne.
+#
+# Declenchee par Supabase a chaque export depose sur le site (voir
+# supabase/schema.sql), et toutes les heures en filet de securite. Elle ne
+# recalcule que si un export depose a ete retenu. Lancee a la main depuis
+# l'onglet Actions, elle peut forcer un recalcul complet.
+#
+# Secrets du depot a creer (Settings > Secrets and variables > Actions) :
+#   SUPABASE_URL               https://jifpokllvvslfvcpigbk.supabase.co
+#   SUPABASE_SERVICE_ROLE_KEY  la cle secrete du projet Supabase
+
+name: Publier les resultats
+
+on:
+  workflow_dispatch:
+    inputs:
+      forcer:
+        description: "Recalculer meme sans nouvel export"
+        type: boolean
+        default: false
+  schedule:
+    - cron: "23 * * * *"
+
+# Une seule publication a la fois ; un depot arrive pendant le calcul attend
+# la suivante, qui le prendra en compte.
+concurrency:
+  group: publication
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements-publish.txt
+
+      - name: Dependances
+        run: pip install -r requirements-publish.txt
+
+      - name: Publication
+        env:
+          PYTHONPATH: src
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          FORCER: ${{ inputs.forcer }}
+        run: |
+          if [ "$FORCER" = "true" ]; then
+            python -m socialstats.publish --no-exports
+          else
+            python -m socialstats.publish --no-exports --only-if-pending
+          fi

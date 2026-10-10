@@ -52,25 +52,17 @@ def _free_path(directory: Path, name: str) -> Path:
     return target
 
 
-def import_export(name: str, content: bytes, settings: Settings) -> ImportOutcome:
-    """Valide un export puis le range dans `data/raw`."""
+def validate_export(name: str, content: bytes, settings: Settings) -> ImportOutcome:
+    """Lit et reconnait un export, sans l'enregistrer nulle part.
+
+    Retourne ADDED (sans chemin) avec les faits chiffres de l'export, ou
+    REJECTED avec le motif. Sert a l'import local comme au traitement des
+    exports deposes sur le site.
+    """
     # Le nom vient du navigateur : seul son dernier segment est conserve.
     safe_name = Path(name).name
     if not safe_name.lower().endswith(".csv"):
         return ImportOutcome(safe_name, REJECTED, "Seuls les exports CSV sont acceptes.")
-
-    raw_dir = settings.raw_dir
-    raw_dir.mkdir(parents=True, exist_ok=True)
-
-    digest = hashlib.sha256(content).digest()
-    for existing in raw_dir.glob("*.csv"):
-        if (
-            existing.stat().st_size == len(content)
-            and hashlib.sha256(existing.read_bytes()).digest() == digest
-        ):
-            return ImportOutcome(
-                safe_name, DUPLICATE, f"Contenu identique a {existing.name}.", existing
-            )
 
     with tempfile.TemporaryDirectory() as tmp:
         candidate = Path(tmp) / safe_name
@@ -93,9 +85,6 @@ def import_export(name: str, content: bytes, settings: Settings) -> ImportOutcom
             safe_name, REJECTED, "Aucune publication avec une date lisible dans ce fichier."
         )
 
-    target = _free_path(raw_dir, safe_name)
-    target.write_bytes(content)
-    logger.info("Export ajoute : %s (%d ligne(s), %s)", target.name, len(mapped), report.platform)
     stats = {
         "publications": len(mapped),
         "platform": report.platform,
@@ -107,4 +96,37 @@ def import_export(name: str, content: bytes, settings: Settings) -> ImportOutcom
         f"{stats['publications']} publication(s) {report.platform}, "
         f"{stats['accounts']} compte(s), du {stats['start']} au {stats['end']}."
     )
-    return ImportOutcome(target.name, ADDED, detail, target, stats)
+    return ImportOutcome(safe_name, ADDED, detail, None, stats)
+
+
+def import_export(name: str, content: bytes, settings: Settings) -> ImportOutcome:
+    """Valide un export puis le range dans `data/raw`."""
+    safe_name = Path(name).name
+    raw_dir = settings.raw_dir
+    raw_dir.mkdir(parents=True, exist_ok=True)
+
+    digest = hashlib.sha256(content).digest()
+    for existing in raw_dir.glob("*.csv"):
+        if (
+            existing.stat().st_size == len(content)
+            and hashlib.sha256(existing.read_bytes()).digest() == digest
+        ):
+            return ImportOutcome(
+                safe_name, DUPLICATE, f"Contenu identique a {existing.name}.", existing
+            )
+
+    outcome = validate_export(safe_name, content, settings)
+    if outcome.status != ADDED:
+        return outcome
+
+    target = _free_path(raw_dir, outcome.name)
+    target.write_bytes(content)
+    logger.info(
+        "Export ajoute : %s (%d ligne(s), %s)",
+        target.name,
+        outcome.stats["publications"],
+        outcome.stats["platform"],
+    )
+    outcome.name = target.name
+    outcome.path = target
+    return outcome
