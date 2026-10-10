@@ -150,7 +150,7 @@ La commande envoie les exports de `data/raw/` dans le stockage, puis recalcule e
 python -m pytest
 ```
 
-191 tests, dont une suite d'intégration qui s'exécute sur les vrais exports présents dans `data/raw/` (ignorée automatiquement si le dossier est vide).
+192 tests, dont une suite d'intégration qui s'exécute sur les vrais exports présents dans `data/raw/` (ignorée automatiquement si le dossier est vide).
 
 ---
 
@@ -419,7 +419,7 @@ supabase/        schema.sql : tables, règles d'accès et déclencheur à créer
 .github/workflows/publier.yml   publication dans GitHub Actions à chaque dépôt du site
 web/             index.html, app.css, app.js : interface de contrôle mensuel
 output/          csv/ excel/ charts/ reports/
-tests/           191 tests, dont intégration sur les exports réels
+tests/           192 tests, dont intégration sur les exports réels
 ```
 
 Le module de statistiques descriptives s'appelle `descriptive.py` et non `statistics.py` afin de ne pas masquer le module `statistics` de la bibliothèque standard.

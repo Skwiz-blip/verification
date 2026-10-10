@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import io
+
 import pandas as pd
 
 from socialstats.sponsored import detect_sponsored, resolve_organic_views
@@ -31,6 +33,18 @@ class TestDetectSponsored:
 
     def test_statut_vide_ne_declenche_pas(self):
         data = frame(sponsored_status=[None, None], views_total=[100.0, 200.0])
+        result, report = detect_sponsored(data)
+        assert not result["is_sponsored"].any()
+        assert report.n_sponsored == 0
+
+    def test_statut_vide_lu_depuis_un_export_ne_declenche_pas(self):
+        """Cas reel : la colonne existe, toutes ses cases sont vides.
+
+        pandas 2 changeait une case vide en "nan" a la conversion en texte ;
+        pandas 3 la laisse vide. Sans precaution, tout passait pour sponsorise
+        et il ne restait aucune publication organique.
+        """
+        data = pd.read_csv(io.StringIO("sponsored_status,views_total\n,100\n,200\n"), dtype=str)
         result, report = detect_sponsored(data)
         assert not result["is_sponsored"].any()
         assert report.n_sponsored == 0

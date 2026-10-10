@@ -1,4 +1,6 @@
 # Dependances de la seule publication (GitHub Actions) : ni graphiques ni tests.
-pandas>=2.0
+# pandas est borne aux versions verifiees (2.3 et 3.0 donnent des resultats
+# identiques) : une version majeure change des comportements sans prevenir.
+pandas>=2.0,<4
 numpy>=1.24
 PyYAML>=6.0

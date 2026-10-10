@@ -79,7 +79,10 @@ def _positive(frame: pd.DataFrame, column: str) -> pd.Series:
 def _status_flag(frame: pd.DataFrame) -> pd.Series:
     if "sponsored_status" not in frame.columns:
         return pd.Series(False, index=frame.index)
-    status = frame["sponsored_status"].astype(str).str.strip().str.lower()
+    # Une case vide doit devenir "" avant la conversion : pandas 2 la changeait
+    # en "nan", pandas 3 la laisse vide, et toutes les publications passeraient
+    # alors pour sponsorisees.
+    status = frame["sponsored_status"].fillna("").astype(str).str.strip().str.lower()
     return ~status.isin(NON_SPONSORED_TOKENS)
 
 
