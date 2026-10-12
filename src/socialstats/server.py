@@ -10,7 +10,7 @@ postes du reseau local peuvent CONSULTER l'interface ; il n'y a pas de mot de
 passe, et l'ajout d'exports reste reserve au poste qui heberge le serveur.
 
 Il sert l'interface (HTML, CSS, JS du dossier `web/`) et expose le pipeline
-existant en JSON. Aucun calcul n'est refait cote navigateur : il n'existe
+existant en JSON, ainsi que les listes de pages nommees (`data/listes.json`). Aucun calcul n'est refait cote navigateur : il n'existe
 ainsi qu'une seule version des objectifs, celle de `objectives.py`.
 
 Les reponses ne contiennent que des faits et des codes. Tous les libelles
@@ -39,12 +39,15 @@ from .config import UNCATEGORIZED, ConfigError, Settings, load_settings
 from .ingest import ADDED, DUPLICATE, ImportOutcome, import_export
 from .loader import LoaderError
 from .monthly import (
+    ABOVE_PREVIOUS,
     BELOW,
     LEVEL_1,
     LEVEL_2,
     LEVEL_3,
     NO_OBJECTIVE,
     NO_POST,
+    NO_PREVIOUS,
+    NOT_ABOVE_PREVIOUS,
     REFERENCE_BEFORE,
     REFERENCE_PRESETS,
     TOO_FEW,
@@ -55,11 +58,13 @@ from .monthly import (
     measurement_breaks,
     month_view,
     monthly_results,
+    previous_month_comparison,
     reference_bounds,
     slice_months,
     views_per_reach,
 )
 from .objectives import build_objectives, build_sector_objectives
+from .page_lists import PageListError, PageListStore
 from .schema_mapper import SchemaError
 
 logger = logging.getLogger(__name__)
@@ -67,6 +72,7 @@ logger = logging.getLogger(__name__)
 DEFAULT_PORT = 8050
 LOCAL_HOSTS = {"127.0.0.1", "localhost"}
 MAX_UPLOAD_BYTES = 50 * 1024 * 1024
+MAX_LIST_BYTES = 64 * 1024
 MAX_CACHED_CONTROLS = 64
 TEXT_EXCERPT = 280
 
@@ -100,6 +106,9 @@ VERDICT_CODES = {
     TOO_FEW_ACCOUNTS: "fewc",
     NO_OBJECTIVE: "none",
     NO_POST: "nopost",
+    ABOVE_PREVIOUS: "up",
+    NOT_ABOVE_PREVIOUS: "down",
+    NO_PREVIOUS: "first",
 }
 IMPORT_CODES = {ADDED: "added", DUPLICATE: "duplicate"}
 
@@ -140,6 +149,21 @@ CATEGORY_FIELDS = {
     "derogation": "derogation",
     "heterogene": "heterogene",
     "Niveau atteint": "niveau",
+}
+COMPARISON_FIELDS = {
+    "Compte": "compte",
+    "Client": "client",
+    "Secteur": "secteur",
+    "Plateforme": "plateforme",
+    "Format": "format",
+    "Publications du mois precedent": "publications_prec",
+    "Vues du mois precedent": "vues_prec",
+    "Mediane du mois precedent": "mediane_prec",
+    "Publications": "publications",
+    "Vues du mois": "vues",
+    "Mediane du mois": "mediane",
+    "Evolution (%)": "evolution",
+    "Face au mois precedent": "resultat",
 }
 RATIO_FIELDS = {
     "Plateforme": "plateforme",
@@ -240,8 +264,9 @@ def _records(frame: pd.DataFrame, fields: dict[str, str]) -> list[dict[str, obje
     for column in out.columns:
         if column.startswith("mois"):
             out[column] = out[column].astype(str)
-    if "niveau" in out.columns:
-        out["niveau"] = out["niveau"].map(VERDICT_CODES)
+    for column in ("niveau", "resultat"):
+        if column in out.columns:
+            out[column] = out[column].map(VERDICT_CODES)
     return json.loads(out.to_json(orient="records", force_ascii=False))
 
 
@@ -331,6 +356,7 @@ def build_control(
         "meta": {
             "mois": [str(m) for m in months],
             "mois_controle": str(month),
+            "mois_precedent": str(month - 1),
             "ref": {
                 "preset": preset,
                 "debut": str(ref_start),
@@ -348,6 +374,9 @@ def build_control(
         "ruptures": _records(measurement_breaks(ratios), BREAK_FIELDS),
         "resultats": _records(month_view(results, objectives, month), RESULT_FIELDS),
         "historique": _records(results, RESULT_FIELDS),
+        "comparaison": _records(
+            previous_month_comparison(results, month, min_posts), COMPARISON_FIELDS
+        ),
         "categories": _records(categories, CATEGORY_FIELDS),
         "ratios": _records(ratios, RATIO_FIELDS),
         "donnees": _data_summary(cleaning, settings),
@@ -457,6 +486,7 @@ class ControlHandler(BaseHTTPRequestHandler):
     """Routes de l'interface. Les attributs sont fixes par `make_server`."""
 
     store: DataStore
+    lists: PageListStore
     web_dir: Path
     lan: bool = False
     machine_names: frozenset[str] = frozenset()
@@ -545,6 +575,11 @@ class ControlHandler(BaseHTTPRequestHandler):
                 ),
                 extra={"import_autorise": self._can_import()},
             )
+        elif url.path == "/api/listes":
+            try:
+                self._json({"listes": self.lists.all()})
+            except PageListError as exc:
+                self._error(HTTPStatus.INTERNAL_SERVER_ERROR, str(exc))
         elif url.path == "/api/publications":
             self._respond(
                 lambda: {
@@ -569,27 +604,56 @@ class ControlHandler(BaseHTTPRequestHandler):
         ):
             self._error(HTTPStatus.FORBIDDEN, "Requete refusee.")
             return
+        if url.path == "/api/import":
+            self._import(url)
+        elif url.path in ("/api/listes", "/api/listes/supprimer"):
+            self._change_list(url.path)
+        else:
+            self._error(HTTPStatus.NOT_FOUND, "Ressource introuvable.")
+
+    def _body(self, limit: int) -> bytes | None:
+        """Corps de la requete ; None (reponse deja envoyee) s'il est vide ou trop gros."""
+        length = _int(self.headers.get("Content-Length"), -1)
+        if length <= 0:
+            self._error(HTTPStatus.LENGTH_REQUIRED, "Requete vide ou taille non declaree.")
+            return None
+        if length > limit:
+            self._error(HTTPStatus.REQUEST_ENTITY_TOO_LARGE, "Requete trop volumineuse.")
+            return None
+        return self.rfile.read(length)
+
+    def _import(self, url) -> None:
         if not self._can_import():
             self._error(
                 HTTPStatus.FORBIDDEN,
                 "L'ajout d'exports se fait depuis le poste qui heberge l'interface.",
             )
             return
-        if url.path != "/api/import":
-            self._error(HTTPStatus.NOT_FOUND, "Ressource introuvable.")
+        content = self._body(MAX_UPLOAD_BYTES)
+        if content is None:
             return
-
-        length = _int(self.headers.get("Content-Length"), -1)
-        if length <= 0:
-            self._error(HTTPStatus.LENGTH_REQUIRED, "Fichier vide ou taille non declaree.")
-            return
-        if length > MAX_UPLOAD_BYTES:
-            self._error(HTTPStatus.REQUEST_ENTITY_TOO_LARGE, "Fichier trop volumineux.")
-            return
-
         name = parse_qs(url.query).get("nom", [""])[-1]
-        content = self.rfile.read(length)
         self._respond(lambda: outcome_payload(self.store.upload(name, content)))
+
+    def _change_list(self, path: str) -> None:
+        """Enregistre ou supprime une liste de pages.
+
+        Ouvert a tous les postes qui consultent, comme en ligne : une liste
+        n'est qu'un raccourci de selection et ne touche a aucun resultat.
+        """
+        body = self._body(MAX_LIST_BYTES)
+        if body is None:
+            return
+        try:
+            payload = json.loads(body)
+            if path.endswith("/supprimer"):
+                self.lists.remove(payload.get("id") if isinstance(payload, dict) else None)
+                self._json({"listes": self.lists.all()})
+            else:
+                self._json({"liste": self.lists.save(payload)})
+        except (ValueError, PageListError) as exc:
+            message = str(exc) if isinstance(exc, PageListError) else "Liste illisible."
+            self._error(HTTPStatus.BAD_REQUEST, message)
 
 
 def make_server(
@@ -611,6 +675,7 @@ def make_server(
         (ControlHandler,),
         {
             "store": DataStore(Path(config_dir)),
+            "lists": PageListStore(Path(config_dir).parent / "data" / "listes.json"),
             "web_dir": Path(web_dir),
             "lan": lan,
             "machine_names": frozenset({hostname, socket.getfqdn().lower()}),

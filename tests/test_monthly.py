@@ -6,10 +6,13 @@ import pandas as pd
 import pytest
 
 from socialstats.monthly import (
+    ABOVE_PREVIOUS,
     BELOW,
     LEVEL_3,
     NO_OBJECTIVE,
     NO_POST,
+    NO_PREVIOUS,
+    NOT_ABOVE_PREVIOUS,
     REFERENCE_3,
     REFERENCE_ALL,
     REFERENCE_BEFORE,
@@ -21,6 +24,7 @@ from socialstats.monthly import (
     measurement_breaks,
     month_view,
     monthly_results,
+    previous_month_comparison,
     reference_bounds,
     slice_months,
     views_per_reach,
@@ -140,6 +144,90 @@ class TestMonthView:
         assert silent["Publications"] == 0
         assert silent["Niveau 1"] == 230.0
         assert len(view) == 2
+
+
+class TestPreviousMonthComparison:
+    """Une page face a sa propre mediane du mois precedent (onglet « Par liste »)."""
+
+    def compare(self, settings, *frames: pd.DataFrame, month: str = "2026-04", min_posts: int = 3):
+        results = monthly_results(pd.concat(frames, ignore_index=True), pd.DataFrame(), settings)
+        table = previous_month_comparison(results, pd.Period(month, freq="M"), min_posts)
+        return table.set_index("Compte")
+
+    def test_mediane_depassee(self, settings):
+        table = self.compare(
+            settings,
+            make_posts("Compte A", "photo", [100.0, 110.0, 120.0], start="2026-03-01"),
+            april_posts("Compte A", [130.0, 140.0, 150.0]),
+        )
+        row = table.loc["Compte A"]
+        assert row["Mediane du mois precedent"] == 110.0
+        assert row["Mediane du mois"] == 140.0
+        assert row["Evolution (%)"] == pytest.approx(27.3)
+        assert row["Face au mois precedent"] == ABOVE_PREVIOUS
+
+    def test_egaler_la_mediane_ne_suffit_pas(self, settings):
+        table = self.compare(
+            settings,
+            make_posts("Compte A", "photo", [100.0] * 3, start="2026-03-01"),
+            april_posts("Compte A", [90.0, 100.0, 500.0]),
+        )
+        assert table.loc["Compte A", "Face au mois precedent"] == NOT_ABOVE_PREVIOUS
+
+    def test_trop_peu_de_publications_dans_l_un_des_deux_mois(self, settings):
+        table = self.compare(
+            settings,
+            make_posts("Compte A", "photo", [100.0, 100.0], start="2026-03-01"),
+            april_posts("Compte A", [5000.0] * 5),
+        )
+        assert table.loc["Compte A", "Face au mois precedent"] == TOO_FEW
+
+    def test_le_mois_precedent_est_le_mois_civil_d_avant(self, settings):
+        """Fevrier compte, meme si mars n'a rien : avril n'a pas de mediane a depasser."""
+        table = self.compare(
+            settings,
+            make_posts("Compte A", "photo", [100.0] * 5, start="2026-02-01"),
+            april_posts("Compte A", [500.0] * 5),
+        )
+        row = table.loc["Compte A"]
+        assert row["Face au mois precedent"] == NO_PREVIOUS
+        assert row["Publications du mois precedent"] == 0
+
+    def test_une_page_devenue_muette_reste_visible(self, settings):
+        table = self.compare(
+            settings,
+            make_posts("Compte A", "photo", [100.0] * 5, start="2026-03-01"),
+            make_posts("Compte B", "photo", [100.0] * 5, start="2026-03-01"),
+            april_posts("Compte A", [200.0] * 5),
+        )
+        silent = table.loc["Compte B"]
+        assert silent["Face au mois precedent"] == NO_POST
+        assert silent["Publications"] == 0
+        assert silent["Mediane du mois precedent"] == 100.0
+        assert table.loc["Compte A", "Face au mois precedent"] == ABOVE_PREVIOUS
+
+    def test_chaque_format_est_compare_a_lui_meme(self, settings):
+        """Un mois riche en reels ne doit pas faire « depasser » les photos."""
+        results = monthly_results(
+            pd.concat(
+                [
+                    make_posts("Compte A", "photo", [100.0] * 5, start="2026-03-01"),
+                    make_posts("Compte A", "reel", [900.0] * 5, start="2026-03-01"),
+                    april_posts("Compte A", [90.0] * 5),
+                    make_posts("Compte A", "reel", [1000.0] * 5, start="2026-04-01"),
+                ],
+                ignore_index=True,
+            ),
+            pd.DataFrame(),
+            settings,
+        )
+        table = previous_month_comparison(results, APRIL).set_index("Format")
+        assert table.loc["photo", "Face au mois precedent"] == NOT_ABOVE_PREVIOUS
+        assert table.loc["reel", "Face au mois precedent"] == ABOVE_PREVIOUS
+
+    def test_sans_resultat(self, settings):
+        empty = monthly_results(make_posts("Compte A", "link", [50.0] * 5), pd.DataFrame(), settings)
+        assert previous_month_comparison(empty, APRIL).empty
 
 
 class TestCategoryResults:

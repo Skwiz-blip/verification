@@ -6,7 +6,8 @@
 --   - lire les resultats publies et le suivi des imports ;
 --   - deposer un export CSV dans le dossier `imports/` du depot `exports`,
 --     et le declarer dans la table `imports`. Rien d'autre : ni lecture ni
---     remplacement ni suppression d'un fichier, ni modification d'un resultat.
+--     remplacement ni suppression d'un fichier, ni modification d'un resultat ;
+--   - creer, modifier et supprimer les listes de pages (table `listes`).
 -- Seule la cle secrete, qui ignore ces regles, ecrit les resultats ; elle sert
 -- a la publication, sur le poste local ou dans GitHub Actions.
 
@@ -126,6 +127,61 @@ grant select on public.imports to anon, authenticated;
 -- Le site ne renseigne que ces trois colonnes ; le reste prend sa valeur par defaut.
 grant insert (nom, chemin, taille) on public.imports to anon, authenticated;
 grant all on public.imports to service_role;
+
+-- Listes de pages nommees (en general une par Community Manager), creees et
+-- modifiees depuis le site. Choix assume : toute personne qui a l'adresse du
+-- site peut les modifier. Une liste n'est qu'un raccourci de selection, elle
+-- ne touche a aucun resultat. Memes regles que src/socialstats/page_lists.py.
+create table if not exists public.listes (
+  id      uuid primary key default gen_random_uuid(),
+  nom     text not null check (char_length(btrim(nom)) between 1 and 80),
+  comptes text[] not null default '{}'
+          check (cardinality(comptes) <= 300 and char_length(array_to_string(comptes, '')) <= 60000),
+  maj_le  timestamptz not null default now()
+);
+
+create unique index if not exists listes_nom_idx on public.listes (lower(btrim(nom)));
+
+create or replace function public.listes_maj()
+returns trigger
+language plpgsql
+set search_path = ''
+as $$
+begin
+  new.maj_le := now();
+  return new;
+end;
+$$;
+
+drop trigger if exists listes_maj on public.listes;
+create trigger listes_maj
+  before update on public.listes
+  for each row
+  execute function public.listes_maj();
+
+alter table public.listes enable row level security;
+
+drop policy if exists "lecture publique" on public.listes;
+create policy "lecture publique" on public.listes
+  for select to anon, authenticated using (true);
+
+drop policy if exists "creation depuis le site" on public.listes;
+create policy "creation depuis le site" on public.listes
+  for insert to anon, authenticated with check (true);
+
+drop policy if exists "modification depuis le site" on public.listes;
+create policy "modification depuis le site" on public.listes
+  for update to anon, authenticated using (true) with check (true);
+
+drop policy if exists "suppression depuis le site" on public.listes;
+create policy "suppression depuis le site" on public.listes
+  for delete to anon, authenticated using (true);
+
+revoke all on public.listes from anon, authenticated;
+grant select, delete on public.listes to anon, authenticated;
+-- Le site ne renseigne que le nom et les pages ; la date se met a jour seule.
+grant insert (nom, comptes), update (nom, comptes) on public.listes to anon, authenticated;
+grant all on public.listes to service_role;
 
 -- Declenchement du calcul : chaque depot demande a GitHub Actions de lancer
 -- la publication. Sans jeton enregistre, rien n'est envoye et la verification

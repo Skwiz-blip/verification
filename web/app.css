@@ -205,7 +205,9 @@ p {
 }
 
 select,
-input[type="number"] {
+input[type="number"],
+input[type="text"],
+input[type="search"] {
   height: 34px;
   min-width: 0;
   padding: 0 10px;
@@ -693,17 +695,28 @@ th[aria-sort="descending"] .sort::after {
   background: var(--below-mark);
 }
 
+/* Comparaison au mois precedent : meme logique, la hausse en couleur, le reste neutre. */
+.lv-up::before {
+  background: var(--n2);
+}
+
+.lv-down::before {
+  background: var(--below-mark);
+}
+
 .lv-few,
 .lv-fewc,
 .lv-none,
-.lv-nopost {
+.lv-nopost,
+.lv-first {
   color: var(--ink-3);
 }
 
 .lv-few::before,
 .lv-fewc::before,
 .lv-none::before,
-.lv-nopost::before {
+.lv-nopost::before,
+.lv-first::before {
   box-shadow: inset 0 0 0 1px var(--axis);
 }
 
@@ -1089,6 +1102,53 @@ details .table-wrap {
   font-variant-numeric: tabular-nums;
 }
 
+/* --- Listes de pages ---------------------------------------------------- */
+.stack {
+  display: grid;
+  gap: 28px;
+  min-width: 0;
+}
+
+.field-wide input {
+  width: 260px;
+}
+
+.picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0 20px;
+  max-height: 340px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow-y: auto;
+}
+
+.picker label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  padding: 7px 0;
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.picker input {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin: 2px 0 0;
+  accent-color: var(--accent);
+}
+
+.picker .sub {
+  display: block;
+  font-size: 0.75rem;
+}
+
 /* --- Adaptation --------------------------------------------------------- */
 @media (max-width: 960px) {
   .tiles {
@@ -1118,6 +1178,15 @@ details .table-wrap {
   .controls .btn {
     width: 100%;
     height: 44px;
+  }
+
+  .field-wide,
+  .field-wide input {
+    width: 100%;
+  }
+
+  .picker label {
+    padding-block: 11px;
   }
 
   .controls .btn {

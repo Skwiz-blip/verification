@@ -62,6 +62,7 @@ Le navigateur s'ouvre sur `http://127.0.0.1:8050/`. L'interface est en HTML, CSS
 | Vue d'ensemble | Résultats du mois par compte × format, et grille des niveaux atteints mois par mois |
 | Par compte | Les comptes d'un client, l'historique mensuel d'un format face à ses paliers, les publications du mois |
 | Par catégorie | La catégorie face à ses paliers communs, et le nombre de comptes qui atteignent leur propre Niveau 1 |
+| Par liste | Une sélection de pages (par exemple celles d'un CM) : chaque page face à sa propre médiane du mois précédent |
 | Données | Exports chargés, bilan du nettoyage, contrôle du comptage des vues |
 
 **Partager sur le réseau local** : par défaut, seul le poste qui lance le serveur peut ouvrir l'interface. Pour que les autres postes du même réseau la consultent :
@@ -87,6 +88,8 @@ Pour la retirer : `Remove-NetFirewallRule -DisplayName "Controle mensuel CM"`.
 **Période de référence** : les objectifs sont calculés sur une période, puis le mois choisi leur est comparé. Par défaut la référence s'arrête *avant* le mois contrôlé, pour que ses publications ne fixent pas les seuils auxquels elles sont jugées. On peut la restreindre aux 3 ou 6 mois précédents, ou la choisir librement.
 
 **Lecture des niveaux** : le Niveau 1 étant la médiane du compte, un mois « sous le Niveau 1 » arrive par construction une fois sur deux. Il est donc affiché en neutre, pas en alerte ; ce qui doit attirer l'œil est une série de mois sous le Niveau 1, visible dans la grille.
+
+**Comparer les pages d'un CM** : onglet « Par liste ». On coche des pages, on les enregistre sous un nom (« Pages d'Awa »), puis chaque page × format du mois contrôlé est comparé à **sa propre médiane du mois civil précédent**. « Médiane dépassée » veut dire strictement au-dessus, et n'est tranché que si chacun des deux mois compte au moins le minimum de publications (3 par défaut). Les paliers N1 à N3 n'interviennent pas. Une page qui publiait le mois précédent mais plus ce mois-ci reste affichée (« Aucune publication »). Les listes sont partagées : en ligne dans la table `listes` de Supabase, en local dans `data/listes.json`. Toute personne qui a l'adresse du site peut les créer, les modifier ou les supprimer ; elles ne touchent à aucun résultat.
 
 **Contrôle du comptage des vues** : l'onglet « Données » trace le nombre de vues par personne touchée. Ce ratio ne dépend pas de la taille de l'audience ; s'il change d'échelle pendant la période de référence, les seuils en vues mélangent deux façons de compter, et les séries concernées sont mises en couleur sur le graphique. C'est le cas d'Instagram photo et carrousel sur les exports actuels (environ 4 vues par personne jusqu'en novembre 2025, environ 1,7 ensuite) : pour ces formats, préférer une référence postérieure à janvier 2026.
 
@@ -134,6 +137,7 @@ La commande envoie les exports de `data/raw/` dans le stockage, puis recalcule e
 | `publications` | Les publications organiques retenues, avec leurs mesures | Lecture |
 | `etat` | Mois disponibles, références publiées, date de publication | Lecture |
 | `imports` | Le suivi des exports déposés sur le site | Lecture, et ajout d'une ligne en attente |
+| `listes` | Les listes de pages nommées (onglet « Par liste ») | Lecture, création, modification, suppression |
 | Dépôt `exports` | Les exports bruts : archives à la racine, dépôts du site dans `imports/` | Dépôt d'un CSV dans `imports/`, sans lecture ni remplacement |
 
 **Deux clés, deux rôles.** La clé secrète écrit les résultats : elle ne se trouve que dans `.env` et dans les secrets GitHub. La clé publique, recopiée dans `web/config.js`, ne permet que de lire et de déposer. La commande refuse de publier si les deux sont interverties.
@@ -150,7 +154,7 @@ La commande envoie les exports de `data/raw/` dans le stockage, puis recalcule e
 python -m pytest
 ```
 
-192 tests, dont une suite d'intégration qui s'exécute sur les vrais exports présents dans `data/raw/` (ignorée automatiquement si le dossier est vide).
+218 tests, dont une suite d'intégration qui s'exécute sur les vrais exports présents dans `data/raw/` (ignorée automatiquement si le dossier est vide).
 
 ---
 
@@ -413,13 +417,14 @@ src/socialstats/
     main.py              CLI
     monthly.py           contrôle mensuel : référence, niveaux atteints, catégories, comptage des vues
     ingest.py            ajout contrôlé d'un export à data/raw
+    page_lists.py        listes de pages nommées de l'interface locale (data/listes.json)
     server.py            serveur local de l'interface (bibliothèque standard uniquement)
     publish.py           publication des résultats vers Supabase pour l'interface en ligne
 supabase/        schema.sql : tables, règles d'accès et déclencheur à créer une fois
 .github/workflows/publier.yml   publication dans GitHub Actions à chaque dépôt du site
 web/             index.html, app.css, app.js : interface de contrôle mensuel
 output/          csv/ excel/ charts/ reports/
-tests/           192 tests, dont intégration sur les exports réels
+tests/           218 tests, dont intégration sur les exports réels
 ```
 
 Le module de statistiques descriptives s'appelle `descriptive.py` et non `statistics.py` afin de ne pas masquer le module `statistics` de la bibliothèque standard.

@@ -18,6 +18,10 @@ const LEVELS = {
   fewc: { label: 'Trop peu de comptes', short: 'peu', rank: 2 },
   none: { label: "Pas d'objectif", short: '–', rank: 1 },
   nopost: { label: 'Aucune publication', short: '', rank: 0 },
+  // Comparaison d'une page a sa propre mediane du mois precedent (onglet « Par liste »).
+  up: { label: 'Médiane dépassée', short: '', rank: 4 },
+  down: { label: 'Non dépassée', short: '', rank: 3 },
+  first: { label: 'Pas de mois précédent', short: '', rank: 1 },
 };
 const EVALUATED = new Set(['n3', 'n2', 'n1', 'below']);
 const REACHED = new Set(['n3', 'n2', 'n1']);
@@ -33,8 +37,8 @@ const SERIES_SLOTS = {
   'instagram|photo': 1, 'instagram|carousel': 2, 'instagram|reel': 3,
   'facebook|photo': 4, 'facebook|reel': 5, 'facebook|video': 6,
 };
-const VIEWS = ['ensemble', 'compte', 'categorie', 'donnees'];
-const URL_KEYS = ['vue', 'mois', 'ref', 'debut', 'fin', 'min', 'client', 'groupe', 'secteur', 'paire'];
+const VIEWS = ['ensemble', 'compte', 'categorie', 'listes', 'donnees'];
+const URL_KEYS = ['vue', 'mois', 'ref', 'debut', 'fin', 'min', 'client', 'groupe', 'secteur', 'paire', 'liste'];
 const MAX_UPLOAD = 50 * 1024 * 1024;
 const SEP = '\u001f';
 const SVG_NS = 'http://www.w3.org/2000/svg';
@@ -49,7 +53,7 @@ const ICONS = {
 
 const state = {
   vue: 'ensemble', mois: null, ref: 'before', debut: null, fin: null, min: 3,
-  client: null, groupe: null, secteur: null, paire: null,
+  client: null, groupe: null, secteur: null, paire: null, liste: null,
   fCat: '', fPlat: '', fEval: false, tri: {},
 };
 let data = null;
@@ -81,6 +85,18 @@ const IMPORT_STATES = {
   en_attente: ['En attente du calcul', 'pending', 'info'],
   en_cours: ['Calcul en cours', 'pending', 'info'],
 };
+
+/* Listes de pages nommees, en general une par CM. Une liste n'est qu'un raccourci de
+   selection : en ligne elle vit dans la table `listes` de Supabase, en local dans un
+   fichier du serveur. Toute personne qui a l'adresse du site peut les modifier. */
+let pageLists = null;
+let listsLoading = false;
+let listsError = null;
+let draft = null;
+let listNotice = null;
+const LISTS_MISSING = 'Les listes ne sont pas encore activées en ligne : exécutez à nouveau '
+  + 'supabase/schema.sql dans Supabase > SQL Editor.';
+const LIST_GONE = "Cette liste n'existe plus : elle a été supprimée entre-temps.";
 
 /* --- Outils ---------------------------------------------------------------- */
 const $ = (id) => document.getElementById(id);
@@ -327,6 +343,75 @@ async function fetchPosts(row) {
   })}`);
 }
 
+async function remoteLists(method, path, body) {
+  let response;
+  try {
+    response = await fetch(`${REMOTE.supabaseUrl}/rest/v1/${path}`, {
+      method,
+      headers: {
+        ...remoteAuth(), Accept: 'application/json', 'Content-Type': 'application/json',
+        Prefer: 'return=representation',
+      },
+      body: body == null ? undefined : JSON.stringify(body),
+    });
+  } catch {
+    throw new Error('La base en ligne ne répond pas. Vérifiez votre connexion.');
+  }
+  if (response.status === 409) throw new Error('Une liste porte déjà ce nom.');
+  // Table absente ou droits manquants : schema.sql n'a pas ete rejoue.
+  if ([401, 403, 404].includes(response.status)) throw new Error(LISTS_MISSING);
+  if (!response.ok) throw new Error(`La base en ligne a refusé la liste (erreur ${response.status}).`);
+  return response.status === 204 ? [] : response.json();
+}
+
+async function localPost(path, body) {
+  let response;
+  try {
+    response = await fetch(path, {
+      method: 'POST',
+      headers: { 'X-Requested-With': 'socialstats', 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+  } catch {
+    throw new Error("Le serveur local ne répond pas. Vérifiez qu'il est toujours lancé.");
+  }
+  const answer = await response.json().catch(() => null);
+  if (!response.ok) throw new Error(answer?.erreur ?? `Erreur ${response.status}`);
+  return answer;
+}
+
+const listStore = REMOTE ? {
+  all: () => remoteLists('GET', 'listes?select=id,nom,comptes,maj_le'),
+  create: async (list) => (await remoteLists('POST', 'listes', list))[0],
+  update: async (id, list) => {
+    const rows = await remoteLists('PATCH', `listes?id=eq.${encodeURIComponent(id)}`, list);
+    if (!rows.length) throw new Error(LIST_GONE);
+    return rows[0];
+  },
+  remove: (id) => remoteLists('DELETE', `listes?id=eq.${encodeURIComponent(id)}`),
+} : {
+  all: async () => (await getJSON('/api/listes')).listes,
+  create: async (list) => (await localPost('/api/listes', list)).liste,
+  update: async (id, list) => (await localPost('/api/listes', { id, ...list })).liste,
+  remove: (id) => localPost('/api/listes/supprimer', { id }),
+};
+
+const byName = (a, b) => a.nom.localeCompare(b.nom, 'fr', { sensitivity: 'base' });
+
+async function loadLists() {
+  listsLoading = true;
+  try {
+    pageLists = (await listStore.all()).sort(byName);
+    listsError = null;
+  } catch (error) {
+    // La selection libre reste possible : seul l'enregistrement est indisponible.
+    pageLists = [];
+    listsError = error.message;
+  }
+  listsLoading = false;
+  if (state.vue === 'listes') render();
+}
+
 function setBusy(message) {
   document.body.classList.toggle('busy', Boolean(message));
   $('etat').textContent = message;
@@ -365,10 +450,16 @@ function adopt(payload) {
     groups.get(key).push(row);
   }
   const sorted = (values) => [...new Set(values)].sort((a, b) => a.localeCompare(b, 'fr'));
+  const pages = new Map();
+  for (const row of payload.historique) {
+    if (!pages.has(row.compte)) pages.set(row.compte, { compte: row.compte, secteur: row.secteur, plateformes: new Set() });
+    pages.get(row.compte).plateformes.add(row.plateforme);
+  }
   index = {
     groups,
     clients: sorted(payload.historique.map((row) => row.client)),
     sectors: sorted(payload.historique.map((row) => row.secteur)),
+    pages: [...pages.values()].sort((a, b) => a.compte.localeCompare(b.compte, 'fr', { sensitivity: 'base' })),
   };
 }
 
@@ -480,7 +571,8 @@ function renderAlerts() {
       h('span', { text: 'Le calcul tourne en ligne et prend quelques minutes. Les résultats se mettront à jour seuls.' }),
       h('button', { class: 'btn btn-quiet', type: 'button', onclick: () => goTo('donnees') }, 'Voir le suivi')));
   }
-  if (data && !data.vide && !failure) {
+  // La comparaison par liste n'utilise pas les paliers : les alertes sur la reference n'y ont pas lieu d'etre.
+  if (data && !data.vide && !failure && state.vue !== 'listes') {
     const { ref } = data.meta;
     const month = monthLabel(data.meta.mois_controle);
     if (ref.sans_historique) {
@@ -1104,6 +1196,256 @@ function viewCategory() {
   return sections;
 }
 
+/* --- Par liste ------------------------------------------------------------- */
+/* La selection en cours (`draft`) suit la liste choisie, mais peut etre modifiee sans
+   etre enregistree : une comparaison ponctuelle n'oblige pas a creer une liste. */
+function syncDraft() {
+  const saved = pageLists.find((list) => list.id === state.liste) ?? null;
+  if (!saved) state.liste = null;
+  if (draft && draft.id === (saved?.id ?? null)) return;
+  draft = { id: saved?.id ?? null, nom: saved?.nom ?? '', comptes: new Set(saved?.comptes ?? []) };
+}
+
+function draftChanged() {
+  const saved = pageLists.find((list) => list.id === draft.id);
+  if (!saved) return draft.comptes.size > 0;
+  return saved.nom !== draft.nom.trim() || saved.comptes.length !== draft.comptes.size
+    || saved.comptes.some((name) => !draft.comptes.has(name));
+}
+
+async function saveDraft() {
+  const nom = draft.nom.trim();
+  if (!nom || !draft.comptes.size) {
+    listNotice = { kind: 'warn', text: nom ? 'Cochez au moins une page avant d\'enregistrer la liste.' : 'Donnez un nom à la liste avant de l\'enregistrer.' };
+    render();
+    return;
+  }
+  const body = { nom, comptes: [...draft.comptes].sort((a, b) => a.localeCompare(b, 'fr')) };
+  setBusy('Enregistrement de la liste…');
+  try {
+    const saved = draft.id ? await listStore.update(draft.id, body) : await listStore.create(body);
+    pageLists = [...pageLists.filter((list) => list.id !== saved.id), saved].sort(byName);
+    state.liste = saved.id;
+    draft = null;
+    listNotice = { kind: 'info', text: `Liste « ${saved.nom} » enregistrée.` };
+  } catch (error) {
+    listNotice = { kind: 'warn', text: error.message };
+  }
+  setBusy('');
+  render();
+}
+
+async function deleteDraft() {
+  const saved = pageLists.find((list) => list.id === draft.id);
+  if (!saved) return;
+  setBusy('Suppression de la liste…');
+  try {
+    await listStore.remove(saved.id);
+    pageLists = pageLists.filter((list) => list.id !== saved.id);
+    state.liste = null;
+    draft = null;
+    listNotice = { kind: 'info', text: `Liste « ${saved.nom} » supprimée.` };
+  } catch (error) {
+    listNotice = { kind: 'warn', text: error.message };
+  }
+  setBusy('');
+  render();
+}
+
+function listResults() {
+  const { mois_controle: month, mois_precedent: previous } = data.meta;
+  if (!draft.comptes.size) {
+    return [h('p', { class: 'empty', text: 'Choisissez une liste, ou cochez des pages, pour comparer leurs médianes.' })];
+  }
+  const rows = data.comparaison.filter((row) => draft.comptes.has(row.compte));
+  const compared = rows.filter((row) => row.resultat === 'up' || row.resultat === 'down');
+  const above = compared.filter((row) => row.resultat === 'up').length;
+  const sum = (field) => rows.reduce((total, row) => total + (row[field] ?? 0), 0);
+  const change = (field) => {
+    const before = sum(`${field}_prec`);
+    return before > 0 ? `${signed((100 * (sum(field) - before)) / before)} par rapport à ${monthLabel(previous)}` : '';
+  };
+  const views = sum('vues');
+  const active = new Set(rows.filter((row) => row.publications > 0).map((row) => row.compte)).size;
+  const meter = h('div', { class: 'meter', 'aria-hidden': 'true' }, h('span'));
+  meter.firstChild.style.width = compared.length ? `${(100 * above) / compared.length}%` : '0';
+
+  const known = new Set(index.pages.map((page) => page.compte));
+  const missing = [...draft.comptes].filter((name) => !known.has(name));
+  const notes = [];
+  if (!data.meta.mois.includes(previous)) {
+    notes.push(alertBox('warn', `Aucune publication chargée pour ${monthLabel(previous)}`, h('span', {
+      text: 'Sans mois précédent, aucune médiane ne peut être comparée. Choisissez un mois contrôlé plus récent.',
+    })));
+  }
+  if (missing.length) {
+    notes.push(alertBox('info', 'Pages absentes des exports chargés', h('span', {
+      text: `${missing.join(', ')}. Elles restent dans la liste, mais n'ont aucune publication retenue.`,
+    })));
+  }
+
+  const before = monthShort(previous);
+  const now = monthShort(month);
+  const columns = [
+    ...pick('compte', 'plateforme', 'format'),
+    { key: 'publications_prec', label: `Publis ${before}`, num: true, text: (r) => int(r.publications_prec) },
+    { key: 'mediane_prec', label: `Médiane ${before}`, num: true, text: (r) => int(r.mediane_prec) },
+    { key: 'publications', label: `Publis ${now}`, num: true, text: (r) => int(r.publications) },
+    { key: 'mediane', label: `Médiane ${now}`, num: true, text: (r) => int(r.mediane) },
+    { key: 'evolution', label: 'Évolution', num: true, text: (r) => signed(r.evolution) },
+    {
+      key: 'resultat', label: 'Résultat', sort: (r) => levelOf(r.resultat).rank,
+      text: (r) => levelOf(r.resultat).label, cell: (r) => badge(r.resultat),
+    },
+  ];
+  const title = `${monthLabel(month)} face à ${monthLabel(previous)}`;
+  const slug = (draft.nom.trim() || 'selection').normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^A-Za-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 40) || 'selection';
+
+  return [
+    h('div', { class: 'tiles' },
+      tile('Médiane dépassée', `${above} / ${compared.length}`, 'comptes × formats comparables', meter),
+      tile('Publications', int(sum('publications')), change('publications')),
+      tile('Vues organiques', views >= 10000 ? nfCompact.format(views) : int(views), change('vues')),
+      tile('Pages cochées', int(draft.comptes.size), `${int(active)} actives en ${monthLabel(month)}`)),
+    h('section', {}, h('div', { class: 'section-head' },
+      h('div', {},
+        h('h2', { text: title }),
+        h('p', {
+          class: 'hint',
+          text: 'Chaque ligne compare la médiane des vues organiques du mois à celle du mois précédent, '
+            + `pour la même page et le même format. Il faut au moins ${data.meta.min} publications dans `
+            + 'chacun des deux mois pour trancher. Les paliers N1 à N3 n\'interviennent pas ici.',
+        })),
+      h('button', {
+        class: 'btn', type: 'button',
+        onclick: () => downloadCSV(`comparaison_${slug}_${month}.csv`, columns, sortRows('liste', columns, rows)),
+      }, icon('download'), 'Exporter en CSV')),
+    notes,
+    dataTable('liste', title, columns, rows,
+      { empty: `Aucune publication de ces pages en ${monthLabel(previous)} ni en ${monthLabel(month)}.` })),
+  ];
+}
+
+function viewLists() {
+  if (!data.comparaison) {
+    return [statePanel('Résultats à recalculer',
+      REMOTE
+        ? 'Les résultats publiés datent d\'avant la comparaison par liste. Relancez le calcul : sur GitHub, onglet '
+          + 'Actions, « Publier les résultats », « Run workflow » avec la case « Recalculer » cochée.'
+        : 'Le serveur local date d\'avant la comparaison par liste : arrêtez-le puis relancez-le.',
+      'Actualiser', () => { published = null; load(); })];
+  }
+  if (pageLists == null) {
+    if (!listsLoading) loadLists();
+    return [h('p', { class: 'muted', text: 'Chargement des listes…' })];
+  }
+  syncDraft();
+
+  const status = h('p', { class: 'hint', role: 'status' });
+  const results = h('div', { class: 'stack' });
+  // Cocher une page ne redessine que les resultats : le focus et le defilement restent en place.
+  const refresh = () => {
+    status.textContent = plural(draft.comptes.size, 'page cochée', 'pages cochées')
+      + (draftChanged() ? ' · modifications non enregistrées' : '');
+    results.replaceChildren(...listResults());
+  };
+
+  const listSelect = h('select', {
+    onchange: (e) => { state.liste = e.target.value || null; draft = null; listNotice = null; render(); },
+  },
+  h('option', { value: '', text: pageLists.length ? '— Nouvelle liste —' : '— Aucune liste enregistrée —' }),
+  pageLists.map((list) => h('option', { value: list.id, text: list.nom })));
+  listSelect.value = draft.id ?? '';
+
+  const nameInput = h('input', {
+    type: 'text', maxlength: '80', placeholder: 'Ex. : Pages d\'Awa', autocomplete: 'off',
+    oninput: (e) => { draft.nom = e.target.value; refresh(); },
+  });
+  nameInput.value = draft.nom;
+
+  const remove = h('button', {
+    class: 'btn btn-quiet', type: 'button', hidden: !draft.id,
+    // Deux clics : une liste supprimee l'est pour tout le monde.
+    onclick: (event) => {
+      const button = event.currentTarget;
+      if (button.dataset.armed) {
+        deleteDraft();
+        return;
+      }
+      button.dataset.armed = '1';
+      button.textContent = 'Confirmer la suppression';
+      setTimeout(() => {
+        if (!button.isConnected) return;
+        delete button.dataset.armed;
+        button.textContent = 'Supprimer la liste';
+      }, 4000);
+    },
+  }, 'Supprimer la liste');
+
+  const normalize = (text) => text.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const items = index.pages.map((page) => {
+    const box = h('input', {
+      type: 'checkbox', value: page.compte,
+      onchange: (e) => {
+        if (e.target.checked) draft.comptes.add(page.compte);
+        else draft.comptes.delete(page.compte);
+        refresh();
+      },
+    });
+    box.checked = draft.comptes.has(page.compte);
+    return h('label', { 'data-search': normalize(`${page.compte} ${page.secteur}`) }, box,
+      h('span', {}, page.compte,
+        h('span', { class: 'sub', text: `${[...page.plateformes].map(platformLabel).join(' · ')} · ${page.secteur}` })));
+  });
+  const search = h('input', {
+    type: 'search', placeholder: 'Nom de page ou catégorie', autocomplete: 'off',
+    oninput: (e) => {
+      const needle = normalize(e.target.value.trim());
+      for (const item of items) item.hidden = Boolean(needle) && !item.dataset.search.includes(needle);
+    },
+  });
+  const checkShown = (checked) => {
+    for (const item of items) {
+      if (item.hidden) continue;
+      const box = item.querySelector('input');
+      box.checked = checked;
+      if (checked) draft.comptes.add(box.value);
+      else draft.comptes.delete(box.value);
+    }
+    refresh();
+  };
+
+  const notices = [];
+  if (listsError) notices.push(alertBox('warn', 'Listes indisponibles', h('span', { text: listsError })));
+  if (listNotice) notices.push(alertBox(listNotice.kind, listNotice.text, null));
+
+  refresh();
+  return [
+    h('section', {},
+      h('h2', { text: 'Pages comparées' }),
+      h('p', {
+        class: 'hint',
+        text: 'Choisissez une liste enregistrée, ou cochez des pages puis enregistrez-les sous un nom, par exemple '
+          + 'les pages d\'un CM. Les listes sont partagées : toute personne qui a l\'adresse du site peut les modifier.',
+      }),
+      notices,
+      h('div', { class: 'row' },
+        h('label', { class: 'field' }, h('span', { text: 'Liste' }), listSelect),
+        h('label', { class: 'field field-wide' }, h('span', { text: 'Nom de la liste' }), nameInput),
+        h('button', { class: 'btn btn-primary', type: 'button', disabled: Boolean(listsError), onclick: saveDraft },
+          draft.id ? 'Enregistrer les modifications' : 'Enregistrer la liste'),
+        remove),
+      h('div', { class: 'row' },
+        h('label', { class: 'field field-wide' }, h('span', { text: 'Filtrer les pages' }), search),
+        h('button', { class: 'btn', type: 'button', onclick: () => checkShown(true) }, 'Cocher les pages affichées'),
+        h('button', { class: 'btn btn-quiet', type: 'button', onclick: () => checkShown(false) }, 'Décocher les pages affichées')),
+      h('div', { class: 'picker', role: 'group', 'aria-label': 'Pages de la liste' }, items),
+      status),
+    results,
+  ];
+}
+
 /* --- Donnees --------------------------------------------------------------- */
 function ratioSection() {
   const months = data.meta.ref.mois;
@@ -1243,7 +1585,7 @@ function render() {
         'Ajouter des exports', () => $('fichiers').click()));
     return;
   }
-  const views = { ensemble: viewOverview, compte: viewAccount, categorie: viewCategory, donnees: viewData };
+  const views = { ensemble: viewOverview, compte: viewAccount, categorie: viewCategory, listes: viewLists, donnees: viewData };
   main.replaceChildren(...views[state.vue]());
   writeURL();
   drawCharts();

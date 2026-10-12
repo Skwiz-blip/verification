@@ -48,6 +48,19 @@ class TestBuildControl:
         assert not payload["meta"]["ref"]["inclut_mois"]
         assert {row["niveau"] for row in payload["historique"]} <= set(VERDICT_CODES.values())
 
+    def test_comparaison_au_mois_precedent(self, cleaning, settings):
+        """Avril (5 publications) face a mars (une seule) : trop peu pour trancher."""
+        payload = build_control(cleaning, settings)
+        assert payload["meta"]["mois_precedent"] == "2026-03"
+        [row] = payload["comparaison"]
+        assert (row["compte"], row["publications_prec"], row["publications"]) == ("Compte A", 1, 5)
+        assert row["resultat"] == VERDICT_CODES["Trop peu de publications"]
+
+        # Fevrier (vues 131 a 158) face a janvier (100 a 130).
+        [february] = build_control(cleaning, settings, month="2026-02")["comparaison"]
+        assert (february["mediane_prec"], february["mediane"]) == (115.0, 144.5)
+        assert february["resultat"] == "up"
+
     def test_les_parametres_invalides_sont_ramenes_a_des_valeurs_sures(self, cleaning, settings):
         payload = build_control(cleaning, settings, month="pas-un-mois", preset="???", min_posts=999)
         assert payload["meta"]["mois_controle"] == "2026-04"
@@ -165,6 +178,43 @@ class TestHttp:
         payload = json.loads(request(port, "GET", "/api/controle")[2])
         assert payload["meta"]["mois"][-1] == "2026-08"
         assert payload["meta"]["fichiers"] == 2
+
+
+class TestPageLists:
+    HEADERS = {"X-Requested-With": "socialstats", "Content-Type": "application/json"}
+
+    def post(self, port: int, path: str, payload: object, headers: dict | None = None):
+        body = json.dumps(payload).encode("utf-8")
+        status, _, answer = request(port, "POST", path, body, self.HEADERS if headers is None else headers)
+        return status, json.loads(answer)
+
+    def test_creer_relire_supprimer(self, live, tmp_path):
+        port, _ = live
+        assert json.loads(request(port, "GET", "/api/listes")[2]) == {"listes": []}
+
+        status, answer = self.post(port, "/api/listes", {"nom": "Pages d'Awa", "comptes": ["Compte A"]})
+        assert status == 200
+        saved = answer["liste"]
+        assert (tmp_path / "data" / "listes.json").exists()
+        assert json.loads(request(port, "GET", "/api/listes")[2])["listes"] == [saved]
+
+        status, answer = self.post(port, "/api/listes/supprimer", {"id": saved["id"]})
+        assert (status, answer) == (200, {"listes": []})
+
+    def test_une_liste_invalide_est_refusee_avec_son_motif(self, live):
+        port, _ = live
+        self.post(port, "/api/listes", {"nom": "Awa", "comptes": []})
+        status, answer = self.post(port, "/api/listes", {"nom": "awa", "comptes": []})
+        assert status == 400
+        assert "porte deja ce nom" in answer["erreur"]
+        assert self.post(port, "/api/listes", "pas une liste")[0] == 400
+
+    def test_sans_l_en_tete_attendu_rien_n_est_enregistre(self, live, tmp_path):
+        """Une page tierce ne peut pas modifier les listes a l'insu de l'utilisateur."""
+        port, _ = live
+        status, _ = self.post(port, "/api/listes", {"nom": "Awa", "comptes": []}, headers={})
+        assert status == 403
+        assert not (tmp_path / "data" / "listes.json").exists()
 
 
 class TestNetworkMode:

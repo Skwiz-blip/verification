@@ -42,6 +42,11 @@ NO_POST = "Aucune publication"
 REACHED = (LEVEL_1, LEVEL_2, LEVEL_3)
 EVALUATED = (BELOW, *REACHED)
 
+# Verdicts de la comparaison au mois precedent.
+ABOVE_PREVIOUS = "Mediane depassee"
+NOT_ABOVE_PREVIOUS = "Mediane non depassee"
+NO_PREVIOUS = "Pas de mois precedent"
+
 # Periodes de reference proposees pour le calcul des objectifs.
 REFERENCE_BEFORE = "before"
 REFERENCE_6 = "6"
@@ -64,6 +69,23 @@ RESULT_COLUMNS = [
     *ATTAINMENT,
     "Ecart au Niveau 1 (%)",
     "Niveau atteint",
+]
+
+
+COMPARISON_COLUMNS = [
+    "Compte",
+    "Client",
+    "Secteur",
+    "Plateforme",
+    "Format",
+    "Publications du mois precedent",
+    "Vues du mois precedent",
+    "Mediane du mois precedent",
+    "Publications",
+    "Vues du mois",
+    "Mediane du mois",
+    "Evolution (%)",
+    "Face au mois precedent",
 ]
 
 
@@ -255,6 +277,64 @@ def month_view(results: pd.DataFrame, objectives: pd.DataFrame, month: pd.Period
 
     out = pd.concat([current, silent[results.columns]], ignore_index=True)
     return out.sort_values(OBJECTIVE_KEYS).reset_index(drop=True)
+
+
+def previous_month_comparison(
+    results: pd.DataFrame, month: pd.Period, min_posts: int = 3
+) -> pd.DataFrame:
+    """Chaque compte x plateforme x format du mois face a SA mediane du mois precedent.
+
+    Sert a juger une selection de pages (celles d'un Community Manager) d'un
+    mois sur l'autre, sans passer par les paliers de la reference. Le mois
+    precedent est le mois civil d'avant : un groupe muet ce mois-la n'a pas de
+    mediane a depasser. "Depassee" veut dire strictement au-dessus, et n'est
+    tranche que si chacun des deux mois compte au moins `min_posts`
+    publications, pour la meme raison que dans `monthly_results`.
+
+    Un groupe actif le mois precedent mais muet ce mois-ci reste dans la table
+    ("Aucune publication") : c'est precisement le cas a remarquer.
+    """
+    if results.empty:
+        return pd.DataFrame(columns=COMPARISON_COLUMNS)
+
+    measures = ["Publications", "Vues du mois", "Mediane du mois"]
+    current = results.loc[results["Mois"] == month, OBJECTIVE_KEYS + ["Client", "Secteur"] + measures]
+    previous = results.loc[results["Mois"] == month - 1, OBJECTIVE_KEYS + ["Client", "Secteur"] + measures]
+    previous = previous.rename(
+        columns={
+            "Client": "_client",
+            "Secteur": "_secteur",
+            "Publications": "Publications du mois precedent",
+            "Vues du mois": "Vues du mois precedent",
+            "Mediane du mois": "Mediane du mois precedent",
+        }
+    )
+    out = current.merge(previous, on=OBJECTIVE_KEYS, how="outer")
+    if out.empty:
+        return pd.DataFrame(columns=COMPARISON_COLUMNS)
+
+    out["Client"] = out["Client"].fillna(out["_client"])
+    out["Secteur"] = out["Secteur"].fillna(out["_secteur"])
+    for column in ("Publications", "Publications du mois precedent"):
+        out[column] = out[column].fillna(0).astype(int)
+    for column in ("Vues du mois", "Vues du mois precedent"):
+        out[column] = out[column].astype("float64").fillna(0.0)
+    for column in ("Mediane du mois", "Mediane du mois precedent"):
+        out[column] = out[column].astype("float64")
+
+    before = out["Mediane du mois precedent"].where(out["Mediane du mois precedent"] > 0)
+    out["Evolution (%)"] = (100.0 * (out["Mediane du mois"] - before) / before).round(1)
+    out["Face au mois precedent"] = np.select(
+        [
+            out["Publications"] == 0,
+            out["Publications du mois precedent"] == 0,
+            (out["Publications"] < min_posts) | (out["Publications du mois precedent"] < min_posts),
+            out["Mediane du mois"] > out["Mediane du mois precedent"],
+        ],
+        [NO_POST, NO_PREVIOUS, TOO_FEW, ABOVE_PREVIOUS],
+        default=NOT_ABOVE_PREVIOUS,
+    )
+    return out[COMPARISON_COLUMNS].sort_values(OBJECTIVE_KEYS).reset_index(drop=True)
 
 
 def category_results(
