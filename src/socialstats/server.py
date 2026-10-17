@@ -41,6 +41,7 @@ from .loader import LoaderError
 from .monthly import (
     ABOVE_PREVIOUS,
     BELOW,
+    DEFAULT_REFERENCE,
     LEVEL_1,
     LEVEL_2,
     LEVEL_3,
@@ -48,7 +49,6 @@ from .monthly import (
     NO_POST,
     NO_PREVIOUS,
     NOT_ABOVE_PREVIOUS,
-    REFERENCE_BEFORE,
     REFERENCE_PRESETS,
     TOO_FEW,
     TOO_FEW_ACCOUNTS,
@@ -311,7 +311,7 @@ def build_control(
     cleaning: CleaningResult,
     settings: Settings,
     month: object = None,
-    preset: str = REFERENCE_BEFORE,
+    preset: str = DEFAULT_REFERENCE,
     start: object = None,
     end: object = None,
     min_posts: int = 3,
@@ -331,7 +331,7 @@ def build_control(
     if month not in months:
         month = default_month(data)
     if preset not in REFERENCE_PRESETS:
-        preset = REFERENCE_BEFORE
+        preset = DEFAULT_REFERENCE
     min_posts = max(1, min(int(min_posts), 30))
 
     bounds = reference_bounds(preset, months, month, _period(start), _period(end))
@@ -568,7 +568,7 @@ class ControlHandler(BaseHTTPRequestHandler):
             self._respond(
                 lambda: self.store.control(
                     month=query.get("mois"),
-                    preset=query.get("ref", REFERENCE_BEFORE),
+                    preset=query.get("ref", DEFAULT_REFERENCE),
                     start=query.get("debut"),
                     end=query.get("fin"),
                     min_posts=_int(query.get("min"), 3),

@@ -64,7 +64,8 @@ logger = logging.getLogger(__name__)
 
 # La periode personnalisee et le reglage du minimum de publications demandent
 # un calcul a la demande : ils restent propres a l'interface locale.
-PUBLISHED_PRESETS = (REFERENCE_BEFORE, REFERENCE_6, REFERENCE_3, REFERENCE_ALL)
+# La premiere est la reference par defaut de l'interface en ligne.
+PUBLISHED_PRESETS = (REFERENCE_6, REFERENCE_BEFORE, REFERENCE_3, REFERENCE_ALL)
 EXPORT_BUCKET = "exports"
 IMPORT_FOLDER = "imports"
 PUBLICATION_BATCH = 500

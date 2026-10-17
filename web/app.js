@@ -52,7 +52,7 @@ const ICONS = {
 };
 
 const state = {
-  vue: 'ensemble', mois: null, ref: 'before', debut: null, fin: null, min: 3,
+  vue: 'ensemble', mois: null, ref: '6', debut: null, fin: null, min: 3,
   client: null, groupe: null, secteur: null, paire: null, liste: null,
   fCat: '', fPlat: '', fEval: false, tri: {},
 };

@@ -85,7 +85,7 @@ Pour la retirer : `Remove-NetFirewallRule -DisplayName "Controle mensuel CM"`.
 
 **Ajouter un mois** : bouton « Ajouter des exports ». Un fichier n'est rangé dans `data/raw/` qu'après avoir été lu et reconnu ; un fichier existant n'est jamais écrasé, et la déduplication absorbe les chevauchements.
 
-**Période de référence** : les objectifs sont calculés sur une période, puis le mois choisi leur est comparé. Par défaut la référence s'arrête *avant* le mois contrôlé, pour que ses publications ne fixent pas les seuils auxquels elles sont jugées. On peut la restreindre aux 3 ou 6 mois précédents, ou la choisir librement.
+**Période de référence** : les objectifs sont calculés sur une période, puis le mois choisi leur est comparé. Par défaut, ce sont **les 6 mois qui précèdent le mois contrôlé** : N1, N2 et N3 glissent avec lui (juillet est jugé sur janvier à juin, août sur février à juillet). La référence s'arrête toujours *avant* le mois contrôlé, pour que ses publications ne fixent pas les seuils auxquels elles sont jugées. On peut aussi prendre les 3 mois précédents, tout l'historique précédent, ou une période libre.
 
 **Lecture des niveaux** : le Niveau 1 étant la médiane du compte, un mois « sous le Niveau 1 » arrive par construction une fois sur deux. Il est donc affiché en neutre, pas en alerte ; ce qui doit attirer l'œil est une série de mois sous le Niveau 1, visible dans la grille.
 

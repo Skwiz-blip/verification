@@ -54,6 +54,10 @@ REFERENCE_3 = "3"
 REFERENCE_ALL = "all"
 REFERENCE_CUSTOM = "custom"
 REFERENCE_PRESETS = (REFERENCE_BEFORE, REFERENCE_6, REFERENCE_3, REFERENCE_ALL, REFERENCE_CUSTOM)
+# Par defaut, les paliers glissent avec le mois controle : les 6 mois qui le
+# precedent. Assez de recul pour un seuil stable, assez court pour suivre
+# l'evolution des comptes (et ne pas meler deux facons de compter les vues).
+DEFAULT_REFERENCE = REFERENCE_6
 
 RESULT_COLUMNS = [
     "Compte",

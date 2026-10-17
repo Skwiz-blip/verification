@@ -64,7 +64,7 @@ class TestBuildControl:
     def test_les_parametres_invalides_sont_ramenes_a_des_valeurs_sures(self, cleaning, settings):
         payload = build_control(cleaning, settings, month="pas-un-mois", preset="???", min_posts=999)
         assert payload["meta"]["mois_controle"] == "2026-04"
-        assert payload["meta"]["ref"]["preset"] == "before"
+        assert payload["meta"]["ref"]["preset"] == "6"
         assert payload["meta"]["min"] == 30
 
     def test_premier_mois_sans_historique(self, cleaning, settings):
